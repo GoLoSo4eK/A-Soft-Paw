@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Уход</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+    font-family: 'Inter', sans-serif;
+}
+.hero-bg {
+    background-image: url('https://readdy.ai/api/search-image?query=happy%2520pet%2520owners%2520with%2520dogs%2520and%2520cats%2520in%2520a%2520bright%2520modern%2520setting%252C%2520showing%2520care%2520and%2520affection%252C%2520professional%2520photography%252C%2520soft%2520natural%2520lighting%252C%2520warm%2520colors%252C%2520left%2520side%2520lighter%2520for%2520text%2520readability%252C%2520right%2520side%2520with%2520more%2520pet%2520imagery%252C%2520clean%2520background%252C%2520high-end%2520photography&width=1200&height=500&seq=6&orientation=landscape');
+    background-size: cover;
+    background-position: center;
+}
+input:focus, select:focus, textarea:focus {
+    outline: none;
+}
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+.accordion-content.active {
+    max-height: 500px;
+}
+.custom-checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #6366f1;
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+}
+.custom-checkbox:checked {
+    background-color: #6366f1;
+}
+.custom-checkbox:checked:after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+</style>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#6366f1',secondary:'#a78bfa'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+<!-- Header -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
+    <div class="container mx-auto px-4 py-3">
+    <div class="flex items-center justify-between">
+    <div class="flex items-center">
+    <a href="#" class="flex items-center">
+    <div class="w-10 h-10 flex items-center justify-center mr-2">
+    <i class="ri-footprint-fill text-black text-2xl"></i>
+    </div>
+    <span class="font-['Pacifico'] text-xl">Мягкая Лапка</span>
+    </a>
+    </div>
+    <nav class="hidden md:flex items-center space-x-8">
+        <a href="./About.html" class="text-gray-800 hover:text-primary transition-colors">О нас</a>
+        <a href="./OurServices.html" class="text-gray-800 hover:text-primary transition-colors">Наши Услуги</a>
+        <a href="./Product.html" class="text-gray-800 hover:text-primary transition-colors">Товары</a>
+        <a href="./PetCare.html" class="text-gray-800 hover:text-primary transition-colors">Уход</a>
+        <a href="./ContactUs.html" class="text-gray-800 hover:text-primary transition-colors">Связаться с нами</a>
+    </nav>
+    <div class="flex items-center space-x-4">
+    <a href="./Login.html" class="px-4 py-2 text-primary border border-primary !rounded-button hover:bg-primary/10 transition-colors whitespace-nowrap">Log In</a>
+    <a href="./index.html" class="px-4 py-2 text-white bg-primary !rounded-button hover:bg-primary/90 transition-colors whitespace-nowrap">Book Now</a>
+    </div>
+    </div>
+    </div>
+    </header>
+
+<!-- Раздел о героях -->
+<section class="hero-bg rounded-lg mx-6 mt-6 overflow-hidden">
+<div class="container mx-auto">
+<div class="flex items-center h-[400px]">
+<div class="w-full px-8 md:w-1/2 bg-gradient-to-r from-white/80 to-transparent p-8 rounded-lg">
+<h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Полное руководство по уходу за домашними животными</h1>
+<p class="text-gray-800 mb-6">Откройте для себя исчерпывающие ресурсы и советы экспертов, которые помогут вашим пушистым друзьям оставаться здоровыми, счастливыми и процветать на каждом этапе жизни.</p>
+<button class="bg-primary text-white px-6 py-2 rounded-button whitespace-nowrap hover:bg-primary/90 transition-colors flex items-center">
+    Изучите руководства по уходу
+<i class="ri-arrow-right-line ml-2"></i>
+</button>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Таблица тем по уходу -->
+<section class="py-12 px-6">
+<div class="container mx-auto">
+<h2 class="text-3xl font-bold text-center mb-12">Основные темы по уходу за домашними животными</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Nutrition Card -->
+<div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+<div class="h-[200px] relative">
+<img src="https://readdy.ai/api/search-image?query=healthy%2520pet%2520food%2520in%2520bowls%2520with%2520fresh%2520ingredients%2520around%252C%2520balanced%2520diet%2520for%2520dogs%2520and%2520cats%252C%2520nutritious%2520meals%252C%2520professional%2520food%2520photography%252C%2520bright%2520clean%2520setting%252C%2520high-quality%2520pet%2520nutrition%2520display&width=600&height=400&seq=7&orientation=landscape"
+alt="Pet Nutrition"
+class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+<i class="ri-restaurant-line text-primary text-xl"></i>
+</div>
+<h3 class="text-xl font-bold mb-3">Питание и диета</h3>
+<p class="text-gray-600 mb-4">Правильное питание - основа здоровья вашего питомца. Узнайте о сбалансированном рационе, графике кормления и особых диетических потребностях.</p>
+<button class="text-primary font-medium hover:text-primary/80 transition-colors flex items-center">
+Подробнее
+<i class="ri-arrow-right-line ml-2"></i>
+</button>
+</div>
+</div>
+
+<!-- Карточка с упражнениями -->
+<div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+<div class="h-[200px] relative">
+<img src="https://readdy.ai/api/search-image?query=happy%2520dog%2520playing%2520fetch%2520in%2520park%2520with%2520owner%252C%2520active%2520pet%2520exercise%252C%2520sunny%2520day%252C%2520green%2520grass%252C%2520joyful%2520moment%252C%2520healthy%2520lifestyle%2520for%2520pets%252C%2520professional%2520photography%252C%2520natural%2520lighting%252C%2520action%2520shot&width=600&height=400&seq=8&orientation=landscape"
+alt="Pet Exercise"
+class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+<i class="ri-run-line text-primary text-xl"></i>
+</div>
+<h3 class="text-xl font-bold mb-3">Физические упражнения и мероприятия</h3>
+<p class="text-gray-600 mb-4">Регулярные физические упражнения поддерживают физическую форму домашних животных и стимулируют их умственную деятельность. Найдите занятия, соответствующие возрасту, для разных типов домашних животных.</p>
+<button class="text-primary font-medium hover:text-primary/80 transition-colors flex items-center">
+    Подробнее
+<i class="ri-arrow-right-line ml-2"></i>
+</button>
+</div>
+</div>
+
+<!-- Карточка для ухода -->
+<div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+<div class="h-[200px] relative">
+<img src="https://readdy.ai/api/search-image?query=professional%2520pet%2520grooming%2520session%252C%2520dog%2520being%2520brushed%2520and%2520groomed%252C%2520clean%2520salon%2520environment%252C%2520grooming%2520tools%2520visible%252C%2520gentle%2520care%252C%2520high-quality%2520pet%2520grooming%2520products%252C%2520bright%2520professional%2520setting&width=600&height=400&seq=9&orientation=landscape"
+alt="Pet Grooming"
+class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+<i class="ri-scissors-line text-primary text-xl"></i>
+</div>
+<h3 class="text-xl font-bold mb-3">Уход за собой и гигиена</h3>
+<p class="text-gray-600 mb-4">Правильный уход за шерстью поддерживает здоровье шерсти вашего питомца и предотвращает проблемы с кожей. Изучите основные приемы ухода за разными породами.</p>
+<button class="text-primary font-medium hover:text-primary/80 transition-colors flex items-center">
+Подробнее
+<i class="ri-arrow-right-line ml-2"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Интерактивные руководства по уходу -->
+<section class="py-12 px-6 bg-gray-100">
+<div class="container mx-auto">
+<h2 class="text-3xl font-bold text-center mb-12">Интерактивные руководства по уходу</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Профилактический уход -->
+<div class="bg-white rounded-lg shadow-md overflow-hidden">
+<div class="accordion-header p-6 flex justify-between items-center cursor-pointer">
+<div class="flex items-center">
+<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+<i class="ri-shield-check-line text-primary"></i>
+</div>
+<h3 class="text-xl font-bold">Контрольный перечень мер по профилактике</h3>
+</div>
+<i class="ri-arrow-down-s-line text-xl text-primary accordion-icon transition-transform"></i>
+</div>
+<div class="accordion-content px-6 pb-6">
+<div class="mb-4">
+<p class="text-gray-600 mb-4">Регулярная профилактика необходима для раннего выявления проблем со здоровьем. Используйте этот контрольный список, чтобы не сбиться с пути:</p>
+<div class="space-y-3">
+<div class="flex items-start">
+<input type="checkbox" class="custom-checkbox mr-3 mt-1">
+<label class="text-gray-700">Запланируйте ежегодные ветеринарные осмотры</label>
+</div>
+<div class="flex items-start">
+<input type="checkbox" class="custom-checkbox mr-3 mt-1">
+<label class="text-gray-700">Своевременно проводите вакцинацию</label>
+</div>
+<div class="flex items-start">
+<input type="checkbox" class="custom-checkbox mr-3 mt-1">
+<label class="text-gray-700">Проводите ежемесячную профилактику от блох, клещей и сердечных червей</label>
+</div>
+<div class="flex items-start">
+<input type="checkbox" class="custom-checkbox mr-3 mt-1">
+<label class="text-gray-700">Чистка зубов и проверка состояния полости рта</label>
+</div>
+<div class="flex items-start">
+<input type="checkbox" class="custom-checkbox mr-3 mt-1">
+<label class="text-gray-700">Регулярный контроль веса</label>
+</div>
+<div class="flex items-start">
+<input type="checkbox" class="custom-checkbox mr-3 mt-1">
+<label class="text-gray-700">Медицинские осмотры с учетом особенностей породы</label>
+</div>
+</div>
+</div>
+<button class="bg-primary/10 text-primary px-4 py-2 rounded-button whitespace-nowrap hover:bg-primary/20 transition-colors flex items-center">
+    Скачать контрольный список
+<i class="ri-download-line ml-2"></i>
+</button>
+</div>
+</div>
+
+<!-- Проблемы со здоровьем -->
+<div class="bg-white rounded-lg shadow-md overflow-hidden">
+<div class="accordion-header p-6 flex justify-between items-center cursor-pointer">
+<div class="flex items-center">
+<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+<i class="ri-heart-pulse-line text-primary"></i>
+</div>
+<h3 class="text-xl font-bold">Общие проблемы со здоровьем</h3>
+</div>
+<i class="ri-arrow-down-s-line text-xl text-primary accordion-icon transition-transform"></i>
+</div>
+<div class="accordion-content px-6 pb-6">
+<div class="mb-4">
+<p class="text-gray-600 mb-4">Будьте в курсе этих распространенных проблем со здоровьем домашних животных и их предупреждающих признаков:</p>
+<div class="space-y-4">
+<div>
+<h4 class="font-medium text-gray-800">Стоматологические заболевания</h4>
+<p class="text-gray-600 text-sm">Неприятный запах изо рта, слюнотечение, трудности с приемом пищи, желтые или коричневые зубы</p>
+</div>
+<div>
+<h4 class="font-medium text-gray-800">Ушные инфекции</h4>
+<p class="text-gray-600 text-sm">Тряска головой, почесывание, неприятный запах, покраснение или выделения</p>
+</div>
+<div>
+<h4 class="font-medium text-gray-800">Ожирение</h4>
+<p class="text-gray-600 text-sm">Увеличение веса, вялость, затрудненное дыхание или передвижение</p>
+</div>
+<div>
+<h4 class="font-medium text-gray-800">Артрит</h4>
+<p class="text-gray-600 text-sm">Скованность, хромота, трудности при стоянии или подъеме по лестнице</p>
+</div>
+</div>
+</div>
+<button class="bg-primary/10 text-primary px-4 py-2 rounded-button whitespace-nowrap hover:bg-primary/20 transition-colors flex items-center">
+    Просмотреть полное руководство
+<i class="ri-arrow-right-line ml-2"></i>
+</button>
+</div>
+</div>
+
+<!-- Сезонный уход -->
+<div class="bg-white rounded-lg shadow-md overflow-hidden">
+<div class="accordion-header p-6 flex justify-between items-center cursor-pointer">
+<div class="flex items-center">
+<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+<i class="ri-sun-line text-primary"></i>
+</div>
+<h3 class="text-xl font-bold">Советы по сезонному уходу</h3>
+</div>
+<i class="ri-arrow-down-s-line text-xl text-primary accordion-icon transition-transform"></i>
+</div>
+<div class="accordion-content px-6 pb-6">
+<div class="mb-4">
+<p class="text-gray-600 mb-4">Меняйте режим ухода за домашними животными в зависимости от времени года:</p>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-blue-50 p-4 rounded-lg">
+<h4 class="font-medium text-gray-800 mb-2">Зима</h4>
+<ul class="text-gray-600 text-sm space-y-1">
+<li>• Защищайте лапы от льда и соли</li>
+<li>• Обеспечьте теплое укрытие</li>
+<li>• Скорректируйте рацион питания в холодную погоду</li>
+</ul>
+</div>
+<div class="bg-yellow-50 p-4 rounded-lg">
+<h4 class="font-medium text-gray-800 mb-2">Весна</h4>
+<ul class="text-gray-600 text-sm space-y-1">
+<li>• Следите за сезонными аллергиями</li>
+<li>• Усиленная профилактика появления блох и клещей</li>
+<li>• Постепенно увеличивайте физические нагрузки</li>
+</ul>
+</div>
+<div class="bg-red-50 p-4 rounded-lg">
+<h4 class="font-medium text-gray-800 mb-2">Лето</h4>
+<ul class="text-gray-600 text-sm space-y-1">
+<li>• Предотвращение теплового удара</li>
+<li>• Обеспечьте постоянную подачу свежей воды</li>
+<li>• Занимайтесь спортом в более прохладные часы</li>
+</ul>
+</div>
+<div class="bg-amber-50 p-4 rounded-lg">
+<h4 class="font-medium text-gray-800 mb-2">Осень</h4>
+<ul class="text-gray-600 text-sm space-y-1">
+<li>• Следите за появлением родентицидов</li>
+<li>• Приготовьтесь к перепадам температур</li>
+<li>• Проверьте наличие сезонных опасностей</li>
+</ul>
+</div>
+</div>
+</div>
+<button class="bg-primary/10 text-primary px-4 py-2 rounded-button whitespace-nowrap hover:bg-primary/20 transition-colors flex items-center">
+    Скачать Сезонное руководство
+<i class="ri-download-line ml-2"></i>
+</button>
+</div>
+</div>
+
+<!-- Неотложная медицинская помощь -->
+<div class="bg-white rounded-lg shadow-md overflow-hidden">
+<div class="accordion-header p-6 flex justify-between items-center cursor-pointer">
+<div class="flex items-center">
+<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+<i class="ri-first-aid-kit-line text-primary"></i>
+</div>
+<h3 class="text-xl font-bold">Информация о неотложной помощи</h3>
+</div>
+<i class="ri-arrow-down-s-line text-xl text-primary accordion-icon transition-transform"></i>
+</div>
+<div class="accordion-content px-6 pb-6">
+<div class="mb-4">
+<p class="text-gray-600 mb-4">Будьте готовы к чрезвычайным ситуациям с домашними животными, выполнив следующие важные действия:</p>
+<div class="space-y-4">
+<div class="bg-red-50 p-4 rounded-lg">
+<h4 class="font-medium text-gray-800 mb-2">Предметы первой необходимости из аварийного комплекта</h4>
+<ul class="text-gray-600 text-sm space-y-1">
+<li>• Цифровой термометр</li>
+<li>• Марлевые прокладки и клейкая лента</li>
+<li>• Перекись водорода (3%)</li>
+<li>• Физиологический раствор для глаз</li>
+<li>• Переноска для домашних животных</li>
+<li>• Контактная информация для экстренных случаев</li>
+</ul>
+</div>
+<div class="bg-gray-50 p-4 rounded-lg">
+<h4 class="font-medium text-gray-800 mb-2">Когда следует немедленно обратиться за медицинской помощью</h4>
+<ul class="text-gray-600 text-sm space-y-1">
+<li>• Затрудненное дыхание</li>
+<li>• Сильное кровотечение</li>
+<li>• Судороги</li>
+<li>• Подозрение на отравление</li>
+<li>• Травма или увечье</li>
+<li>• Неспособность к мочеиспусканию</li>
+</ul>
+</div>
+</div>
+</div>
+<button class="bg-primary/10 text-primary px-4 py-2 rounded-button whitespace-nowrap hover:bg-primary/20 transition-colors flex items-center">
+    Распечатайте руководство по оказанию экстренной помощи
+<i class="ri-printer-line ml-2"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Ресурсы по уходу за домашними животными -->
+<section class="py-12 px-6">
+<div class="container mx-auto">
+<h2 class="text-3xl font-bold text-center mb-12">Ресурсы по уходу за домашними животными</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- График ухода за больными -->
+<div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+<i class="ri-calendar-check-line text-primary text-xl"></i>
+</div>
+<h3 class="text-lg font-bold mb-3">График ухода за больными</h3>
+<p class="text-gray-600 mb-4">Настраиваемые графики ухода за домашними животными разных типов и возрастов позволяют отслеживать все основные задачи по уходу.</p>
+<button class="bg-primary/10 text-primary px-4 py-2 rounded-button whitespace-nowrap hover:bg-primary/20 transition-colors flex items-center">
+    Скачать
+<i class="ri-download-line ml-2"></i>
+</button>
+</div>
+
+<!-- Таблица вакцинации -->
+<div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+<i class="ri-syringe-line text-primary text-xl"></i>
+</div>
+<h3 class="text-lg font-bold mb-3">Таблица вакцинации</h3>
+<p class="text-gray-600 mb-4">Подробные графики вакцинации кошек и собак на разных этапах жизни с функцией напоминания.</p>
+<button class="bg-primary/10 text-primary px-4 py-2 rounded-button whitespace-nowrap hover:bg-primary/20 transition-colors flex items-center">
+Скачать
+<i class="ri-download-line ml-2"></i>
+</button>
+</div>
+
+<!-- Рекомендации по кормлению -->
+<div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+<i class="ri-restaurant-line text-primary text-xl"></i>
+</div>
+<h3 class="text-lg font-bold mb-3">Рекомендации по кормлению</h3>
+<p class="text-gray-600 mb-4">Подробные рекомендации по кормлению в зависимости от типа питомца, возраста, веса и уровня активности для обеспечения оптимального питания.</p>
+<button class="bg-primary/10 text-primary px-4 py-2 rounded-button whitespace-nowrap hover:bg-primary/20 transition-colors flex items-center">
+    Руководство по просмотру
+<i class="ri-eye-line ml-2"></i>
+</button>
+</div>
+
+<!-- Рекомендации по выполнению упражнений -->
+<div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+<i class="ri-footprint-line text-primary text-xl"></i>
+</div>
+<h3 class="text-lg font-bold mb-3">Планы упражнений</h3>
+<p class="text-gray-600 mb-4">Рекомендации по физическим упражнениям для вашего питомца в зависимости от возраста и породы, чтобы поддерживать его в хорошей физической форме и стимулировать умственные способности..</p>
+<button class="bg-primary/10 text-primary px-4 py-2 rounded-button whitespace-nowrap hover:bg-primary/20 transition-colors flex items-center">
+    Просмотр планов
+<i class="ri-eye-line ml-2"></i>
+</button>
+</div>
+</div>
+
+<div class="mt-12 bg-white rounded-lg shadow-md overflow-hidden">
+<div class="p-6">
+<h3 class="text-2xl font-bold mb-4">Отслеживание здоровья домашних животных</h3>
+<p class="text-gray-600 mb-6">Следите за показателями здоровья вашего питомца с течением времени, чтобы определить тенденции и убедиться, что он остается здоровым.</p>
+</div>
+<div id="healthChart" class="w-full h-[300px]"></div>
+</div>
+</div>
+</section>
+
+<!-- Карусель советов экспертов -->
+<section class="py-12 px-6 bg-gray-100">
+<div class="container mx-auto">
+<h2 class="text-3xl font-bold text-center mb-12">Советы экспертов</h2>
+<div class="relative">
+<div class="carousel-container overflow-hidden">
+<div class="carousel-track flex transition-transform duration-300" style="transform: translateX(0);">
+<!-- Совет 1 -->
+<div class="carousel-slide w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4">
+<div class="bg-white rounded-lg shadow-md overflow-hidden h-full">
+<div class="p-6">
+<div class="flex items-center mb-4">
+<div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+<img src="https://readdy.ai/api/search-image?query=professional%2520female%2520veterinarian%2520headshot%252C%2520smiling%252C%2520confident%252C%2520wearing%2520white%2520coat%252C%2520professional%2520portrait%252C%2520clean%2520background%252C%2520warm%2520expression&width=100&height=100&seq=10&orientation=squarish" 
+alt="Dr. Emily Richardson" class="w-full h-full object-cover">
+</div>
+<div>
+<h4 class="font-bold">Доктор Эмили Ричардсон</h4>
+<p class="text-gray-600 text-sm">Ветеринарный диетолог</p>
+</div>
+</div>
+<h3 class="text-lg font-bold mb-3">Советы по сбалансированному питанию</h3>
+<p class="text-gray-600 mb-4">"Выбирая корм для домашних животных, выбирайте продукты с натуральным мясом в качестве основного ингредиента и избегайте продуктов с избыточным количеством наполнителей.
+    Для поддержания оптимального здоровья при определении размера порций учитывайте возраст, размер тела и уровень активности вашего питомца."</p>
+<button class="text-primary font-medium hover:text-primary/80 transition-colors flex items-center">
+Подробнее
+<i class="ri-arrow-right-line ml-2"></i>
+</button>
+</div>
+</div>
+</div>
+
+<!-- Совет 2 -->
+<div class="carousel-slide w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4">
+<div class="bg-white rounded-lg shadow-md overflow-hidden h-full">
+<div class="p-6">
+<div class="flex items-center mb-4">
+<div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+<img src="https://readdy.ai/api/search-image?query=professional%2520male%2520dog%2520trainer%2520headshot%252C%2520friendly%2520expression%252C%2520casual%2520professional%2520attire%252C%2520outdoors%2520setting%252C%2520natural%2520light%252C%2520confident%2520pose&width=100&height=100&seq=11&orientation=squarish" 
+alt="James Wilson" class="w-full h-full object-cover">
+</div>
+<div>
+<h4 class="font-bold">Джеймс Уилсон</h4>
+<p class="text-gray-600 text-sm">Сертифицированный дрессировщик собак</p>
+</div>
+</div>
+<h3 class="text-lg font-bold mb-3">Последовательность тренировок</h3>
+<p class="text-gray-600 mb-4">"Последовательность является ключевым моментом в дрессировке питомца. Каждый раз используйте одни и те же команды и систему поощрений. 
+    Короткие, частые тренировки продолжительностью 5-10 минут более эффективны, чем более длительные, нечастые, особенно для щенков."</p>
+<button class="text-primary font-medium hover:text-primary/80 transition-colors flex items-center">
+Подробнее
+<i class="ri-arrow-right-line ml-2"></i>
+</button>
+</div>
+</div>
+</div>
+
+<!-- Совет 3 -->
+<div class="carousel-slide w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4">
+<div class="bg-white rounded-lg shadow-md overflow-hidden h-full">
+<div class="p-6">
+<div class="flex items-center mb-4">
+<div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+<img src="https://readdy.ai/api/search-image?query=professional%2520female%2520animal%2520behaviorist%2520headshot%252C%2520mid-30s%252C%2520thoughtful%2520expression%252C%2520smart%2520casual%2520attire%252C%2520indoor%2520professional%2520setting%252C%2520soft%2520lighting&width=100&height=100&seq=12&orientation=squarish" 
+alt="Dr. Sarah Chen" class="w-full h-full object-cover">
+</div>
+<div>
+<h4 class="font-bold">Доктор Сара Чен</h4>
+<p class="text-gray-600 text-sm">Специалист по поведению животных</p>
+</div>
+</div>
+<h3 class="text-lg font-bold mb-3">Обогащение поведения</h3>
+<p class="text-gray-600 mb-4">"Умственная стимуляция так же важна, как и физические упражнения. 
+    Головоломки, игры с запахом и вращающиеся игрушки могут предотвратить скуку и уменьшить деструктивное поведение как у кошек, так и у собак."</p>
+<button class="text-primary font-medium hover:text-primary/80 transition-colors flex items-center">
+Подробнее
+<i class="ri-arrow-right-line ml-2"></i>
+</button>
+</div>
+</div>
+</div>
+
+<!-- Совет 4 -->
+<div class="carousel-slide w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4">
+<div class="bg-white rounded-lg shadow-md overflow-hidden h-full">
+<div class="p-6">
+<div class="flex items-center mb-4">
+<div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+<img src="https://readdy.ai/api/search-image?query=professional%2520male%2520veterinarian%2520headshot%252C%2520mid-40s%252C%2520glasses%252C%2520confident%2520smile%252C%2520white%2520coat%252C%2520professional%2520medical%2520setting%252C%2520clean%2520background&width=100&height=100&seq=13&orientation=squarish" 
+alt="Dr. Michael Torres" class="w-full h-full object-cover">
+</div>
+<div>
+<h4 class="font-bold">Доктор Майкл Торрес</h4>
+<p class="text-gray-600 text-sm">Ветеринарный врач-стоматолог</p>
+</div>
+</div>
+<h3 class="text-lg font-bold mb-3">Практика в области гигиены полости рта</h3>
+<p class="text-gray-600 mb-4">"Начните ухаживать за зубами как можно раньше. Регулярно чистите зубы вашего питомца специальной зубной пастой. 
+    Жевательные резинки и игрушки могут помочь, но они не заменяют чистку зубов. Ежегодные стоматологические осмотры могут предотвратить серьезные проблемы со здоровьем."</p>
+<button class="text-primary font-medium hover:text-primary/80 transition-colors flex items-center">
+Подробнее
+<i class="ri-arrow-right-line ml-2"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Элементы управления каруселью -->
+<button class="absolute top-1/2 left-0 transform -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-md flex items-center justify-center carousel-prev focus:outline-none">
+<i class="ri-arrow-left-s-line text-primary"></i>
+</button>
+<button class="absolute top-1/2 right-0 transform -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-md flex items-center justify-center carousel-next focus:outline-none">
+<i class="ri-arrow-right-s-line text-primary"></i>
+</button>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-800 text-white py-12">
+    <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+    <div>
+    <div class="flex items-center mb-4">
+    <div class="w-8 h-8 flex items-center justify-center text-primary mr-2">
+    <i class="ri-paw-print-fill ri-lg"></i>
+    </div>
+    <span class="font-['Pacifico'] text-2xl">Мягкая Лапка</span>
+    </div>
+    <p class="text-gray-400 mb-4">Предоставление исключительной ветеринарной помощи и услуг для домашних животных с тех пор, как 2010.</p>
+    <div class="flex space-x-4">
+    <a href="#" class="text-gray-400 hover:text-primary">
+    <div class="w-8 h-8 flex items-center justify-center">
+    <i class="ri-facebook-fill"></i>
+    </div>
+    </a>
+    <a href="#" class="text-gray-400 hover:text-primary">
+    <div class="w-8 h-8 flex items-center justify-center">
+    <i class="ri-instagram-line"></i>
+    </div>
+    </a>
+    <a href="#" class="text-gray-400 hover:text-primary">
+    <div class="w-8 h-8 flex items-center justify-center">
+    <i class="ri-twitter-x-line"></i>
+    </div>
+    </a>
+    </div>
+    </div>
+    <div>
+    <h4 class="text-lg font-semibold mb-4">Быстрые ссылки</h4>
+    <ul class="space-y-2">
+    <li><a href="./Home.html" data-readdy="true" class="text-gray-400 hover:text-primary">Главная</a></li>
+    <li><a href="./About.html" class="text-gray-400 hover:text-primary">О нас</a></li>
+    <li><a href="./OurServices.html" class="text-gray-400 hover:text-primary">Наши Услуги</a></li>
+    <li><a href="./Product.html" class="text-gray-400 hover:text-primary">Магазин</a></li>
+    <li><a href="./PetCare.html" class="text-gray-400 hover:text-primary">Уход</a></li>
+    <li><a href="./ContactUs.html" class="text-gray-400 hover:text-primary">Связаться с нами</a></li>
+    </ul>
+    </div>
+    <div>
+    <h4 class="text-lg font-semibold mb-4">Услуги</h4>
+    <ul class="space-y-2">
+    <li><a href="./" class="text-gray-400 hover:text-primary">Ветеринарная помощь</a></li>
+    <li><a href="#" class="text-gray-400 hover:text-primary">Хирургия</a></li>
+    <li><a href="#" class="text-gray-400 hover:text-primary">Уход за зубами</a></li>
+    <li><a href="#" class="text-gray-400 hover:text-primary">Ухаживающий</a></li>
+    <li><a href="#" class="text-gray-400 hover:text-primary">Посадка</a></li>
+    <li><a href="#" class="text-gray-400 hover:text-primary">Неотложная медицинская помощь</a></li>
+    </ul>
+    </div>
+    <div>
+    <h4 class="text-lg font-semibold mb-4">Связаться с нами</h4>
+    <ul class="space-y-3">
+    <li class="flex items-start">
+    <div class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+    <i class="ri-map-pin-line"></i>
+    </div>
+    <span class="text-gray-400">12 Бульварное кольцо, Краснодар 350089</span>
+    </li>
+    <li class="flex items-center">
+    <div class="w-5 h-5 flex items-center justify-center mr-2">
+    <i class="ri-phone-line"></i>
+    </div>
+    <span class="text-gray-400">8 (988) 359-5866</span>
+    </li>
+    <li class="flex items-center">
+    <div class="w-5 h-5 flex items-center justify-center mr-2">
+    <i class="ri-mail-line"></i>
+    </div>
+    <span class="text-gray-400">skorpikloves@gmai.com</span>
+    </li>
+    <li class="flex items-center">
+    <div class="w-5 h-5 flex items-center justify-center mr-2">
+    <i class="ri-time-line"></i>
+    </div>
+    <span class="text-gray-400">Пн-Пт: С 8 утра до 19 вечера, Сб: с 9 утра до 17 вечера</span>
+    </li>
+    </ul>
+    <div class="mt-4">
+    <h5 class="font-medium mb-2">Подпишитесь на нашу рассылку новостей</h5>
+    <div class="flex">
+    <input type="email" placeholder="Ваша почта" class="px-4 py-2 bg-gray-700 text-white rounded-l-lg border-none focus:outline-none focus:ring-2 focus:ring-primary w-full">
+    <button class="px-4 py-2 bg-primary text-white rounded-r-lg whitespace-nowrap hover:bg-opacity-90 transition">Подписываться</button>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="pt-6 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-400 text-sm mb-4 md:mb-0">© 2025 GoLoSoK. Все права защищены.</p>
+    <div class="flex items-center space-x-4">
+    <div class="w-8 h-8 flex items-center justify-center text-gray-400">
+    <i class="ri-visa-line ri-lg"></i>
+    </div>
+    <div class="w-8 h-8 flex items-center justify-center text-gray-400">
+    <i class="ri-mastercard-line ri-lg"></i>
+    </div>
+    <div class="w-8 h-8 flex items-center justify-center text-gray-400">
+    <i class="ri-paypal-line ri-lg"></i>
+    </div>
+    <div class="w-8 h-8 flex items-center justify-center text-gray-400">
+    <i class="ri-apple-fill ri-lg"></i>
+    </div>
+    </div>
+    </div>
+    </div>
+    </footer>
+
+<script id="accordion-functionality">
+document.addEventListener('DOMContentLoaded', function() {
+    const accordionHeaders = document.querySelectorAll('.accordion-header');
+    
+    accordionHeaders.forEach(header => {
+        header.addEventListener('click', function() {
+            const content = this.nextElementSibling;
+            const icon = this.querySelector('.accordion-icon');
+            
+            content.classList.toggle('active');
+            
+            if (content.classList.contains('active')) {
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                icon.style.transform = 'rotate(0)';
+            }
+        });
+    });
+});
+</script>
+
+<script id="carousel-functionality">
+document.addEventListener('DOMContentLoaded', function() {
+    const track = document.querySelector('.carousel-track');
+    const slides = document.querySelectorAll('.carousel-slide');
+    const prevButton = document.querySelector('.carousel-prev');
+    const nextButton = document.querySelector('.carousel-next');
+    
+    let currentIndex = 0;
+    let slideWidth = slides[0].getBoundingClientRect().width;
+    let slidesToShow = 1;
+    
+    function updateSlidesToShow() {
+        if (window.innerWidth >= 1024) {
+            slidesToShow = 3;
+        } else if (window.innerWidth >= 768) {
+            slidesToShow = 2;
+        } else {
+            slidesToShow = 1;
+        }
+        slideWidth = slides[0].getBoundingClientRect().width;
+        goToSlide(currentIndex);
+    }
+    
+    function goToSlide(index) {
+        if (index < 0) {
+            index = slides.length - slidesToShow;
+        } else if (index > slides.length - slidesToShow) {
+            index = 0;
+        }
+        
+        currentIndex = index;
+        const offset = -currentIndex * slideWidth;
+        track.style.transform = `translateX(${offset}px)`;
+    }
+    
+    prevButton.addEventListener('click', () => {
+        goToSlide(currentIndex - 1);
+    });
+    
+    nextButton.addEventListener('click', () => {
+        goToSlide(currentIndex + 1);
+    });
+    
+    window.addEventListener('resize', updateSlidesToShow);
+    updateSlidesToShow();
+});
+</script>
+
+<script id="health-chart">
+document.addEventListener('DOMContentLoaded', function() {
+    const chartDom = document.getElementById('healthChart');
+    const myChart = echarts.init(chartDom);
+    
+    const option = {
+        animation: false,
+        tooltip: {
+            trigger: 'axis',
+            backgroundColor: 'rgba(255, 255, 255, 0.8)',
+            borderColor: '#eee',
+            borderWidth: 1,
+            textStyle: {
+                color: '#1f2937'
+            }
+        },
+        legend: {
+            data: ['Масса (кг)', 'Активность (часы)', 'Потребление пищи (чашки)'],
+            bottom: 10,
+            textStyle: {
+                color: '#1f2937'
+            }
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '15%',
+            top: '10%',
+            containLabel: true
+        },
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            data: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь'],
+            axisLine: {
+                lineStyle: {
+                    color: '#ddd'
+                }
+            },
+            axisLabel: {
+                color: '#1f2937'
+            }
+        },
+        yAxis: {
+            type: 'value',
+            axisLine: {
+                lineStyle: {
+                    color: '#ddd'
+                }
+            },
+            axisLabel: {
+                color: '#1f2937'
+            },
+            splitLine: {
+                lineStyle: {
+                    color: '#eee'
+                }
+            }
+        },
+        series: [
+            {
+                name: 'Масса (кг)',
+                type: 'line',
+                smooth: true,
+                lineStyle: {
+                    width: 3,
+                    color: 'rgba(87, 181, 231, 1)'
+                },
+                areaStyle: {
+                    color: {
+                        type: 'linear',
+                        x: 0,
+                        y: 0,
+                        x2: 0,
+                        y2: 1,
+                        colorStops: [{
+                            offset: 0, color: 'rgba(87, 181, 231, 0.2)'
+                        }, {
+                            offset: 1, color: 'rgba(87, 181, 231, 0.05)'
+                        }]
+                    }
+                },
+                emphasis: {
+                    focus: 'series'
+                },
+                data: [22.5, 22.8, 23.1, 22.9, 22.7, 22.6]
+            },
+            {
+                name: 'Активность (часы)',
+                type: 'line',
+                smooth: true,
+                lineStyle: {
+                    width: 3,
+                    color: 'rgba(141, 211, 199, 1)'
+                },
+                areaStyle: {
+                    color: {
+                        type: 'linear',
+                        x: 0,
+                        y: 0,
+                        x2: 0,
+                        y2: 1,
+                        colorStops: [{
+                            offset: 0, color: 'rgba(141, 211, 199, 0.2)'
+                        }, {
+                            offset: 1, color: 'rgba(141, 211, 199, 0.05)'
+                        }]
+                    }
+                },
+                emphasis: {
+                    focus: 'series'
+                },
+                data: [1.2, 1.5, 1.8, 2.1, 2.3, 2.5]
+            },
+            {
+                name: 'Потребление еды (чашки)',
+                type: 'line',
+                smooth: true,
+                lineStyle: {
+                    width: 3,
+                    color: 'rgba(251, 191, 114, 1)'
+                },
+                areaStyle: {
+                    color: {
+                        type: 'linear',
+                        x: 0,
+                        y: 0,
+                        x2: 0,
+                        y2: 1,
+                        colorStops: [{
+                            offset: 0, color: 'rgba(251, 191, 114, 0.2)'
+                        }, {
+                            offset: 1, color: 'rgba(251, 191, 114, 0.05)'
+                        }]
+                    }
+                },
+                emphasis: {
+                    focus: 'series'
+                },
+                data: [2.0, 2.2, 2.1, 2.0, 1.9, 2.0]
+            }
+        ]
+    };
+    
+    myChart.setOption(option);
+    
+    window.addEventListener('resize', function() {
+        myChart.resize();
+    });
+});
+</script>
+
+</body>
+</html>

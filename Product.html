@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pet Care Products</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#6366f1',secondary:'#f97316'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+    font-family: 'Inter', sans-serif;
+}
+.price-range-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #6366f1;
+    cursor: pointer;
+}
+.price-range-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #6366f1;
+    cursor: pointer;
+    border: none;
+}
+.custom-checkbox {
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+}
+.custom-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #fff;
+    border: 2px solid #6366f1;
+    border-radius: 4px;
+}
+.custom-checkbox input:checked ~ .checkmark {
+    background-color: #6366f1;
+}
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+.custom-checkbox input:checked ~ .checkmark:after {
+    display: block;
+}
+.custom-checkbox .checkmark:after {
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+.product-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+.category-header {
+    position: relative;
+}
+.category-header::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background-color: #6366f1;
+    border-radius: 2px;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.custom-select {
+    position: relative;
+}
+.custom-select-options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    display: none;
+}
+.custom-select.active .custom-select-options {
+    display: block;
+}
+</style>
+</head>
+<body class="bg-gray-50">
+<!-- Header -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
+    <div class="container mx-auto px-4 py-3">
+    <div class="flex items-center justify-between">
+    <div class="flex items-center">
+    <a href="#" class="flex items-center">
+    <div class="w-10 h-10 flex items-center justify-center mr-2">
+    <i class="ri-footprint-fill text-black text-2xl"></i>
+    </div>
+    <span class="font-['Pacifico'] text-xl">Мягкая Лапка</span>
+    </a>
+    </div>
+    <nav class="hidden md:flex items-center space-x-8">
+        <a href="./About.html" class="text-gray-800 hover:text-primary transition-colors">О нас</a>
+        <a href="./OurServices.html" class="text-gray-800 hover:text-primary transition-colors">Наши Услуги</a>
+        <a href="./Product.html" class="text-gray-800 hover:text-primary transition-colors">Товары</a>
+        <a href="./PetCare.html" class="text-gray-800 hover:text-primary transition-colors">Уход</a>
+        <a href="./ContactUs.html" class="text-gray-800 hover:text-primary transition-colors">Связаться с нами</a>
+    </nav>
+    <div class="flex items-center space-x-4">
+    <a href="./Login.html" class="px-4 py-2 text-primary border border-primary !rounded-button hover:bg-primary/10 transition-colors whitespace-nowrap">Log In</a>
+    <a href="./index.html" class="px-4 py-2 text-white bg-primary !rounded-button hover:bg-primary/90 transition-colors whitespace-nowrap">Book Now</a>
+    </div>
+    </div>
+    </div>
+    </header>
+
+<!-- Breadcrumb -->
+<div class="container mx-auto px-4 py-4">
+<div class="flex items-center text-sm text-gray-500">
+<a href="https://readdy.ai/home/6713ffca-423d-4792-9f12-9c48f71172a9/434853e1-5c39-4bc8-98c6-ff068a465317" data-readdy="true" class="hover:text-primary transition-colors">Home</a>
+<div class="mx-2">/</div>
+<span class="text-primary font-medium">Products</span>
+</div>
+</div>
+
+<!-- Page Title -->
+<div class="container mx-auto px-4 py-6">
+<h1 class="text-3xl font-bold text-gray-800">Pet Care Products</h1>
+<p class="text-gray-600 mt-2">Find the best products for your furry friends</p>
+</div>
+
+<!-- Filters and Products Section -->
+<div class="container mx-auto px-4 py-6">
+<div class="flex flex-col lg:flex-row gap-8">
+    <!-- Filters Sidebar -->
+    <div class="w-full lg:w-1/4 bg-white rounded-xl shadow-sm p-6">
+        <div class="mb-6">
+            <h2 class="text-lg font-semibold text-gray-800 mb-4">Filter By</h2>
+            
+            <!-- Search -->
+            <div class="mb-6">
+                <label class="block text-gray-700 mb-2">Search</label>
+                <div class="relative">
+                    <input type="text" placeholder="Search products..." class="w-full px-4 py-2 pr-10 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                    <div class="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 flex items-center justify-center text-gray-400">
+                        <i class="ri-search-line"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pet Type -->
+            <div class="mb-6">
+                <label class="block text-gray-700 mb-2">Pet Type</label>
+                <div class="space-y-2">
+                    <label class="custom-checkbox block">
+                        Dogs
+                        <input type="checkbox" checked>
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="custom-checkbox block">
+                        Cats
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="custom-checkbox block">
+                        Birds
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="custom-checkbox block">
+                        Small Pets
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="custom-checkbox block">
+                        Fish
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+            </div>
+            
+            <!-- Categories -->
+            <div class="mb-6">
+                <label class="block text-gray-700 mb-2">Categories</label>
+                <div class="space-y-2">
+                    <label class="custom-checkbox block">
+                        Food & Treats
+                        <input type="checkbox" checked>
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="custom-checkbox block">
+                        Toys
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="custom-checkbox block">
+                        Grooming
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="custom-checkbox block">
+                        Health & Wellness
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="custom-checkbox block">
+                        Accessories
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+            </div>
+            
+            <!-- Price Range -->
+            <div class="mb-6">
+                <label class="block text-gray-700 mb-2">Price Range</label>
+                <div class="px-2">
+                    <input type="range" min="0" max="200" value="100" class="price-range-slider w-full h-2 bg-gray-200 rounded-full appearance-none cursor-pointer">
+                    <div class="flex justify-between mt-2 text-sm text-gray-600">
+                        <span>$0</span>
+                        <span id="priceValue">$100</span>
+                        <span>$200</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Rating -->
+            <div class="mb-6">
+                <label class="block text-gray-700 mb-2">Rating</label>
+                <div class="space-y-2">
+                    <label class="custom-checkbox flex items-center">
+                        <input type="checkbox" checked>
+                        <span class="checkmark"></span>
+                        <div class="flex text-yellow-400 ml-2">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                        </div>
+                    </label>
+                    <label class="custom-checkbox flex items-center">
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                        <div class="flex text-yellow-400 ml-2">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-line"></i>
+                        </div>
+                    </label>
+                    <label class="custom-checkbox flex items-center">
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                        <div class="flex text-yellow-400 ml-2">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-line"></i>
+                            <i class="ri-star-line"></i>
+                        </div>
+                    </label>
+                    <label class="custom-checkbox flex items-center">
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                        <div class="flex text-yellow-400 ml-2">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-line"></i>
+                            <i class="ri-star-line"></i>
+                            <i class="ri-star-line"></i>
+                        </div>
+                    </label>
+                </div>
+            </div>
+            
+            <button class="w-full bg-primary text-white py-2 rounded-button font-medium hover:bg-indigo-600 transition-colors whitespace-nowrap">Apply Filters</button>
+        </div>
+    </div>
+    
+    <!-- Products Grid -->
+    <div class="w-full lg:w-3/4">
+        <!-- Sort and View Options -->
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 bg-white p-4 rounded-xl shadow-sm">
+            <div class="mb-4 sm:mb-0">
+                <span class="text-gray-600">Showing 24 of 156 products</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="custom-select relative">
+                    <button id="sortDropdown" class="flex items-center space-x-2 bg-gray-100 px-4 py-2 rounded-button text-gray-700 hover:bg-gray-200 transition-colors whitespace-nowrap">
+                        <span>Sort by: Popularity</span>
+                        <div class="w-4 h-4 flex items-center justify-center">
+                            <i class="ri-arrow-down-s-line"></i>
+                        </div>
+                    </button>
+                    <div class="custom-select-options bg-white shadow-lg rounded-xl mt-1 border border-gray-200 w-48">
+                        <div class="py-1">
+                            <button class="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors">Popularity</button>
+                            <button class="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors">Price: Low to High</button>
+                            <button class="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors">Price: High to Low</button>
+                            <button class="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors">Newest First</button>
+                            <button class="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors">Rating</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <button class="w-9 h-9 flex items-center justify-center bg-primary text-white rounded hover:bg-indigo-600 transition-colors whitespace-nowrap">
+                        <div class="w-5 h-5 flex items-center justify-center">
+                            <i class="ri-layout-grid-line"></i>
+                        </div>
+                    </button>
+                    <button class="w-9 h-9 flex items-center justify-center bg-gray-100 text-gray-600 rounded hover:bg-gray-200 transition-colors whitespace-nowrap">
+                        <div class="w-5 h-5 flex items-center justify-center">
+                            <i class="ri-list-check"></i>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Food & Treats Category -->
+        <div class="mb-12">
+            <div class="flex items-center mb-6">
+                <div class="w-8 h-8 flex items-center justify-center text-primary mr-2">
+                    <i class="ri-restaurant-line ri-lg"></i>
+                </div>
+                <h2 class="text-2xl font-bold text-gray-800 category-header">Food & Treats</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Product Card 1 -->
+                <div class="product-card bg-white rounded-xl overflow-hidden shadow-sm">
+                    <div class="relative h-56">
+                        <img src="https://readdy.ai/api/search-image?query=Premium%2520dog%2520food%2520in%2520an%2520elegant%2520packaging%2520with%2520a%2520beautiful%2520golden%2520retriever%2520on%2520the%2520package.%2520The%2520dog%2520food%2520is%2520arranged%2520neatly%2520with%2520some%2520kibble%2520spilling%2520out%2520to%2520show%2520the%2520high-quality%2520ingredients.%2520The%2520background%2520is%2520a%2520clean%252C%2520minimal%2520white%2520surface%2520with%2520soft%2520shadows.%2520The%2520lighting%2520is%2520bright%2520and%2520professional%252C%2520highlighting%2520the%2520premium%2520nature%2520of%2520the%2520product.&width=400&height=300&seq=1&orientation=landscape" alt="Premium Dog Food" class="w-full h-full object-cover object-top">
+                        <div class="absolute top-3 right-3 bg-secondary text-white text-xs font-bold px-2 py-1 rounded">BESTSELLER</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex text-yellow-400 mb-1">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-half-fill"></i>
+                            <span class="text-gray-500 text-sm ml-1">(128)</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-1">Premium Grain-Free Dog Food</h3>
+                        <p class="text-primary font-bold mb-2">$49.99</p>
+                        <p class="text-gray-600 text-sm mb-4">High-protein formula with real meat as the first ingredient. Perfect for active dogs of all breeds.</p>
+                        <button class="w-full bg-secondary text-white py-2 rounded-button font-medium hover:bg-orange-600 transition-colors whitespace-nowrap flex items-center justify-center">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1">
+                                <i class="ri-shopping-cart-line"></i>
+                            </div>
+                            <span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product Card 2 -->
+                <div class="product-card bg-white rounded-xl overflow-hidden shadow-sm">
+                    <div class="relative h-56">
+                        <img src="https://readdy.ai/api/search-image?query=Organic%2520cat%2520food%2520in%2520an%2520elegant%2520packaging%2520with%2520a%2520beautiful%2520maine%2520coon%2520cat%2520on%2520the%2520package.%2520The%2520cat%2520food%2520is%2520arranged%2520neatly%2520with%2520some%2520kibble%2520visible%2520to%2520show%2520the%2520high-quality%2520organic%2520ingredients.%2520The%2520background%2520is%2520a%2520clean%252C%2520minimal%2520white%2520surface%2520with%2520soft%2520shadows.%2520The%2520lighting%2520is%2520bright%2520and%2520professional%252C%2520highlighting%2520the%2520premium%2520nature%2520of%2520the%2520product.&width=400&height=300&seq=2&orientation=landscape" alt="Organic Cat Food" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-4">
+                        <div class="flex text-yellow-400 mb-1">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-line"></i>
+                            <span class="text-gray-500 text-sm ml-1">(94)</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-1">Organic Indoor Cat Formula</h3>
+                        <p class="text-primary font-bold mb-2">$39.99</p>
+                        <p class="text-gray-600 text-sm mb-4">Specially formulated for indoor cats with organic ingredients to support digestive health.</p>
+                        <button class="w-full bg-secondary text-white py-2 rounded-button font-medium hover:bg-orange-600 transition-colors whitespace-nowrap flex items-center justify-center">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1">
+                                <i class="ri-shopping-cart-line"></i>
+                            </div>
+                            <span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product Card 3 -->
+                <div class="product-card bg-white rounded-xl overflow-hidden shadow-sm">
+                    <div class="relative h-56">
+                        <img src="https://readdy.ai/api/search-image?query=Gourmet%2520dog%2520treats%2520in%2520a%2520beautiful%2520packaging%2520with%2520various%2520shaped%2520treats%2520visible.%2520The%2520treats%2520are%2520arranged%2520artfully%2520to%2520show%2520their%2520different%2520colors%2520and%2520textures.%2520Some%2520treats%2520are%2520outside%2520the%2520packaging%2520to%2520showcase%2520their%2520quality.%2520The%2520background%2520is%2520a%2520clean%252C%2520minimal%2520white%2520surface%2520with%2520soft%2520shadows.%2520The%2520lighting%2520is%2520bright%2520and%2520professional%252C%2520highlighting%2520the%2520premium%2520nature%2520of%2520the%2520product.&width=400&height=300&seq=3&orientation=landscape" alt="Gourmet Dog Treats" class="w-full h-full object-cover object-top">
+                        <div class="absolute top-3 right-3 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded">NEW</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex text-yellow-400 mb-1">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <span class="text-gray-500 text-sm ml-1">(56)</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-1">Gourmet Dental Dog Treats</h3>
+                        <p class="text-primary font-bold mb-2">$18.99</p>
+                        <p class="text-gray-600 text-sm mb-4">Delicious treats that help clean teeth and freshen breath while providing essential nutrients.</p>
+                        <button class="w-full bg-secondary text-white py-2 rounded-button font-medium hover:bg-orange-600 transition-colors whitespace-nowrap flex items-center justify-center">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1">
+                                <i class="ri-shopping-cart-line"></i>
+                            </div>
+                            <span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Toys Category -->
+        <div class="mb-12">
+            <div class="flex items-center mb-6">
+                <div class="w-8 h-8 flex items-center justify-center text-primary mr-2">
+                    <i class="ri-gamepad-line ri-lg"></i>
+                </div>
+                <h2 class="text-2xl font-bold text-gray-800 category-header">Toys</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Product Card 4 -->
+                <div class="product-card bg-white rounded-xl overflow-hidden shadow-sm">
+                    <div class="relative h-56">
+                        <img src="https://readdy.ai/api/search-image?query=Interactive%2520dog%2520toy%2520that%2520dispenses%2520treats%2520when%2520played%2520with.%2520The%2520toy%2520is%2520colorful%2520and%2520made%2520of%2520durable%2520materials.%2520It%2520has%2520an%2520interesting%2520shape%2520that%2520would%2520engage%2520a%2520dog.%2520The%2520toy%2520is%2520photographed%2520on%2520a%2520clean%2520white%2520background%2520with%2520professional%2520lighting%2520to%2520highlight%2520its%2520features.%2520Some%2520dog%2520treats%2520are%2520visible%2520next%2520to%2520the%2520toy%2520to%2520show%2520its%2520purpose.&width=400&height=300&seq=4&orientation=landscape" alt="Interactive Dog Toy" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-4">
+                        <div class="flex text-yellow-400 mb-1">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-half-fill"></i>
+                            <span class="text-gray-500 text-sm ml-1">(142)</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-1">Interactive Treat Puzzle</h3>
+                        <p class="text-primary font-bold mb-2">$24.99</p>
+                        <p class="text-gray-600 text-sm mb-4">Challenging puzzle toy that dispenses treats as your dog solves it. Great for mental stimulation.</p>
+                        <button class="w-full bg-secondary text-white py-2 rounded-button font-medium hover:bg-orange-600 transition-colors whitespace-nowrap flex items-center justify-center">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1">
+                                <i class="ri-shopping-cart-line"></i>
+                            </div>
+                            <span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product Card 5 -->
+                <div class="product-card bg-white rounded-xl overflow-hidden shadow-sm">
+                    <div class="relative h-56">
+                        <img src="https://readdy.ai/api/search-image?query=Colorful%2520cat%2520toy%2520set%2520with%2520feathers%252C%2520balls%252C%2520and%2520mice.%2520The%2520toys%2520are%2520arranged%2520in%2520an%2520attractive%2520display%2520showing%2520their%2520variety%2520and%2520colors.%2520The%2520toys%2520are%2520made%2520of%2520different%2520textures%2520and%2520materials%2520to%2520engage%2520cats.%2520The%2520background%2520is%2520a%2520clean%2520white%2520surface%2520with%2520professional%2520lighting%2520to%2520highlight%2520the%2520vibrant%2520colors%2520of%2520the%2520toys.&width=400&height=300&seq=5&orientation=landscape" alt="Cat Toy Set" class="w-full h-full object-cover object-top">
+                        <div class="absolute top-3 right-3 bg-secondary text-white text-xs font-bold px-2 py-1 rounded">BESTSELLER</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex text-yellow-400 mb-1">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-line"></i>
+                            <span class="text-gray-500 text-sm ml-1">(87)</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-1">Deluxe Cat Toy Variety Pack</h3>
+                        <p class="text-primary font-bold mb-2">$19.99</p>
+                        <p class="text-gray-600 text-sm mb-4">Set of 10 different toys including feathers, mice, balls and more to keep your cat entertained.</p>
+                        <button class="w-full bg-secondary text-white py-2 rounded-button font-medium hover:bg-orange-600 transition-colors whitespace-nowrap flex items-center justify-center">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1">
+                                <i class="ri-shopping-cart-line"></i>
+                            </div>
+                            <span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product Card 6 -->
+                <div class="product-card bg-white rounded-xl overflow-hidden shadow-sm">
+                    <div class="relative h-56">
+                        <img src="https://readdy.ai/api/search-image?query=Durable%2520rubber%2520chew%2520toy%2520for%2520dogs%2520in%2520a%2520bone%2520shape.%2520The%2520toy%2520is%2520bright%2520red%2520and%2520has%2520a%2520textured%2520surface%2520for%2520dental%2520health.%2520It%2520looks%2520sturdy%2520and%2520well-made%2520for%2520aggressive%2520chewers.%2520The%2520toy%2520is%2520photographed%2520on%2520a%2520clean%2520white%2520background%2520with%2520professional%2520lighting%2520to%2520show%2520its%2520details%2520and%2520texture.&width=400&height=300&seq=6&orientation=landscape" alt="Durable Chew Toy" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-4">
+                        <div class="flex text-yellow-400 mb-1">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <span class="text-gray-500 text-sm ml-1">(203)</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-1">Indestructible Chew Toy</h3>
+                        <p class="text-primary font-bold mb-2">$15.99</p>
+                        <p class="text-gray-600 text-sm mb-4">Virtually indestructible rubber toy for aggressive chewers. Helps clean teeth and massage gums.</p>
+                        <button class="w-full bg-secondary text-white py-2 rounded-button font-medium hover:bg-orange-600 transition-colors whitespace-nowrap flex items-center justify-center">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1">
+                                <i class="ri-shopping-cart-line"></i>
+                            </div>
+                            <span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Grooming Category -->
+        <div class="mb-12">
+            <div class="flex items-center mb-6">
+                <div class="w-8 h-8 flex items-center justify-center text-primary mr-2">
+                    <i class="ri-scissors-line ri-lg"></i>
+                </div>
+                <h2 class="text-2xl font-bold text-gray-800 category-header">Grooming</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Product Card 7 -->
+                <div class="product-card bg-white rounded-xl overflow-hidden shadow-sm">
+                    <div class="relative h-56">
+                        <img src="https://readdy.ai/api/search-image?query=Professional%2520pet%2520grooming%2520brush%2520with%2520an%2520ergonomic%2520handle.%2520The%2520brush%2520has%2520fine%2520bristles%2520designed%2520to%2520remove%2520loose%2520fur%2520and%2520detangle%2520pet%2520hair.%2520It%2520has%2520a%2520sleek%2520design%2520with%2520a%2520comfortable%2520grip.%2520The%2520brush%2520is%2520photographed%2520on%2520a%2520clean%2520white%2520background%2520with%2520professional%2520lighting%2520to%2520show%2520its%2520details%2520and%2520quality.&width=400&height=300&seq=7&orientation=landscape" alt="Professional Grooming Brush" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-4">
+                        <div class="flex text-yellow-400 mb-1">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-half-fill"></i>
+                            <span class="text-gray-500 text-sm ml-1">(176)</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-1">Professional Deshedding Tool</h3>
+                        <p class="text-primary font-bold mb-2">$29.99</p>
+                        <p class="text-gray-600 text-sm mb-4">Reduces shedding by up to 90%. Ergonomic handle and stainless steel edge for comfortable grooming.</p>
+                        <button class="w-full bg-secondary text-white py-2 rounded-button font-medium hover:bg-orange-600 transition-colors whitespace-nowrap flex items-center justify-center">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1">
+                                <i class="ri-shopping-cart-line"></i>
+                            </div>
+                            <span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product Card 8 -->
+                <div class="product-card bg-white rounded-xl overflow-hidden shadow-sm">
+                    <div class="relative h-56">
+                        <img src="https://readdy.ai/api/search-image?query=Luxury%2520pet%2520shampoo%2520and%2520conditioner%2520set%2520in%2520elegant%2520bottles.%2520The%2520products%2520have%2520a%2520premium%2520look%2520with%2520beautiful%2520packaging%2520and%2520labels.%2520The%2520shampoo%2520and%2520conditioner%2520are%2520arranged%2520together%2520with%2520some%2520natural%2520ingredients%2520like%2520lavender%2520or%2520oatmeal%2520visible%2520nearby%2520to%2520suggest%2520the%2520formula.%2520The%2520background%2520is%2520a%2520clean%2520white%2520surface%2520with%2520professional%2520lighting%2520to%2520highlight%2520the%2520premium%2520nature%2520of%2520the%2520products.&width=400&height=300&seq=8&orientation=landscape" alt="Luxury Pet Shampoo Set" class="w-full h-full object-cover object-top">
+                        <div class="absolute top-3 right-3 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded">NEW</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex text-yellow-400 mb-1">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-line"></i>
+                            <span class="text-gray-500 text-sm ml-1">(64)</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-1">Organic Shampoo & Conditioner Set</h3>
+                        <p class="text-primary font-bold mb-2">$34.99</p>
+                        <p class="text-gray-600 text-sm mb-4">All-natural formula with oatmeal and aloe vera. Soothes sensitive skin and leaves coat shiny.</p>
+                        <button class="w-full bg-secondary text-white py-2 rounded-button font-medium hover:bg-orange-600 transition-colors whitespace-nowrap flex items-center justify-center">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1">
+                                <i class="ri-shopping-cart-line"></i>
+                            </div>
+                            <span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product Card 9 -->
+                <div class="product-card bg-white rounded-xl overflow-hidden shadow-sm">
+                    <div class="relative h-56">
+                        <img src="https://readdy.ai/api/search-image?query=Professional%2520pet%2520nail%2520clippers%2520with%2520safety%2520guard.%2520The%2520clippers%2520have%2520an%2520ergonomic%2520design%2520with%2520comfortable%2520handles%2520and%2520sharp%2520stainless%2520steel%2520blades.%2520They%2520feature%2520a%2520safety%2520stop%2520to%2520prevent%2520over-cutting.%2520The%2520clippers%2520are%2520photographed%2520on%2520a%2520clean%2520white%2520background%2520with%2520professional%2520lighting%2520to%2520show%2520their%2520details%2520and%2520quality.&width=400&height=300&seq=9&orientation=landscape" alt="Professional Nail Clippers" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-4">
+                        <div class="flex text-yellow-400 mb-1">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <span class="text-gray-500 text-sm ml-1">(118)</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-1">Professional Nail Clippers</h3>
+                        <p class="text-primary font-bold mb-2">$16.99</p>
+                        <p class="text-gray-600 text-sm mb-4">Precision trimming with safety guard to prevent over-cutting. Includes nail file in handle.</p>
+                        <button class="w-full bg-secondary text-white py-2 rounded-button font-medium hover:bg-orange-600 transition-colors whitespace-nowrap flex items-center justify-center">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1">
+                                <i class="ri-shopping-cart-line"></i>
+                            </div>
+                            <span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Pagination -->
+        <div class="flex justify-between items-center mt-12 bg-white p-4 rounded-xl shadow-sm">
+            <button class="flex items-center space-x-2 text-gray-600 hover:text-primary transition-colors whitespace-nowrap">
+                <div class="w-5 h-5 flex items-center justify-center">
+                    <i class="ri-arrow-left-s-line"></i>
+                </div>
+                <span>Previous</span>
+            </button>
+            
+            <div class="flex items-center space-x-2">
+                <button class="w-10 h-10 flex items-center justify-center bg-primary text-white rounded-full whitespace-nowrap">1</button>
+                <button class="w-10 h-10 flex items-center justify-center text-gray-600 hover:text-primary transition-colors whitespace-nowrap">2</button>
+                <button class="w-10 h-10 flex items-center justify-center text-gray-600 hover:text-primary transition-colors whitespace-nowrap">3</button>
+                <span class="text-gray-400">...</span>
+                <button class="w-10 h-10 flex items-center justify-center text-gray-600 hover:text-primary transition-colors whitespace-nowrap">12</button>
+            </div>
+            
+            <button class="flex items-center space-x-2 text-gray-600 hover:text-primary transition-colors whitespace-nowrap">
+                <span>Next</span>
+                <div class="w-5 h-5 flex items-center justify-center">
+                    <i class="ri-arrow-right-s-line"></i>
+                </div>
+            </button>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- Quick View Modal (Hidden by default) -->
+<div id="quickViewModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
+    <div class="bg-white rounded-xl p-6 max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+        <div class="flex justify-between items-start mb-4">
+            <h2 class="text-2xl font-bold text-gray-800">Premium Grain-Free Dog Food</h2>
+            <button id="closeModal" class="text-gray-400 hover:text-gray-600 transition-colors">
+                <div class="w-6 h-6 flex items-center justify-center">
+                    <i class="ri-close-line ri-lg"></i>
+                </div>
+            </button>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+                <img src="https://readdy.ai/api/search-image?query=Premium%2520dog%2520food%2520in%2520an%2520elegant%2520packaging%2520with%2520a%2520beautiful%2520golden%2520retriever%2520on%2520the%2520package.%2520The%2520dog%2520food%2520is%2520arranged%2520neatly%2520with%2520some%2520kibble%2520spilling%2520out%2520to%2520show%2520the%2520high-quality%2520ingredients.%2520The%2520background%2520is%2520a%2520clean%252C%2520minimal%2520white%2520surface%2520with%2520soft%2520shadows.%2520The%2520lighting%2520is%2520bright%2520and%2520professional%252C%2520highlighting%2520the%2520premium%2520nature%2520of%2520the%2520product.&width=600&height=500&seq=10&orientation=portrait" alt="Premium Dog Food" class="w-full h-auto rounded-xl">
+            </div>
+            
+            <div>
+                <div class="flex text-yellow-400 mb-2">
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-half-fill"></i>
+                    <span class="text-gray-500 text-sm ml-1">(128 reviews)</span>
+                </div>
+                
+                <p class="text-primary text-2xl font-bold mb-4">$49.99</p>
+                
+                <div class="mb-6">
+                    <h3 class="font-medium text-gray-800 mb-2">Description</h3>
+                    <p class="text-gray-600">Our Premium Grain-Free Dog Food is crafted with high-quality protein sources, including real meat as the first ingredient. This formula is designed to support your dog's overall health and wellbeing with essential nutrients, vitamins, and minerals.</p>
+                    <p class="text-gray-600 mt-2">Free from grains, artificial colors, flavors, and preservatives, this food is perfect for dogs with sensitivities or allergies. The balanced nutrition supports healthy digestion, a shiny coat, and sustained energy.</p>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="font-medium text-gray-800 mb-2">Size</h3>
+                    <div class="flex space-x-3">
+                        <button class="px-4 py-2 border border-gray-300 rounded-button text-gray-700 hover:border-primary hover:text-primary transition-colors whitespace-nowrap">4 lbs</button>
+                        <button class="px-4 py-2 border border-primary bg-primary bg-opacity-10 rounded-button text-primary whitespace-nowrap">15 lbs</button>
+                        <button class="px-4 py-2 border border-gray-300 rounded-button text-gray-700 hover:border-primary hover:text-primary transition-colors whitespace-nowrap">30 lbs</button>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="font-medium text-gray-800 mb-2">Quantity</h3>
+                    <div class="flex items-center">
+                        <button class="w-10 h-10 border border-gray-300 rounded-l-button flex items-center justify-center text-gray-600 hover:bg-gray-100 transition-colors whitespace-nowrap">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-subtract-line"></i>
+                            </div>
+                        </button>
+                        <input type="number" value="1" min="1" class="w-16 h-10 border-t border-b border-gray-300 text-center focus:outline-none">
+                        <button class="w-10 h-10 border border-gray-300 rounded-r-button flex items-center justify-center text-gray-600 hover:bg-gray-100 transition-colors whitespace-nowrap">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-add-line"></i>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="flex space-x-4">
+                    <button class="flex-1 bg-secondary text-white py-3 rounded-button font-medium hover:bg-orange-600 transition-colors whitespace-nowrap flex items-center justify-center">
+                        <div class="w-5 h-5 flex items-center justify-center mr-1">
+                            <i class="ri-shopping-cart-line"></i>
+                        </div>
+                        <span>Add to Cart</span>
+                    </button>
+                    <button class="w-12 h-12 border border-gray-300 rounded-button flex items-center justify-center text-gray-600 hover:text-primary hover:border-primary transition-colors whitespace-nowrap">
+                        <div class="w-6 h-6 flex items-center justify-center">
+                            <i class="ri-heart-line"></i>
+                        </div>
+                    </button>
+                </div>
+                
+                <div class="mt-6">
+                    <a href="https://readdy.ai/home/6713ffca-423d-4792-9f12-9c48f71172a9/434853e1-5c39-4bc8-98c6-ff068a465317" data-readdy="true" class="text-primary hover:underline">Back to Services Page</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-gray-800 text-white py-12">
+    <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+    <div>
+    <div class="flex items-center mb-4">
+    <div class="w-8 h-8 flex items-center justify-center text-primary mr-2">
+    <i class="ri-paw-print-fill ri-lg"></i>
+    </div>
+    <span class="font-['Pacifico'] text-2xl">Мягкая Лапка</span>
+    </div>
+    <p class="text-gray-400 mb-4">Предоставление исключительной ветеринарной помощи и услуг для домашних животных с тех пор, как 2010.</p>
+    <div class="flex space-x-4">
+    <a href="#" class="text-gray-400 hover:text-primary">
+    <div class="w-8 h-8 flex items-center justify-center">
+    <i class="ri-facebook-fill"></i>
+    </div>
+    </a>
+    <a href="#" class="text-gray-400 hover:text-primary">
+    <div class="w-8 h-8 flex items-center justify-center">
+    <i class="ri-instagram-line"></i>
+    </div>
+    </a>
+    <a href="#" class="text-gray-400 hover:text-primary">
+    <div class="w-8 h-8 flex items-center justify-center">
+    <i class="ri-twitter-x-line"></i>
+    </div>
+    </a>
+    </div>
+    </div>
+    <div>
+    <h4 class="text-lg font-semibold mb-4">Быстрые ссылки</h4>
+    <ul class="space-y-2">
+    <li><a href="./Home.html" data-readdy="true" class="text-gray-400 hover:text-primary">Home</a></li>
+    <li><a href="./About.html" class="text-gray-400 hover:text-primary">About Us</a></li>
+    <li><a href="./OurServices.html" class="text-gray-400 hover:text-primary">Services</a></li>
+    <li><a href="./Product.html" class="text-gray-400 hover:text-primary">Shop</a></li>
+    <li><a href="./PetCare.html" class="text-gray-400 hover:text-primary">Blog</a></li>
+    <li><a href="./ContactUs.html" class="text-gray-400 hover:text-primary">Contact</a></li>
+    </ul>
+    </div>
+    <div>
+    <h4 class="text-lg font-semibold mb-4">Услуги</h4>
+    <ul class="space-y-2">
+    <li><a href="./" class="text-gray-400 hover:text-primary">Ветеринарная помощь</a></li>
+    <li><a href="#" class="text-gray-400 hover:text-primary">Хирургия</a></li>
+    <li><a href="#" class="text-gray-400 hover:text-primary">Уход за зубами</a></li>
+    <li><a href="#" class="text-gray-400 hover:text-primary">Ухаживающий</a></li>
+    <li><a href="#" class="text-gray-400 hover:text-primary">Посадка</a></li>
+    <li><a href="#" class="text-gray-400 hover:text-primary">Неотложная медицинская помощь</a></li>
+    </ul>
+    </div>
+    <div>
+    <h4 class="text-lg font-semibold mb-4">Связаться с нами</h4>
+    <ul class="space-y-3">
+    <li class="flex items-start">
+    <div class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+    <i class="ri-map-pin-line"></i>
+    </div>
+    <span class="text-gray-400">12 Бульварное кольцо, Краснодар 350089</span>
+    </li>
+    <li class="flex items-center">
+    <div class="w-5 h-5 flex items-center justify-center mr-2">
+    <i class="ri-phone-line"></i>
+    </div>
+    <span class="text-gray-400">8 (988) 359-5866</span>
+    </li>
+    <li class="flex items-center">
+    <div class="w-5 h-5 flex items-center justify-center mr-2">
+    <i class="ri-mail-line"></i>
+    </div>
+    <span class="text-gray-400">skorpikloves@gmai.com</span>
+    </li>
+    <li class="flex items-center">
+    <div class="w-5 h-5 flex items-center justify-center mr-2">
+    <i class="ri-time-line"></i>
+    </div>
+    <span class="text-gray-400">Пн-Пт: С 8 утра до 19 вечера, Сб: с 9 утра до 17 вечера</span>
+    </li>
+    </ul>
+    <div class="mt-4">
+    <h5 class="font-medium mb-2">Подпишитесь на нашу рассылку новостей</h5>
+    <div class="flex">
+    <input type="email" placeholder="Ваша почта" class="px-4 py-2 bg-gray-700 text-white rounded-l-lg border-none focus:outline-none focus:ring-2 focus:ring-primary w-full">
+    <button class="px-4 py-2 bg-primary text-white rounded-r-lg whitespace-nowrap hover:bg-opacity-90 transition">Подписываться</button>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="pt-6 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center">
+    <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2025 GoLoSoK. Все права защищены.</p>
+    <div class="flex items-center space-x-4">
+    <div class="w-8 h-8 flex items-center justify-center text-gray-400">
+    <i class="ri-visa-line ri-lg"></i>
+    </div>
+    <div class="w-8 h-8 flex items-center justify-center text-gray-400">
+    <i class="ri-mastercard-line ri-lg"></i>
+    </div>
+    <div class="w-8 h-8 flex items-center justify-center text-gray-400">
+    <i class="ri-paypal-line ri-lg"></i>
+    </div>
+    <div class="w-8 h-8 flex items-center justify-center text-gray-400">
+    <i class="ri-apple-fill ri-lg"></i>
+    </div>
+    </div>
+    </div>
+    </div>
+    </footer>
+
+<script id="navigationScript">
+document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.querySelectorAll('nav a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            if (!this.getAttribute('data-readdy')) {
+                e.preventDefault();
+                navLinks.forEach(l => l.classList.remove('text-primary', 'font-medium'));
+                this.classList.add('text-primary', 'font-medium');
+            }
+        });
+    });
+});
+</script>
+
+<script id="filterScript">
+document.addEventListener('DOMContentLoaded', function() {
+    const priceSlider = document.querySelector('.price-range-slider');
+    const priceValue = document.getElementById('priceValue');
+    
+    if (priceSlider && priceValue) {
+        priceSlider.addEventListener('input', function() {
+            priceValue.textContent = '$' + this.value;
+        });
+    }
+    
+    const sortDropdown = document.getElementById('sortDropdown');
+    const customSelect = document.querySelector('.custom-select');
+    
+    if (sortDropdown && customSelect) {
+        sortDropdown.addEventListener('click', function() {
+            customSelect.classList.toggle('active');
+        });
+        
+        document.addEventListener('click', function(e) {
+            if (!customSelect.contains(e.target)) {
+                customSelect.classList.remove('active');
+            }
+        });
+        
+        const selectOptions = document.querySelectorAll('.custom-select-options button');
+        selectOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                sortDropdown.querySelector('span').textContent = 'Sort by: ' + this.textContent;
+                customSelect.classList.remove('active');
+            });
+        });
+    }
+});
+</script>
+
+<script id="productCardScript">
+document.addEventListener('DOMContentLoaded', function() {
+    const productCards = document.querySelectorAll('.product-card');
+    const quickViewModal = document.getElementById('quickViewModal');
+    const closeModal = document.getElementById('closeModal');
+    
+    if (productCards.length && quickViewModal && closeModal) {
+        productCards.forEach(card => {
+            card.addEventListener('click', function() {
+                quickViewModal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        
+        closeModal.addEventListener('click', function() {
+            quickViewModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+        
+        quickViewModal.addEventListener('click', function(e) {
+            if (e.target === quickViewModal) {
+                quickViewModal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    }
+    
+    const quantityBtns = document.querySelectorAll('input[type="number"]');
+    if (quantityBtns.length) {
+        quantityBtns.forEach(input => {
+            const decrementBtn = input.previousElementSibling;
+            const incrementBtn = input.nextElementSibling;
+            
+            if (decrementBtn && incrementBtn) {
+                decrementBtn.addEventListener('click', function() {
+                    if (input.value > 1) {
+                        input.value = parseInt(input.value) - 1;
+                    }
+                });
+                
+                incrementBtn.addEventListener('click', function() {
+                    input.value = parseInt(input.value) + 1;
+                });
+            }
+        });
+    }
+});
+</script>
+
+<script id="newsletterScript">
+document.addEventListener('DOMContentLoaded', function() {
+    const emailForm = document.querySelector('footer input[type="email"]').closest('div');
+    const submitButton = emailForm.querySelector('button');
+    
+    if (submitButton) {
+        submitButton.addEventListener('click', function() {
+            const emailInput = emailForm.querySelector('input[type="email"]');
+            if (emailInput.value.trim() === '') {
+                alert('Please enter your email address');
+            } else {
+                alert('Thank you for subscribing!');
+                emailInput.value = '';
+            }
+        });
+    }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Логин</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+input:focus {
+outline: none;
+}
+.carousel-container {
+position: relative;
+overflow: hidden;
+}
+.carousel-slide {
+display: none;
+width: 100%;
+height: 100%;
+}
+.carousel-slide.active {
+display: block;
+}
+.divider {
+display: flex;
+align-items: center;
+text-align: center;
+width: 100%;
+margin: 1.5rem 0;
+}
+.divider::before, .divider::after {
+content: '';
+flex: 1;
+border-bottom: 1px solid #e5e7eb;
+}
+.divider span {
+margin: 0 1rem;
+color: #6b7280;
+}
+</style>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#FF9F45',secondary:'#FFE4D6'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+</head>
+<body class="bg-white min-h-screen">
+<!-- Панель навигации -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
+<div class="container mx-auto px-4 py-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center">
+<a href="#" class="flex items-center">
+<div class="w-10 h-10 flex items-center justify-center mr-2">
+<i class="ri-footprint-fill text-black text-2xl"></i>
+</div>
+<span class="font-['Pacifico'] text-xl">Мягкая Лапка</span>
+</a>
+</div>
+<nav class="hidden md:flex items-center space-x-8">
+  <a href="./About.html" class="text-gray-800 hover:text-primary transition-colors">О нас</a>
+  <a href="./OurServices.html" class="text-gray-800 hover:text-primary transition-colors">Наши Услуги</a>
+  <a href="./Product.html" class="text-gray-800 hover:text-primary transition-colors">Товары</a>
+  <a href="./PetCare.html" class="text-gray-800 hover:text-primary transition-colors">Уход</a>
+  <a href="./ContactUs.html" class="text-gray-800 hover:text-primary transition-colors">Связаться с нами</a>
+</nav>
+<div class="flex items-center space-x-4">
+<a href="./Login.html" class="px-4 py-2 text-primary border border-primary !rounded-button hover:bg-primary/10 transition-colors whitespace-nowrap">Log In</a>
+<a href="./index.html" class="px-4 py-2 text-white bg-primary !rounded-button hover:bg-primary/90 transition-colors whitespace-nowrap">Book Now</a>
+</div>
+</div>
+</div>
+</header>
+<!-- Основной контент -->
+<main class="pt-16">
+<div class="flex flex-col md:flex-row h-[calc(100vh-4rem)] min-h-[600px]">
+<!-- Форма входа -->
+<div class="w-full md:w-1/2 bg-[#FFE4D6] p-8 md:p-16 flex flex-col justify-center">
+<div class="max-w-md mx-auto w-full">
+<h1 class="text-5xl font-bold mb-2 text-gray-900">Привет!</h1>
+<p class="text-lg text-gray-700 mb-8">Добро пожаловать в Мягкую Лапку</p>
+<button id="googleLoginBtn" class="w-full flex items-center justify-center gap-2 border border-gray-300 bg-white py-3 px-4 !rounded-button mb-6 hover:bg-gray-50 transition-colors whitespace-nowrap">
+<svg width="20" height="20" viewBox="0 0 24 24">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+</svg>
+<span>Войдите в систему с помощью Google</span>
+<div class="loading-spinner hidden ml-2">
+<i class="ri-loader-4-line animate-spin"></i>
+</div>
+</button>
+<div class="divider">
+<span>or</span>
+</div>
+<form>
+<div class="mb-4">
+<input type="email" placeholder="Your Email" class="w-full px-4 py-3 bg-white border border-gray-300 !rounded-button focus:border-primary transition-colors" required>
+</div>
+<div class="mb-2">
+<input type="password" placeholder="Password" class="w-full px-4 py-3 bg-white border border-gray-300 !rounded-button focus:border-primary transition-colors" required>
+</div>
+<div class="mb-6 text-right">
+<a href="#" class="text-blue-500 hover:underline text-sm">Забыли пароль?</a>
+</div>
+<button type="submit" class="w-full bg-black text-white py-3 !rounded-button hover:bg-gray-800 transition-colors whitespace-nowrap">Войти</button>
+</form>
+<p class="mt-6 text-center text-gray-700">
+  У вас нет учетной записи? <a href="./Register.html" data-readdy="true" class="text-blue-500 hover:underline">Подписывать</a>
+</p>
+</div>
+</div>
+<!-- Карусель изображений -->
+<div class="w-full md:w-1/2 relative carousel-container">
+<div class="carousel-slide active h-full">
+<div class="h-full w-full bg-cover bg-center" style="background-image: url('https://readdy.ai/api/search-image?query=A%20happy%20golden%20retriever%20puppy%20sitting%20in%20a%20car%20seat%2C%20drinking%20from%20a%20McDonald%2527s%20cup.%20The%20puppy%20has%20a%20joyful%20expression%20with%20tongue%20out%2C%20bright%20eyes%2C%20and%20soft%20golden%20fur.%20The%20background%20shows%20car%20interior%20with%20gray%20seats.%20The%20image%20has%20natural%20lighting%2C%20clear%20focus%20on%20the%20puppy%2527s%20face%2C%20and%20warm%20tones.&width=800&height=1000&seq=1&orientation=portrait')"></div>
+</div>
+<div class="carousel-slide h-full">
+<div class="h-full w-full bg-cover bg-center" style="background-image: url('https://readdy.ai/api/search-image?query=A%20fluffy%20cat%20relaxing%20on%20a%20comfortable%20pet%20bed%2C%20with%20soft%20lighting%20and%20a%20cozy%20home%20environment.%20The%20cat%20has%20beautiful%20fur%20and%20peaceful%20expression.%20The%20background%20is%20simple%20and%20clean%2C%20with%20neutral%20colors.%20The%20image%20has%20warm%20tones%20and%20soft%20focus%20to%20create%20a%20sense%20of%20comfort%20and%20tranquility.&width=800&height=1000&seq=2&orientation=portrait')"></div>
+</div>
+<div class="carousel-slide h-full">
+<div class="h-full w-full bg-cover bg-center" style="background-image: url('https://readdy.ai/api/search-image?query=A%20professional%20pet%20groomer%20gently%20brushing%20a%20small%20dog%20in%20a%20modern%20pet%20salon.%20The%20groomer%20wears%20a%20professional%20uniform%20and%20has%20a%20caring%20expression.%20The%20dog%20looks%20calm%20and%20well-groomed.%20The%20background%20shows%20a%20clean%2C%20well-lit%20pet%20grooming%20facility%20with%20professional%20equipment.%20The%20image%20has%20bright%2C%20clear%20lighting%20and%20focuses%20on%20the%20bond%20between%20groomer%20and%20pet.&width=800&height=1000&seq=3&orientation=portrait')"></div>
+</div>
+<!-- Карусельная навигация -->
+<button class="absolute left-4 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center z-10 opacity-80 hover:opacity-100 transition-opacity" id="prevBtn">
+<i class="ri-arrow-left-s-line text-xl"></i>
+</button>
+<button class="absolute right-4 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center z-10 opacity-80 hover:opacity-100 transition-opacity" id="nextBtn">
+<i class="ri-arrow-right-s-line text-xl"></i>
+</button>
+</div>
+</div>
+</main>
+<script id="carousel-script">
+document.addEventListener('DOMContentLoaded', function() {
+const slides = document.querySelectorAll('.carousel-slide');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+let currentIndex = 0;
+function showSlide(index) {
+slides.forEach(slide => slide.classList.remove('active'));
+slides[index].classList.add('active');
+}
+function nextSlide() {
+currentIndex = (currentIndex + 1) % slides.length;
+showSlide(currentIndex);
+}
+function prevSlide() {
+currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+showSlide(currentIndex);
+}
+// Настройка прослушивателей событий
+nextBtn.addEventListener('click', nextSlide);
+prevBtn.addEventListener('click', prevSlide);
+// Карусель автоматически перемещается вперед каждые 5 секунд
+setInterval(nextSlide, 5000);
+});
+</script>
+<script id="google-auth-script">
+document.addEventListener('DOMContentLoaded', function() {
+  const googleLoginBtn = document.getElementById('googleLoginBtn');
+  const loadingSpinner = googleLoginBtn.querySelector('.loading-spinner');
+  const buttonText = googleLoginBtn.querySelector('span');
+  googleLoginBtn.addEventListener('click', function() {
+    loadingSpinner.classList.remove('hidden');
+    buttonText.textContent = 'Connecting to Google...';
+    googleLoginBtn.disabled = true;
+    googleLoginBtn.classList.add('opacity-75');
+    const clientId = 'your-google-client-id';
+    const redirectUri = encodeURIComponent(window.location.origin + '/auth/google/callback');
+    const scope = encodeURIComponent('email profile');
+    const responseType = 'code';
+    const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=${responseType}&scope=${scope}`;
+    setTimeout(() => {
+      window.location.href = authUrl;
+    }, 1000);
+  });
+});
+</script>
+</body>
+</html>

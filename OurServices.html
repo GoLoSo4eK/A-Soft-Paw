@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Услуги</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#6366f1',secondary:'#f97316'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-bg {
+            background-color: #6366f1;
+            position: relative;
+        }
+        .hero-bg::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-image: url('https://readdy.ai/api/search-image?query=Cute%20dog%20silhouettes%20in%20blue%20color%20with%20red%20outline%20on%20a%20purple%20background%2C%20showing%20side%20and%20top%20views%20of%20a%20dog.%20The%20image%20has%20a%20clean%2C%20modern%2C%20minimalist%20design%20with%20some%20decorative%20paw%20prints%20scattered%20around.%20The%20background%20is%20a%20soft%20purple-blue%20gradient.&width=800&height=400&seq=1&orientation=landscape');
+            background-position: right center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            opacity: 0.9;
+            z-index: 0;
+        }
+        .service-card {
+            background-color: #6366f1;
+            transition: transform 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        .custom-checkbox {
+            position: relative;
+            padding-left: 30px;
+            cursor: pointer;
+        }
+        .custom-checkbox input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 20px;
+            width: 20px;
+            background-color: #fff;
+            border: 2px solid #6366f1;
+            border-radius: 4px;
+        }
+        .custom-checkbox input:checked ~ .checkmark {
+            background-color: #6366f1;
+        }
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+        .custom-checkbox input:checked ~ .checkmark:after {
+            display: block;
+        }
+        .custom-checkbox .checkmark:after {
+            left: 6px;
+            top: 2px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3">
+        <div class="flex items-center justify-between">
+        <div class="flex items-center">
+        <a href="#" class="flex items-center">
+        <div class="w-10 h-10 flex items-center justify-center mr-2">
+        <i class="ri-footprint-fill text-black text-2xl"></i>
+        </div>
+        <span class="font-['Pacifico'] text-xl">Мягкая Лапка</span>
+        </a>
+        </div>
+        <nav class="hidden md:flex items-center space-x-8">
+            <a href="./About.html" class="text-gray-800 hover:text-primary transition-colors">О нас</a>
+            <a href="./OurServices.html" class="text-gray-800 hover:text-primary transition-colors">Наши Услуги</a>
+            <a href="./Product.html" class="text-gray-800 hover:text-primary transition-colors">Товары</a>
+            <a href="./PetCare.html" class="text-gray-800 hover:text-primary transition-colors">Уход</a>
+            <a href="./ContactUs.html" class="text-gray-800 hover:text-primary transition-colors">Связаться с нами</a>
+        </nav>
+        <div class="flex items-center space-x-4">
+        <a href="./Login.html" class="px-4 py-2 text-primary border border-primary !rounded-button hover:bg-primary/10 transition-colors whitespace-nowrap">Войти</a>
+        <a href="./index.html" class="px-4 py-2 text-white bg-primary !rounded-button hover:bg-primary/90 transition-colors whitespace-nowrap">Забронировать</a>
+        </div>
+        </div>
+        </div>
+        </header>
+
+    <!-- Раздел о героях -->
+    <section class="container mx-auto px-4 py-8">
+        <div class="hero-bg rounded-3xl overflow-hidden relative">
+            <div class="relative z-10 p-8 md:p-12 max-w-lg">
+                <h1 class="text-3xl md:text-4xl font-bold text-white mb-6">Оцените состояние организма Вашей Собаки</h1>
+                <button class="bg-white text-gray-800 px-6 py-3 rounded-full font-medium flex items-center space-x-2 hover:bg-gray-100 transition-colors whitespace-nowrap">
+                    <span>Explore it</span>
+                    <div class="w-5 h-5 flex items-center justify-center">
+                        <i class="ri-arrow-right-line"></i>
+                    </div>
+                </button>
+            </div>
+            <div class="absolute bottom-4 right-4 z-10">
+                <div class="w-8 h-8 flex items-center justify-center">
+                    <i class="ri-footprint-fill text-white opacity-70"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Раздел услуг -->
+    <section class="container mx-auto px-4 py-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Медицинская карточка -->
+            <div class="service-card rounded-3xl overflow-hidden col-span-1 md:col-span-2 lg:col-span-1">
+                <div class="p-8 text-white">
+                    <h2 class="text-2xl font-bold mb-4">Здравоохранение</h2>
+                    <p class="mb-4">Точная диагностика заболеваний животных:</p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-start">
+                            <span class="mr-2">•</span>
+                            <span>Проверки работоспособности</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-2">•</span>
+                            <span>Полный анализ крови и мочи</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-2">•</span>
+                            <span>Биохимический анализ крови</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-2">•</span>
+                            <span>Ультразвуковое исследование и цифровая радиология (Рентген)</span>
+                        </li>
+                    </ul>
+                    <div class="flex justify-end">
+                        <button class="bg-white text-gray-800 w-10 h-10 rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors whitespace-nowrap">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-arrow-right-line"></i>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+                <div class="relative h-48 overflow-hidden">
+                    <img src="https://readdy.ai/api/search-image?query=A%20professional%20veterinarian%20in%20a%20white%20coat%20examining%20a%20small%20dog%20or%20puppy%20in%20a%20modern%20veterinary%20clinic.%20The%20image%20shows%20a%20caring%20and%20gentle%20approach%20to%20animal%20healthcare.%20The%20veterinarian%20is%20using%20a%20stethoscope%20to%20check%20the%20dogs%20health.%20The%20clinic%20has%20clean%2C%20modern%20medical%20equipment%20in%20the%20background.&width=400&height=300&seq=2&orientation=landscape" alt="Veterinarian examining a pet" class="w-full h-full object-cover object-top">
+                </div>
+            </div>
+
+            <!-- Предварительный просмотр видео 1 -->
+            <div class="rounded-3xl overflow-hidden">
+                <div class="relative h-full">
+                    <img src="https://readdy.ai/api/search-image?query=Close-up%20of%20a%20veterinarians%20hands%20gently%20examining%20an%20orange%20tabby%20cat.%20The%20veterinarian%20is%20wearing%20medical%20gloves%20and%20the%20cat%20appears%20calm%20and%20comfortable.%20The%20image%20shows%20a%20professional%20pet%20examination%20in%20a%20clean%2C%20modern%20veterinary%20clinic%20with%20soft%20lighting%20and%20medical%20equipment%20visible%20in%20the%20background.&width=400&height=300&seq=3&orientation=landscape" alt="Cat examination" class="w-full h-full object-cover object-top">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <button class="bg-white bg-opacity-80 w-16 h-16 rounded-full flex items-center justify-center hover:bg-opacity-100 transition-opacity whitespace-nowrap">
+                            <div class="w-8 h-8 flex items-center justify-center">
+                                <i class="ri-play-fill ri-2x text-primary"></i>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Консультационная карточка -->
+            <div class="service-card rounded-3xl overflow-hidden row-span-2">
+                <div class="relative h-3/5">
+                    <img src="https://readdy.ai/api/search-image?query=A%20professional%20veterinarian%20in%20a%20white%20coat%20with%20a%20stethoscope%20smiling%20while%20holding%20a%20happy%20golden%20retriever%20dog.%20The%20image%20shows%20a%20warm%2C%20caring%20relationship%20between%20the%20vet%20and%20the%20animal%20in%20a%20bright%2C%20clean%20veterinary%20clinic.%20The%20dog%20looks%20healthy%20and%20content%2C%20and%20the%20veterinarian%20appears%20confident%20and%20professional.&width=400&height=500&seq=4&orientation=portrait" alt="Veterinarian with dog" class="w-full h-full object-cover object-top">
+                </div>
+                <div class="p-8 text-white">
+                    <h2 class="text-2xl font-bold mb-4">Консультирование</h2>
+                    <p class="mb-6">услуги, связанные с уходом за животными</p>
+                    <div class="flex justify-end">
+                        <button class="bg-white text-gray-800 w-10 h-10 rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors whitespace-nowrap">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-arrow-right-line"></i>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Карточка детского сада -->
+            <div class="service-card rounded-3xl overflow-hidden col-span-1 md:col-span-1 lg:col-span-1">
+                <div class="p-8 text-white">
+                    <h2 class="text-2xl font-bold mb-4">Дневной уход</h2>
+                    <p class="mb-4">Услуги по уходу за животными:</p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-start">
+                            <span class="mr-2">•</span>
+                            <span>Пассивная иммунизация сывороткой</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-2">•</span>
+                            <span>Микро- и макронаполняющая терапия</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-2">•</span>
+                            <span>Переливание крови</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-2">•</span>
+                            <span>Диетология</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-2">•</span>
+                            <span>Срочная помощь</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-2">•</span>
+                            <span>Восстановление и ежедневный уход</span>
+                        </li>
+                    </ul>
+                    <div class="flex justify-end">
+                        <button class="bg-white text-gray-800 w-10 h-10 rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors whitespace-nowrap">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-arrow-right-line"></i>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+                <div class="relative h-48 overflow-hidden">
+                    <img src="https://readdy.ai/api/search-image?query=A%20caring%20veterinarian%20in%20a%20white%20coat%20holding%20a%20small%20white%20puppy.%20The%20veterinarian%20is%20smiling%20gently%20while%20examining%20the%20puppy%2C%20which%20looks%20comfortable%20and%20calm.%20The%20setting%20is%20a%20clean%2C%20modern%20veterinary%20clinic%20with%20medical%20equipment%20visible%20in%20the%20background.%20The%20image%20conveys%20professionalism%2C%20care%2C%20and%20a%20gentle%20approach%20to%20animal%20healthcare.&width=400&height=300&seq=5&orientation=landscape" alt="Veterinarian with puppy" class="w-full h-full object-cover object-top">
+                </div>
+            </div>
+
+            <!-- Предварительный просмотр видео 2 -->
+            <div class="rounded-3xl overflow-hidden">
+                <div class="relative h-full">
+                    <img src="https://readdy.ai/api/search-image?query=Close-up%20of%20a%20veterinary%20surgery%20procedure%20being%20performed%20on%20a%20cat.%20The%20image%20shows%20gloved%20hands%20of%20a%20surgeon%20working%20carefully%20with%20surgical%20instruments.%20The%20cat%20is%20properly%20prepared%20for%20surgery%20on%20a%20surgical%20table%20with%20sterile%20drapes.%20The%20setting%20is%20a%20professional%20veterinary%20operating%20room%20with%20surgical%20lighting%20and%20equipment%20visible%20in%20the%20background.&width=400&height=300&seq=6&orientation=landscape" alt="Pet surgery" class="w-full h-full object-cover object-top">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <button class="bg-white bg-opacity-80 w-16 h-16 rounded-full flex items-center justify-center hover:bg-opacity-100 transition-opacity whitespace-nowrap">
+                            <div class="w-8 h-8 flex items-center justify-center">
+                                <i class="ri-play-fill ri-2x text-primary"></i>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция ухода за лошадьми -->
+    <section class="container mx-auto px-4 py-8">
+        <div class="bg-primary rounded-3xl overflow-hidden relative">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-8 md:p-12">
+                <div class="text-white relative z-10">
+                    <h2 class="text-3xl font-bold mb-6">Ухаживающий</h2>
+                    <div class="grid grid-cols-2 gap-x-8 gap-y-4 mb-8">
+                        <div>
+                            <ul class="space-y-2">
+                                <li class="flex items-center">
+                                    <span class="mr-2">•</span>
+                                    <span>Очистка щеткой</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="mr-2">•</span>
+                                    <span>Стрижка ногтей</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="mr-2">•</span>
+                                    <span>Сушка</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul class="space-y-2">
+                                <li class="flex items-center">
+                                    <span class="mr-2">•</span>
+                                    <span>Чистка ушей</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="mr-2">•</span>
+                                    <span>Отделка шерсти</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="mr-2">•</span>
+                                    <span>Купание</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <button class="bg-white text-gray-800 px-6 py-3 rounded-full font-medium flex items-center space-x-2 hover:bg-gray-100 transition-colors whitespace-nowrap">
+                        <span>Больше</span>
+                        <div class="w-5 h-5 flex items-center justify-center">
+                            <i class="ri-arrow-right-line"></i>
+                        </div>
+                    </button>
+                    <div class="absolute top-0 right-0 z-0">
+                        <div class="w-8 h-8 flex items-center justify-center">
+                            <i class="ri-footprint-fill text-white opacity-30"></i>
+                        </div>
+                    </div>
+                    <div class="absolute bottom-12 left-0 z-0">
+                        <div class="w-8 h-8 flex items-center justify-center">
+                            <i class="ri-footprint-fill text-white opacity-30"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="https://readdy.ai/api/search-image?query=A%20professional%20pet%20grooming%20scene%20showing%20various%20pets%20%28dogs%20and%20cats%29%20being%20groomed.%20The%20image%20shows%20different%20grooming%20tools%20like%20brushes%2C%20clippers%2C%20and%20scissors%20being%20used%20by%20professional%20groomers.%20The%20pets%20look%20clean%20and%20well-cared%20for%2C%20with%20some%20wearing%20cute%20grooming%20aprons.%20The%20setting%20is%20a%20bright%2C%20modern%20pet%20salon%20with%20professional%20grooming%20equipment.&width=600&height=400&seq=7&orientation=landscape" alt="Pet grooming" class="w-full h-full object-cover object-top rounded-xl">
+                </div>
+            </div>
+            <div class="absolute bottom-4 right-4">
+                <div class="w-8 h-8 flex items-center justify-center">
+                    <i class="ri-footprint-fill text-white opacity-30"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Пагинация -->
+    <div class="container mx-auto px-4 py-8 flex justify-center">
+        <div class="flex items-center space-x-4">
+            <button class="w-10 h-10 rounded-full flex items-center justify-center text-gray-400 hover:text-primary transition-colors whitespace-nowrap">
+                <div class="w-5 h-5 flex items-center justify-center">
+                    <i class="ri-arrow-left-line"></i>
+                </div>
+            </button>
+            <button class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center whitespace-nowrap">1</button>
+            <button class="w-10 h-10 rounded-full flex items-center justify-center text-gray-400 hover:text-primary transition-colors whitespace-nowrap">
+                <div class="w-5 h-5 flex items-center justify-center">
+                    <i class="ri-arrow-right-line"></i>
+                </div>
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div>
+        <div class="flex items-center mb-4">
+        <div class="w-8 h-8 flex items-center justify-center text-primary mr-2">
+        <i class="ri-paw-print-fill ri-lg"></i>
+        </div>
+        <span class="font-['Pacifico'] text-2xl">Мягкая Лапка</span>
+        </div>
+        <p class="text-gray-400 mb-4">Предоставление исключительной ветеринарной помощи и услуг для домашних животных с тех пор, как 2010.</p>
+        <div class="flex space-x-4">
+        <a href="#" class="text-gray-400 hover:text-primary">
+        <div class="w-8 h-8 flex items-center justify-center">
+        <i class="ri-facebook-fill"></i>
+        </div>
+        </a>
+        <a href="#" class="text-gray-400 hover:text-primary">
+        <div class="w-8 h-8 flex items-center justify-center">
+        <i class="ri-instagram-line"></i>
+        </div>
+        </a>
+        <a href="#" class="text-gray-400 hover:text-primary">
+        <div class="w-8 h-8 flex items-center justify-center">
+        <i class="ri-twitter-x-line"></i>
+        </div>
+        </a>
+        </div>
+        </div>
+        <div>
+        <h4 class="text-lg font-semibold mb-4">Быстрые ссылки</h4>
+        <ul class="space-y-2">
+        <li><a href="./Home.html" data-readdy="true" class="text-gray-400 hover:text-primary">Главная</a></li>
+        <li><a href="./About.html" class="text-gray-400 hover:text-primary">О нас</a></li>
+        <li><a href="./OurServices.html" class="text-gray-400 hover:text-primary">Услуги</a></li>
+        <li><a href="./Product.html" class="text-gray-400 hover:text-primary">Магазин</a></li>
+        <li><a href="./PetCare.html" class="text-gray-400 hover:text-primary">Уход</a></li>
+        <li><a href="./ContactUs.html" class="text-gray-400 hover:text-primary">Связаться с нами</a></li>
+        </ul>
+        </div>
+        <div>
+        <h4 class="text-lg font-semibold mb-4">Услуги</h4>
+        <ul class="space-y-2">
+        <li><a href="./" class="text-gray-400 hover:text-primary">Ветеринарная помощь</a></li>
+        <li><a href="#" class="text-gray-400 hover:text-primary">Хирургия</a></li>
+        <li><a href="#" class="text-gray-400 hover:text-primary">Уход за зубами</a></li>
+        <li><a href="#" class="text-gray-400 hover:text-primary">Ухаживающий</a></li>
+        <li><a href="#" class="text-gray-400 hover:text-primary">Посадка</a></li>
+        <li><a href="#" class="text-gray-400 hover:text-primary">Неотложная медицинская помощь</a></li>
+        </ul>
+        </div>
+        <div>
+        <h4 class="text-lg font-semibold mb-4">Связаться с нами</h4>
+        <ul class="space-y-3">
+        <li class="flex items-start">
+        <div class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+        <i class="ri-map-pin-line"></i>
+        </div>
+        <span class="text-gray-400">12 Бульварное кольцо, Краснодар 350089</span>
+        </li>
+        <li class="flex items-center">
+        <div class="w-5 h-5 flex items-center justify-center mr-2">
+        <i class="ri-phone-line"></i>
+        </div>
+        <span class="text-gray-400">8 (988) 359-5866</span>
+        </li>
+        <li class="flex items-center">
+        <div class="w-5 h-5 flex items-center justify-center mr-2">
+        <i class="ri-mail-line"></i>
+        </div>
+        <span class="text-gray-400">skorpikloves@gmai.com</span>
+        </li>
+        <li class="flex items-center">
+        <div class="w-5 h-5 flex items-center justify-center mr-2">
+        <i class="ri-time-line"></i>
+        </div>
+        <span class="text-gray-400">Пн-Пт: С 8 утра до 19 вечера, Сб: с 9 утра до 17 вечера</span>
+        </li>
+        </ul>
+        <div class="mt-4">
+        <h5 class="font-medium mb-2">Подпишитесь на нашу рассылку новостей</h5>
+        <div class="flex">
+        <input type="email" placeholder="Ваша почта" class="px-4 py-2 bg-gray-700 text-white rounded-l-lg border-none focus:outline-none focus:ring-2 focus:ring-primary w-full">
+        <button class="px-4 py-2 bg-primary text-white rounded-r-lg whitespace-nowrap hover:bg-opacity-90 transition">Подписываться</button>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div class="pt-6 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-400 text-sm mb-4 md:mb-0">© 2025 GoLoSoK. Все права защищены.</p>
+        <div class="flex items-center space-x-4">
+        <div class="w-8 h-8 flex items-center justify-center text-gray-400">
+        <i class="ri-visa-line ri-lg"></i>
+        </div>
+        <div class="w-8 h-8 flex items-center justify-center text-gray-400">
+        <i class="ri-mastercard-line ri-lg"></i>
+        </div>
+        <div class="w-8 h-8 flex items-center justify-center text-gray-400">
+        <i class="ri-paypal-line ri-lg"></i>
+        </div>
+        <div class="w-8 h-8 flex items-center justify-center text-gray-400">
+        <i class="ri-apple-fill ri-lg"></i>
+        </div>
+        </div>
+        </div>
+        </div>
+        </footer>
+
+    <script id="navigationScript">
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('nav a');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    navLinks.forEach(l => l.classList.remove('text-primary', 'font-medium'));
+                    this.classList.add('text-primary', 'font-medium');
+                });
+            });
+        });
+    </script>
+    <script id="videoPlayerScript">
+        document.addEventListener('DOMContentLoaded', function() {
+            const playButtons = document.querySelectorAll('.ri-play-fill');
+            
+            playButtons.forEach(button => {
+                button.closest('button').addEventListener('click', function() {
+                    alert('Video playback would start here');
+                });
+            });
+        });
+    </script>
+
+    <script id="paginationScript">
+        document.addEventListener('DOMContentLoaded', function() {
+            const paginationButtons = document.querySelectorAll('.pagination button');
+            
+            paginationButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    alert('Navigation to page ' + this.textContent.trim());
+                });
+            });
+        });
+    </script>
+
+    <script id="newsletterScript">
+        document.addEventListener('DOMContentLoaded', function() {
+            const emailForm = document.querySelector('footer input[type="email"]').closest('div');
+            const submitButton = emailForm.querySelector('button');
+            
+            submitButton.addEventListener('click', function() {
+                const emailInput = emailForm.querySelector('input[type="email"]');
+                if (emailInput.value.trim() === '') {
+                    alert('Please enter your email address');
+                } else {
+                    alert('Thank you for subscribing!');
+                    emailInput.value = '';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

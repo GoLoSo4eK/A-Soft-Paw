@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        input:focus {
+            outline: none;
+        }
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+        }
+        .carousel-slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+        }
+        .carousel-slide.active {
+            display: block;
+        }
+        .divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+            margin: 1.5rem 0;
+        }
+        .divider::before, .divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .divider span {
+            margin: 0 1rem;
+            color: #6b7280;
+        }
+        .checkbox-container {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+        .custom-checkbox {
+            position: relative;
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            flex-shrink: 0;
+            cursor: pointer;
+        }
+        .custom-checkbox.checked {
+            background-color: #FF9F45;
+            border-color: #FF9F45;
+        }
+        .custom-checkbox.checked::after {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: 2px;
+            width: 6px;
+            height: 12px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+        .custom-select {
+            position: relative;
+            width: 100%;
+        }
+        .select-selected {
+            width: 100%;
+            padding: 12px 16px;
+            background-color: white;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .select-items {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            z-index: 99;
+            background-color: white;
+            border: 1px solid #d1d5db;
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+            max-height: 200px;
+            overflow-y: auto;
+            display: none;
+        }
+        .select-item {
+            padding: 12px 16px;
+            cursor: pointer;
+        }
+        .select-item:hover {
+            background-color: #f3f4f6;
+        }
+        .select-open .select-items {
+            display: block;
+        }
+    </style>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#FF9F45',secondary:'#FFE4D6'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+</head>
+<body class="bg-white min-h-screen">
+    <!-- Панель навигации -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3">
+        <div class="flex items-center justify-between">
+        <div class="flex items-center">
+        <a href="#" class="flex items-center">
+        <div class="w-10 h-10 flex items-center justify-center mr-2">
+        <i class="ri-footprint-fill text-black text-2xl"></i>
+        </div>
+        <span class="font-['Pacifico'] text-xl">Мягкая Лапка</span>
+        </a>
+        </div>
+        <nav class="hidden md:flex items-center space-x-8">
+            <a href="./About.html" class="text-gray-800 hover:text-primary transition-colors">О нас</a>
+            <a href="./OurServices.html" class="text-gray-800 hover:text-primary transition-colors">Наши Услуги</a>
+            <a href="./Product.html" class="text-gray-800 hover:text-primary transition-colors">Товары</a>
+            <a href="./PetCare.html" class="text-gray-800 hover:text-primary transition-colors">Уход</a>
+            <a href="./ContactUs.html" class="text-gray-800 hover:text-primary transition-colors">Связаться с нами</a>
+        </nav>
+        <div class="flex items-center space-x-4">
+        <a href="./Login.html" class="px-4 py-2 text-primary border border-primary !rounded-button hover:bg-primary/10 transition-colors whitespace-nowrap">Log In</a>
+        <a href="./index.html" class="px-4 py-2 text-white bg-primary !rounded-button hover:bg-primary/90 transition-colors whitespace-nowrap">Book Now</a>
+        </div>
+        </div>
+        </div>
+        </header>
+
+    <!-- Основной контент -->
+    <main class="pt-16">
+        <div class="flex flex-col md:flex-row h-[calc(100vh-4rem)] min-h-[600px]">
+            <!-- Регистрационная форма -->
+            <div class="w-full md:w-1/2 bg-[#FFE4D6] p-8 md:p-16 flex flex-col justify-center">
+                <div class="max-w-md mx-auto w-full">
+                    <h1 class="text-5xl font-bold mb-2 text-gray-900">Создать аккаунт</h1>
+                    <p class="text-lg text-gray-700 mb-8">Присоединяйтесь к Мягкой Лапке уже сегодня</p>
+                    
+                    <button class="w-full flex items-center justify-center gap-2 border border-gray-300 bg-white py-3 px-4 !rounded-button mb-6 hover:bg-gray-50 transition-colors whitespace-nowrap">
+                        <svg width="20" height="20" viewBox="0 0 24 24">
+                            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                        </svg>
+                        Зарегистрируйтесь в Google
+                    </button>
+                    
+                    <div class="divider">
+                        <span>or</span>
+                    </div>
+                    
+                    <form>
+                        <div class="mb-4">
+                            <input type="text" placeholder="Полное имя" class="w-full px-4 py-3 bg-white border border-gray-300 !rounded-button focus:border-primary transition-colors" required>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <input type="email" placeholder="Почта" class="w-full px-4 py-3 bg-white border border-gray-300 !rounded-button focus:border-primary transition-colors" required>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <input type="password" placeholder="Пароль" class="w-full px-4 py-3 bg-white border border-gray-300 !rounded-button focus:border-primary transition-colors" required>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <input type="password" placeholder="Повторить пароль" class="w-full px-4 py-3 bg-white border border-gray-300 !rounded-button focus:border-primary transition-colors" required>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="custom-select" id="petSelect">
+                                <div class="select-selected">
+                                    <span>Информация о домашнем животном (необязательно)</span>
+                                    <i class="ri-arrow-down-s-line"></i>
+                                </div>
+                                <div class="select-items">
+                                    <div class="select-item" data-value="dog">Собака</div>
+                                    <div class="select-item" data-value="cat">Кошка</div>
+                                    <div class="select-item" data-value="bird">Птица</div>
+                                    <div class="select-item" data-value="fish">Рыба</div>
+                                    <div class="select-item" data-value="other">Другие</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="checkbox-container mb-6">
+                            <div class="custom-checkbox" id="termsCheckbox"></div>
+                            <label class="text-sm text-gray-700">
+                                Я согласен с этим <a href="#" class="text-blue-500 hover:underline">Условия обслуживания</a>
+                                и <a href="#" class="text-blue-500 hover:underline">Политика конфиденциальности</a>
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-black text-white py-3 !rounded-button hover:bg-gray-800 transition-colors whitespace-nowrap">Зарегистрироваться</button>
+                    </form>
+                    
+                    <p class="mt-6 text-center text-gray-700">
+                        У вас уже есть учетная запись? <a href="./Login.html" data-readdy="true" class="text-blue-500 hover:underline">Войти</a>
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Карусель изображений -->
+            <div class="w-full md:w-1/2 relative carousel-container">
+                <div class="carousel-slide active h-full">
+                    <div class="h-full w-full bg-cover bg-center" style="background-image: url('https://readdy.ai/api/search-image?query=A%2520happy%2520golden%2520retriever%2520puppy%2520sitting%2520in%2520a%2520car%2520seat%252C%2520drinking%2520from%2520a%2520McDonald%252527s%2520cup.%2520The%2520puppy%2520has%2520a%2520joyful%2520expression%2520with%2520tongue%2520out%252C%2520bright%2520eyes%252C%2520and%2520soft%2520golden%2520fur.%2520The%2520background%2520shows%2520car%2520interior%2520with%2520gray%2520seats.%2520The%2520image%2520has%2520natural%2520lighting%252C%2520clear%2520focus%2520on%2520the%2520puppy%252527s%2520face%252C%2520and%2520warm%2520tones.&width=800&height=1000&seq=1&orientation=portrait')"></div>
+                </div>
+                <div class="carousel-slide h-full">
+                    <div class="h-full w-full bg-cover bg-center" style="background-image: url('https://readdy.ai/api/search-image?query=A%2520fluffy%2520cat%2520relaxing%2520on%2520a%2520comfortable%2520pet%2520bed%252C%2520with%2520soft%2520lighting%2520and%2520a%2520cozy%2520home%2520environment.%2520The%2520cat%2520has%2520beautiful%2520fur%2520and%2520peaceful%2520expression.%2520The%2520background%2520is%2520simple%2520and%2520clean%252C%2520with%2520neutral%2520colors.%2520The%2520image%2520has%2520warm%2520tones%2520and%2520soft%2520focus%2520to%2520create%2520a%2520sense%2520of%2520comfort%2520and%2520tranquility.&width=800&height=1000&seq=2&orientation=portrait')"></div>
+                </div>
+                <div class="carousel-slide h-full">
+                    <div class="h-full w-full bg-cover bg-center" style="background-image: url('https://readdy.ai/api/search-image?query=A%2520professional%2520pet%2520groomer%2520gently%2520brushing%2520a%2520small%2520dog%2520in%2520a%2520modern%2520pet%2520salon.%2520The%2520groomer%2520wears%2520a%2520professional%2520uniform%2520and%2520has%2520a%2520caring%2520expression.%2520The%2520dog%2520looks%2520calm%2520and%2520well-groomed.%2520The%2520background%2520shows%2520a%2520clean%252C%2520well-lit%2520pet%2520grooming%2520facility%2520with%2520professional%2520equipment.%2520The%2520image%2520has%2520bright%252C%2520clear%2520lighting%2520and%2520focuses%2520on%2520the%2520bond%2520between%2520groomer%2520and%2520pet.&width=800&height=1000&seq=3&orientation=portrait')"></div>
+                </div>
+                
+                <!-- Карусельная навигация -->
+                <button class="absolute left-4 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center z-10 opacity-80 hover:opacity-100 transition-opacity" id="prevBtn">
+                    <i class="ri-arrow-left-s-line text-xl"></i>
+                </button>
+                <button class="absolute right-4 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center z-10 opacity-80 hover:opacity-100 transition-opacity" id="nextBtn">
+                    <i class="ri-arrow-right-s-line text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script id="carousel-script">
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.carousel-slide');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            let currentIndex = 0;
+            
+            function showSlide(index) {
+                slides.forEach(slide => slide.classList.remove('active'));
+                slides[index].classList.add('active');
+            }
+            
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % slides.length;
+                showSlide(currentIndex);
+            }
+            
+            function prevSlide() {
+                currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                showSlide(currentIndex);
+            }
+            
+            // Настройка прослушивателей событий
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+            
+            // Карусель автоматически перемещается вперед каждые 5 секунд
+            setInterval(nextSlide, 5000);
+        });
+    </script>
+
+    <script id="form-interactions">
+        document.addEventListener('DOMContentLoaded', function() {
+            // Настраиваемая функциональность флажка
+            const checkbox = document.getElementById('termsCheckbox');
+            
+            checkbox.addEventListener('click', function() {
+                this.classList.toggle('checked');
+            });
+            
+            // Пользовательская функция выбора
+            const customSelect = document.getElementById('petSelect');
+            const selectSelected = customSelect.querySelector('.select-selected');
+            const selectItems = customSelect.querySelector('.select-items');
+            const selectOptions = customSelect.querySelectorAll('.select-item');
+            
+            selectSelected.addEventListener('click', function() {
+                customSelect.classList.toggle('select-open');
+            });
+            
+            selectOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    const value = this.getAttribute('data-value');
+                    selectSelected.querySelector('span').textContent = this.textContent;
+                    customSelect.classList.remove('select-open');
+                });
+            });
+            
+            // Закрыть выбор при нажатии снаружи
+            document.addEventListener('click', function(e) {
+                if (!customSelect.contains(e.target)) {
+                    customSelect.classList.remove('select-open');
+                }
+            });
+            
+            // Проверка формы (базовый пример)
+            const form = document.querySelector('form');
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const password = form.querySelector('input[type="password"]');
+                const confirmPassword = form.querySelectorAll('input[type="password"]')[1];
+                const isTermsChecked = checkbox.classList.contains('checked');
+                
+                if (password.value !== confirmPassword.value) {
+                    alert('Пароли не совпадают');
+                    return;
+                }
+                
+                if (!isTermsChecked) {
+                    alert('Пожалуйста, примите Условия предоставления услуг');
+                    return;
+                }
+                
+                // Если проверка пройдет успешно, вы, как правило, отправляете форму
+                alert('Account created successfully! Redirecting to login...');
+                window.location.href = '#';
+            });
+        });
+    </script>
+</body>
+</html>

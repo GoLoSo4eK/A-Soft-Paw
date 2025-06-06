@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Связаться с Нами</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#6366f1',secondary:'#818cf8'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #6366f1;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+}
+input[type="checkbox"]:checked {
+  background-color: #6366f1;
+}
+input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 6px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+.accordion-content.active {
+  max-height: 500px;
+}
+</style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+<header class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
+  <div class="container mx-auto px-4 py-3">
+  <div class="flex items-center justify-between">
+  <div class="flex items-center">
+  <a href="#" class="flex items-center">
+  <div class="w-10 h-10 flex items-center justify-center mr-2">
+  <i class="ri-footprint-fill text-black text-2xl"></i>
+  </div>
+  <span class="font-['Pacifico'] text-xl">Мягкая Лапка</span>
+  </a>
+  </div>
+  <nav class="hidden md:flex items-center space-x-8">
+    <a href="./About.html" class="text-gray-800 hover:text-primary transition-colors">О нас</a>
+    <a href="./OurServices.html" class="text-gray-800 hover:text-primary transition-colors">Наши Услуги</a>
+    <a href="./Product.html" class="text-gray-800 hover:text-primary transition-colors">Товары</a>
+    <a href="./PetCare.html" class="text-gray-800 hover:text-primary transition-colors">Уход</a>
+    <a href="./ContactUs.html" class="text-gray-800 hover:text-primary transition-colors">Связаться с нами</a>
+</nav>
+  <div class="flex items-center space-x-4">
+  <a href="./Login.html" class="px-4 py-2 text-primary border border-primary !rounded-button hover:bg-primary/10 transition-colors whitespace-nowrap">Log In</a>
+  <a href="./index.html" class="px-4 py-2 text-white bg-primary !rounded-button hover:bg-primary/90 transition-colors whitespace-nowrap">Book Now</a>
+  </div>
+  </div>
+  </div>
+  </header>
+
+<!-- Main Content -->
+<main class="pt-24 pb-16 px-4">
+  <!-- Hero Section -->
+  <section class="max-w-7xl mx-auto mb-16">
+    <div class="bg-primary rounded-3xl p-12 flex flex-col md:flex-row justify-between items-center">
+      <div class="max-w-lg mb-8 md:mb-0">
+        <h1 class="text-4xl font-bold text-white mb-6">Get in Touch with Us</h1>
+        <p class="text-white text-lg mb-6">We're here to help with all your pet care needs. Contact our friendly team for information, appointments, or any questions you might have.</p>
+        <a href="https://readdy.ai/home/d0272994-063e-4fea-923b-8319f2211ae4/cb5bbde7-1019-4a3d-9eef-f38429fa35c9" data-readdy="true" class="bg-white text-primary px-6 py-2 rounded-button whitespace-nowrap hover:bg-opacity-90 transition-colors inline-block">Back to Home</a>
+      </div>
+      <img src="https://readdy.ai/api/search-image?query=professional%2520veterinarian%2520team%2520standing%2520together%2520in%2520modern%2520bright%2520clinic%252C%2520wearing%2520uniforms%252C%2520friendly%2520smiling%2520staff%2520with%2520different%2520pets%2520around%2520them%252C%2520clean%2520medical%2520environment%252C%2520welcoming%2520atmosphere&width=500&height=400&seq=8&orientation=landscape" class="w-full md:w-2/5 rounded-xl" alt="Veterinary Team">
+    </div>
+  </section>
+
+  <!-- Contact Info Section -->
+  <section class="max-w-7xl mx-auto mb-16">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="bg-white rounded-xl p-8 shadow-sm">
+        <div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-6">
+          <i class="ri-map-pin-line text-xl text-primary"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-4">Our Location</h3>
+        <p class="text-gray-700 mb-2">123 Pet Care Avenue</p>
+        <p class="text-gray-700 mb-2">Pawsville, CA 90210</p>
+        <p class="text-gray-700">United States</p>
+        <a href="#map" class="text-primary hover:text-secondary mt-4 inline-block">View on Map</a>
+      </div>
+
+      <div class="bg-white rounded-xl p-8 shadow-sm">
+        <div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-6">
+          <i class="ri-time-line text-xl text-primary"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-4">Business Hours</h3>
+        <div class="grid grid-cols-2 gap-2">
+          <p class="text-gray-700">Monday - Friday:</p>
+          <p class="text-gray-700">8:00 AM - 7:00 PM</p>
+          <p class="text-gray-700">Saturday:</p>
+          <p class="text-gray-700">9:00 AM - 5:00 PM</p>
+          <p class="text-gray-700">Sunday:</p>
+          <p class="text-gray-700">10:00 AM - 3:00 PM</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl p-8 shadow-sm">
+        <div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-6">
+          <i class="ri-phone-line text-xl text-primary"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-4">Contact Details</h3>
+        <div class="space-y-3">
+          <div class="flex items-center">
+            <div class="w-6 h-6 flex items-center justify-center mr-3">
+              <i class="ri-phone-line text-primary"></i>
+            </div>
+            <p class="text-gray-700">(555) 123-4567</p>
+          </div>
+          <div class="flex items-center">
+            <div class="w-6 h-6 flex items-center justify-center mr-3">
+              <i class="ri-mail-line text-primary"></i>
+            </div>
+            <p class="text-gray-700">info@petcareservice.com</p>
+          </div>
+          <div class="flex items-center">
+            <div class="w-6 h-6 flex items-center justify-center mr-3">
+              <i class="ri-whatsapp-line text-primary"></i>
+            </div>
+            <p class="text-gray-700">(555) 987-6543</p>
+          </div>
+        </div>
+        <div class="mt-6">
+          <h4 class="font-medium text-gray-900 mb-3">Follow Us</h4>
+          <div class="flex space-x-4">
+            <a href="#" class="w-10 h-10 flex items-center justify-center bg-blue-600 text-white rounded">
+              <i class="ri-facebook-fill"></i>
+            </a>
+            <a href="#" class="w-10 h-10 flex items-center justify-center bg-black text-white rounded">
+              <i class="ri-tiktok-fill"></i>
+            </a>
+            <a href="#" class="w-10 h-10 flex items-center justify-center bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-500 text-white rounded">
+              <i class="ri-instagram-fill"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Emergency Contact Box -->
+  <section class="max-w-7xl mx-auto mb-16">
+    <div class="bg-red-50 border-l-4 border-red-500 rounded-xl p-8">
+      <div class="flex items-start">
+        <div class="w-12 h-12 flex items-center justify-center bg-red-100 rounded-full mr-6">
+          <i class="ri-alarm-warning-line text-xl text-red-500"></i>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Emergency Pet Care</h3>
+          <p class="text-gray-700 mb-4">For after-hours emergencies, please call our 24/7 emergency line. Our on-call veterinarian will provide guidance and care instructions.</p>
+          <div class="flex flex-col sm:flex-row sm:items-center gap-4">
+            <div class="flex items-center bg-white px-4 py-2 rounded-lg">
+              <div class="w-8 h-8 flex items-center justify-center mr-2">
+                <i class="ri-phone-fill text-red-500"></i>
+              </div>
+              <span class="text-lg font-bold text-red-500">(555) 911-PETS</span>
+            </div>
+            <button class="bg-red-500 text-white px-6 py-2 rounded-button whitespace-nowrap hover:bg-opacity-90 transition-colors">Call Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map Section -->
+  <section id="map" class="max-w-7xl mx-auto mb-16">
+    <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Find Us</h2>
+    <div class="bg-white rounded-xl p-6 shadow-sm">
+      <div class="w-full h-96 rounded-lg mb-6 overflow-hidden" style="background-image: url('https://public.readdy.ai/gen_page/map_placeholder_1280x720.png'); background-position: center; background-size: cover;"></div>
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+        <div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">PetCare Veterinary Clinic</h3>
+          <p class="text-gray-700">123 Pet Care Avenue, Pawsville, CA 90210</p>
+        </div>
+        <div class="mt-4 md:mt-0">
+          <button class="bg-primary text-white px-6 py-2 rounded-button whitespace-nowrap hover:bg-opacity-90 transition-colors flex items-center">
+            <div class="w-5 h-5 flex items-center justify-center mr-2">
+              <i class="ri-direction-line"></i>
+            </div>
+            Get Directions
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section class="max-w-7xl mx-auto mb-16">
+    <div class="bg-white rounded-xl p-8 shadow-sm">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Send Us a Message</h2>
+      <form id="contactForm" class="max-w-3xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          <div>
+            <label for="name" class="block text-gray-800 mb-2">Full Name</label>
+            <input type="text" id="name" class="w-full px-4 py-3 rounded border border-gray-200 focus:ring-2 focus:ring-primary focus:border-transparent outline-none" required>
+          </div>
+          <div>
+            <label for="contact-email" class="block text-gray-800 mb-2">Email Address</label>
+            <input type="email" id="contact-email" class="w-full px-4 py-3 rounded border border-gray-200 focus:ring-2 focus:ring-primary focus:border-transparent outline-none" required>
+          </div>
+          <div>
+            <label for="phone" class="block text-gray-800 mb-2">Phone Number</label>
+            <input type="tel" id="phone" class="w-full px-4 py-3 rounded border border-gray-200 focus:ring-2 focus:ring-primary focus:border-transparent outline-none" required>
+          </div>
+          <div>
+            <label for="subject" class="block text-gray-800 mb-2">Subject</label>
+            <div class="relative">
+              <select id="subject" class="w-full px-4 py-3 rounded border border-gray-200 focus:ring-2 focus:ring-primary focus:border-transparent outline-none appearance-none pr-8" required>
+                <option value="" disabled selected>Select a subject</option>
+                <option value="appointment">Schedule an Appointment</option>
+                <option value="services">Services Inquiry</option>
+                <option value="pricing">Pricing Information</option>
+                <option value="feedback">Feedback</option>
+                <option value="other">Other</option>
+              </select>
+              <div class="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
+                <div class="w-6 h-6 flex items-center justify-center">
+                  <i class="ri-arrow-down-s-line text-gray-500"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mb-6">
+          <label for="message" class="block text-gray-800 mb-2">Message</label>
+          <textarea id="message" rows="5" class="w-full px-4 py-3 rounded border border-gray-200 focus:ring-2 focus:ring-primary focus:border-transparent outline-none resize-none" required></textarea>
+        </div>
+        <div class="flex items-center mb-6">
+          <input type="checkbox" id="consent" class="mr-2" required>
+          <label for="consent" class="text-gray-700">
+            I consent to having this website store my submitted information so they can respond to my inquiry
+          </label>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="bg-primary text-white px-8 py-3 rounded-button whitespace-nowrap hover:bg-opacity-90 transition-colors">Send Message</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="max-w-7xl mx-auto">
+    <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Frequently Asked Questions</h2>
+    
+    <div class="mb-6">
+      <div class="relative">
+        <input type="text" id="faq-search" placeholder="Search for questions..." class="w-full px-4 py-3 pl-12 rounded-full border border-gray-200 focus:ring-2 focus:ring-primary focus:border-transparent outline-none">
+        <div class="absolute left-4 top-1/2 transform -translate-y-1/2">
+          <div class="w-6 h-6 flex items-center justify-center">
+            <i class="ri-search-line text-gray-400"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+      <button id="category-all" class="bg-primary text-white px-6 py-3 rounded-button whitespace-nowrap hover:bg-opacity-90 transition-colors">All Questions</button>
+      <button id="category-services" class="bg-white text-gray-700 px-6 py-3 rounded-button whitespace-nowrap hover:bg-gray-100 transition-colors">Services</button>
+      <button id="category-policies" class="bg-white text-gray-700 px-6 py-3 rounded-button whitespace-nowrap hover:bg-gray-100 transition-colors">Policies & Pricing</button>
+    </div>
+    
+    <div class="space-y-4">
+      <div class="bg-white rounded-xl overflow-hidden shadow-sm" data-category="services">
+        <button class="accordion-btn w-full px-6 py-4 text-left font-medium text-gray-900 flex justify-between items-center">
+          <span>What services do you offer for cats and dogs?</span>
+          <div class="w-6 h-6 flex items-center justify-center">
+            <i class="ri-arrow-down-s-line transition-transform"></i>
+          </div>
+        </button>
+        <div class="accordion-content px-6 pb-4">
+          <p class="text-gray-700">We offer a comprehensive range of services for both cats and dogs, including routine check-ups, vaccinations, dental care, surgery, grooming, behavioral consultations, nutrition counseling, and emergency care. Our team is trained to handle the specific needs of different breeds and ages.</p>
+        </div>
+      </div>
+      
+      <div class="bg-white rounded-xl overflow-hidden shadow-sm" data-category="services">
+        <button class="accordion-btn w-full px-6 py-4 text-left font-medium text-gray-900 flex justify-between items-center">
+          <span>Do you provide grooming services?</span>
+          <div class="w-6 h-6 flex items-center justify-center">
+            <i class="ri-arrow-down-s-line transition-transform"></i>
+          </div>
+        </button>
+        <div class="accordion-content px-6 pb-4">
+          <p class="text-gray-700">Yes, we offer professional grooming services for all breeds of dogs and cats. Our services include bathing, brushing, coat trimming, nail clipping, ear cleaning, and more. Our groomers are experienced in handling pets with different temperaments and special needs.</p>
+        </div>
+      </div>
+      
+      <div class="bg-white rounded-xl overflow-hidden shadow-sm" data-category="services">
+        <button class="accordion-btn w-full px-6 py-4 text-left font-medium text-gray-900 flex justify-between items-center">
+          <span>What emergency services do you provide?</span>
+          <div class="w-6 h-6 flex items-center justify-center">
+            <i class="ri-arrow-down-s-line transition-transform"></i>
+          </div>
+        </button>
+        <div class="accordion-content px-6 pb-4">
+          <p class="text-gray-700">We provide 24/7 emergency care for critical situations. Our emergency services include trauma care, poisoning treatment, severe illness management, emergency surgery, and critical care monitoring. During off-hours, we have an on-call veterinarian available through our emergency line at (555) 911-PETS.</p>
+        </div>
+      </div>
+      
+      <div class="bg-white rounded-xl overflow-hidden shadow-sm" data-category="policies">
+        <button class="accordion-btn w-full px-6 py-4 text-left font-medium text-gray-900 flex justify-between items-center">
+          <span>What are your payment options?</span>
+          <div class="w-6 h-6 flex items-center justify-center">
+            <i class="ri-arrow-down-s-line transition-transform"></i>
+          </div>
+        </button>
+        <div class="accordion-content px-6 pb-4">
+          <p class="text-gray-700">We accept various payment methods including cash, credit/debit cards (Visa, MasterCard, American Express, Discover), pet insurance, CareCredit, and mobile payment options like Apple Pay and Google Pay. We also offer payment plans for certain treatments and services.</p>
+        </div>
+      </div>
+      
+      <div class="bg-white rounded-xl overflow-hidden shadow-sm" data-category="policies">
+        <button class="accordion-btn w-full px-6 py-4 text-left font-medium text-gray-900 flex justify-between items-center">
+          <span>Do you accept pet insurance?</span>
+          <div class="w-6 h-6 flex items-center justify-center">
+            <i class="ri-arrow-down-s-line transition-transform"></i>
+          </div>
+        </button>
+        <div class="accordion-content px-6 pb-4">
+          <p class="text-gray-700">Yes, we accept most major pet insurance plans. We can help you file claims and provide all necessary documentation. However, payment is typically required at the time of service, and the insurance company will reimburse you directly. We recommend confirming coverage with your insurance provider before your visit.</p>
+        </div>
+      </div>
+      
+      <div class="bg-white rounded-xl overflow-hidden shadow-sm" data-category="policies">
+        <button class="accordion-btn w-full px-6 py-4 text-left font-medium text-gray-900 flex justify-between items-center">
+          <span>What is your cancellation policy?</span>
+          <div class="w-6 h-6 flex items-center justify-center">
+            <i class="ri-arrow-down-s-line transition-transform"></i>
+          </div>
+        </button>
+        <div class="accordion-content px-6 pb-4">
+          <p class="text-gray-700">We request at least 24 hours' notice for appointment cancellations. Late cancellations or no-shows may incur a fee of $25. We understand that emergencies happen, so please contact us as soon as possible if you need to reschedule. Repeated no-shows may affect future appointment scheduling.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+
+<!-- Footer -->
+<footer class="bg-gray-800 text-white py-12">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+<div>
+<div class="flex items-center mb-4">
+<div class="w-8 h-8 flex items-center justify-center text-primary mr-2">
+<i class="ri-paw-print-fill ri-lg"></i>
+</div>
+<span class="font-['Pacifico'] text-2xl">Мягкая Лапка</span>
+</div>
+<p class="text-gray-400 mb-4">Предоставление исключительной ветеринарной помощи и услуг для домашних животных с тех пор, как 2010.</p>
+<div class="flex space-x-4">
+<a href="#" class="text-gray-400 hover:text-primary">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-facebook-fill"></i>
+</div>
+</a>
+<a href="#" class="text-gray-400 hover:text-primary">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-instagram-line"></i>
+</div>
+</a>
+<a href="#" class="text-gray-400 hover:text-primary">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-twitter-x-line"></i>
+</div>
+</a>
+</div>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-4">Быстрые ссылки</h4>
+<ul class="space-y-2">
+<li><a href="./Home.html" data-readdy="true" class="text-gray-400 hover:text-primary">Home</a></li>
+<li><a href="./About.html" class="text-gray-400 hover:text-primary">About Us</a></li>
+<li><a href="./OurServices.html" class="text-gray-400 hover:text-primary">Services</a></li>
+<li><a href="./Product.html" class="text-gray-400 hover:text-primary">Shop</a></li>
+<li><a href="./PetCare.html" class="text-gray-400 hover:text-primary">Blog</a></li>
+<li><a href="./ContactUs.html" class="text-gray-400 hover:text-primary">Contact</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-4">Услуги</h4>
+<ul class="space-y-2">
+<li><a href="./" class="text-gray-400 hover:text-primary">Ветеринарная помощь</a></li>
+<li><a href="#" class="text-gray-400 hover:text-primary">Хирургия</a></li>
+<li><a href="#" class="text-gray-400 hover:text-primary">Уход за зубами</a></li>
+<li><a href="#" class="text-gray-400 hover:text-primary">Ухаживающий</a></li>
+<li><a href="#" class="text-gray-400 hover:text-primary">Посадка</a></li>
+<li><a href="#" class="text-gray-400 hover:text-primary">Неотложная медицинская помощь</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-4">Связаться с нами</h4>
+<ul class="space-y-3">
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-map-pin-line"></i>
+</div>
+<span class="text-gray-400">12 Бульварное кольцо, Краснодар 350089</span>
+</li>
+<li class="flex items-center">
+<div class="w-5 h-5 flex items-center justify-center mr-2">
+<i class="ri-phone-line"></i>
+</div>
+<span class="text-gray-400">8 (988) 359-5866</span>
+</li>
+<li class="flex items-center">
+<div class="w-5 h-5 flex items-center justify-center mr-2">
+<i class="ri-mail-line"></i>
+</div>
+<span class="text-gray-400">skorpikloves@gmai.com</span>
+</li>
+<li class="flex items-center">
+<div class="w-5 h-5 flex items-center justify-center mr-2">
+<i class="ri-time-line"></i>
+</div>
+<span class="text-gray-400">Пн-Пт: С 8 утра до 19 вечера, Сб: с 9 утра до 17 вечера</span>
+</li>
+</ul>
+<div class="mt-4">
+<h5 class="font-medium mb-2">Подпишитесь на нашу рассылку новостей</h5>
+<div class="flex">
+<input type="email" placeholder="Ваша почта" class="px-4 py-2 bg-gray-700 text-white rounded-l-lg border-none focus:outline-none focus:ring-2 focus:ring-primary w-full">
+<button class="px-4 py-2 bg-primary text-white rounded-r-lg whitespace-nowrap hover:bg-opacity-90 transition">Подписываться</button>
+</div>
+</div>
+</div>
+</div>
+<div class="pt-6 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-400 text-sm mb-4 md:mb-0">© 2025 GoLoSoK. Все права защищены.</p>
+<div class="flex items-center space-x-4">
+<div class="w-8 h-8 flex items-center justify-center text-gray-400">
+<i class="ri-visa-line ri-lg"></i>
+</div>
+<div class="w-8 h-8 flex items-center justify-center text-gray-400">
+<i class="ri-mastercard-line ri-lg"></i>
+</div>
+<div class="w-8 h-8 flex items-center justify-center text-gray-400">
+<i class="ri-paypal-line ri-lg"></i>
+</div>
+<div class="w-8 h-8 flex items-center justify-center text-gray-400">
+<i class="ri-apple-fill ri-lg"></i>
+</div>
+</div>
+</div>
+</div>
+</footer>
+
+<script id="login-modal">
+document.addEventListener('DOMContentLoaded', function() {
+  const loginBtn = document.getElementById('loginBtn');
+  const loginModal = document.getElementById('loginModal');
+  const closeLoginModal = document.getElementById('closeLoginModal');
+  const loginForm = document.getElementById('loginForm');
+  
+  loginBtn.addEventListener('click', () => {
+    loginModal.classList.remove('hidden');
+    loginModal.classList.add('flex');
+  });
+  
+  closeLoginModal.addEventListener('click', () => {
+    loginModal.classList.add('hidden');
+    loginModal.classList.remove('flex');
+  });
+  
+  loginModal.addEventListener('click', (e) => {
+    if (e.target === loginModal) {
+      loginModal.classList.add('hidden');
+      loginModal.classList.remove('flex');
+    }
+  });
+  
+  loginForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const remember = document.getElementById('remember').checked;
+    console.log('Login attempt:', { email, remember });
+    loginForm.reset();
+    loginModal.classList.add('hidden');
+    loginModal.classList.remove('flex');
+  });
+});
+</script>
+
+<script id="contact-form-handler">
+document.addEventListener('DOMContentLoaded', function() {
+  const contactForm = document.getElementById('contactForm');
+  
+  contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('contact-email').value;
+    const phone = document.getElementById('phone').value;
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value;
+    const consent = document.getElementById('consent').checked;
+    
+    if (!name || !email || !phone || !subject || !message || !consent) {
+      alert('Please fill in all required fields');
+      return;
+    }
+    
+    alert('Thank you for your message! We will get back to you shortly.');
+    contactForm.reset();
+  });
+});
+</script>
+
+<script id="faq-accordion">
+document.addEventListener('DOMContentLoaded', function() {
+  const accordionBtns = document.querySelectorAll('.accordion-btn');
+  
+  accordionBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      const content = this.nextElementSibling;
+      const icon = this.querySelector('i');
+      
+      if (content.classList.contains('active')) {
+        content.classList.remove('active');
+        icon.style.transform = 'rotate(0deg)';
+      } else {
+        content.classList.add('active');
+        icon.style.transform = 'rotate(180deg)';
+      }
+    });
+  });
+  
+  // FAQ category filtering
+  const categoryBtns = document.querySelectorAll('[id^="category-"]');
+  const faqItems = document.querySelectorAll('[data-category]');
+  const faqSearch = document.getElementById('faq-search');
+  
+  categoryBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      const category = this.id.replace('category-', '');
+      
+      // Update button styles
+      categoryBtns.forEach(b => {
+        b.classList.remove('bg-primary', 'text-white');
+        b.classList.add('bg-white', 'text-gray-700');
+      });
+      this.classList.remove('bg-white', 'text-gray-700');
+      this.classList.add('bg-primary', 'text-white');
+      
+      // Filter FAQ items
+      faqItems.forEach(item => {
+        if (category === 'all' || item.dataset.category === category) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  });
+  
+  // FAQ search functionality
+  faqSearch.addEventListener('input', function() {
+    const searchTerm = this.value.toLowerCase();
+    
+    faqItems.forEach(item => {
+      const question = item.querySelector('.accordion-btn span').textContent.toLowerCase();
+      const answer = item.querySelector('.accordion-content p').textContent.toLowerCase();
+      
+      if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+        item.style.display = 'block';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  });
+});
+</script>
+</body>
+</html>

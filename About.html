@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>О нас</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>
+tailwind.config={
+theme:{
+extend:{
+colors:{
+primary:'#ff9966',
+secondary:'#f8d8c0'
+},
+borderRadius:{
+'none':'0px',
+'sm':'4px',
+DEFAULT:'8px',
+'md':'12px',
+'lg':'16px',
+'xl':'20px',
+'2xl':'24px',
+'3xl':'32px',
+'full':'9999px',
+'button':'8px'
+}
+}
+}
+}
+</script>
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Inter', sans-serif;
+}
+.hero-section {
+background-image: url('https://readdy.ai/api/search-image?query=Modern%2520veterinary%2520clinic%2520interior%2520with%2520warm%2520lighting%252C%2520reception%2520desk%2520with%2520friendly%2520staff%252C%2520comfortable%2520waiting%2520area%2520with%2520plants%252C%2520clean%2520and%2520professional%2520environment%252C%2520soft%2520natural%2520colors%252C%2520high-quality%2520architectural%2520photography%2520with%2520perfect%2520composition%2520and%2520lighting&width=1200&height=600&seq=101&orientation=landscape');
+background-size: cover;
+background-position: center;
+}
+.hero-content {
+background: linear-gradient(90deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%);
+}
+.team-member-img {
+transition: transform 0.3s ease;
+}
+.team-member:hover .team-member-img {
+transform: scale(1.05);
+}
+.timeline-dot::before {
+content: '';
+position: absolute;
+left: 0;
+top: 0;
+height: 100%;
+width: 2px;
+background-color: #e5e7eb;
+z-index: -1;
+}
+.timeline-dot::after {
+content: '';
+position: absolute;
+left: -4px;
+top: 24px;
+height: 10px;
+width: 10px;
+border-radius: 50%;
+background-color: #ff9966;
+z-index: 1;
+}
+.testimonial-card {
+transition: transform 0.3s ease;
+}
+.testimonial-card:hover {
+transform: translateY(-5px);
+}
+</style>
+</head>
+<body class="bg-gray-50">
+<!-- Header -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
+  <div class="container mx-auto px-4 py-3">
+  <div class="flex items-center justify-between">
+  <div class="flex items-center">
+  <a href="#" class="flex items-center">
+  <div class="w-10 h-10 flex items-center justify-center mr-2">
+  <i class="ri-footprint-fill text-black text-2xl"></i>
+  </div>
+  <span class="font-['Pacifico'] text-xl">Мягкая Лапка</span>
+  </a>
+  </div>
+  <nav class="hidden md:flex items-center space-x-8">
+                      <a href="./About.html" class="text-gray-800 hover:text-primary transition-colors">О нас</a>
+                      <a href="./OurServices.html" class="text-gray-800 hover:text-primary transition-colors">Наши Услуги</a>
+                      <a href="./Product.html" class="text-gray-800 hover:text-primary transition-colors">Товары</a>
+                      <a href="./PetCare.html" class="text-gray-800 hover:text-primary transition-colors">Уход</a>
+                      <a href="./ContactUs.html" class="text-gray-800 hover:text-primary transition-colors">Связаться с нами</a>
+                  </nav>
+  <div class="flex items-center space-x-4">
+  <a href="./Login.html" class="px-4 py-2 text-primary border border-primary !rounded-button hover:bg-primary/10 transition-colors whitespace-nowrap">Войти</a>
+  <a href="./index.html" class="px-4 py-2 text-white bg-primary !rounded-button hover:bg-primary/90 transition-colors whitespace-nowrap">Book now</a>
+  </div>
+  </div>
+  </div>
+  </header>
+
+<!-- Раздел о героях -->
+<section class="hero-section relative">
+<div class="container mx-auto px-4 py-20 md:py-28 w-full">
+<div class="hero-content max-w-2xl py-12 px-8">
+<h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">О нашей клинике</h1>
+<p class="text-gray-700 mb-8 max-w-lg">С 2010 года мы занимаемся предоставлением исключительной ветеринарной помощи и услуг для домашних животных. Наша миссия - улучшить жизнь домашних животных и укрепить связь между ними и их владельцами.</p>
+<div class="flex flex-wrap gap-4">
+<button class="px-5 py-2.5 bg-primary text-white rounded-button whitespace-nowrap hover:bg-opacity-90 transition flex items-center">
+<span>Познакомьтесь с нашей командой</span>
+<div class="w-5 h-5 flex items-center justify-center ml-2">
+<i class="ri-arrow-right-line"></i>
+</div>
+</button>
+<button class="px-5 py-2.5 bg-white bg-opacity-80 text-gray-800 rounded-button whitespace-nowrap hover:bg-opacity-100 transition border border-gray-300">Наше предприятие</button>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Наш раздел "История" -->
+<section class="py-16 bg-white">
+<div class="container mx-auto px-4">
+<div class="flex flex-col md:flex-row gap-12 items-center">
+<div class="w-full md:w-1/2">
+<h2 class="text-3xl font-bold text-gray-800 mb-6">Наша история</h2>
+<div class="space-y-4 text-gray-700">
+  <p>Компания Smart-Care была основана в 2010 году доктором Эмили Ричардсон, ветеринаром, стремившимся создать учреждение по уходу за домашними животными, сочетающее в себе превосходство медицины и сострадательный уход. То, что начиналось как небольшая клиника всего с тремя сотрудниками, превратилось в комплексный центр по уходу за домашними животными, оснащенный самым современным оборудованием и командой преданных своему делу профессионалов.</p>
+  <p>С годами мы расширили спектр наших услуг, включив в них не только ветеринарную помощь, но и груминг, дневной уход, интернат и магазин зоотоваров. Наш рост обусловлен стремлением обеспечить уход высочайшего качества за каждым домашним животным, которое переступает порог нашей компании.</p>
+  <p>Сегодня Smart-Care ежегодно обслуживает тысячи домашних животных и членов их семей, но мы придерживаемся того же персонализированного подхода, который был нашей отличительной чертой с самого первого дня. Мы считаем, что каждый питомец заслуживает индивидуального внимания и заботы с учетом его конкретных потребностей.</p>
+</div>
+</div>
+<div class="w-full md:w-1/2">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=Modern%2520veterinary%2520clinic%2520building%2520exterior%2520with%2520clean%2520architecture%252C%2520large%2520windows%252C%2520welcoming%2520entrance%2520with%2520signage%252C%2520landscaped%2520surroundings%252C%2520bright%2520daylight%252C%2520professional%2520architectural%2520photography%2520with%2520perfect%2520composition&width=600&height=400&seq=102&orientation=landscape" alt="Smart-Care Clinic" class="w-full h-auto rounded-lg shadow-lg">
+<div class="absolute -bottom-6 -right-6 bg-primary text-white p-4 rounded-lg shadow-lg">
+<div class="text-4xl font-bold">15+</div>
+<div class="text-sm">Годы безупречной работы</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="mt-20">
+<h2 class="text-3xl font-bold text-gray-800 mb-10 text-center">Наше путешествие</h2>
+<div class="relative">
+<div class="timeline-dot absolute left-1/2 transform -translate-x-1/2 top-0 h-full"></div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="relative pl-8 timeline-dot">
+<div class="bg-gray-100 p-6 rounded-lg">
+<h3 class="text-xl font-semibold text-gray-800 mb-2">2010</h3>
+<p class="text-gray-700">Компания Мягкая Лапка была основана доктором Эмили Ричардсон с небольшой клиникой и командой из трех преданных своему делу профессионалов.</p>
+</div>
+</div>
+<div class="md:col-start-2 relative pl-8 timeline-dot">
+<div class="bg-gray-100 p-6 rounded-lg">
+<h3 class="text-xl font-semibold text-gray-800 mb-2">2013</h3>
+<p class="text-gray-700">Мы расширили спектр услуг, включив в него уход за шерстью и дневной уход за детьми, удвоив размер нашего учреждения для удовлетворения растущего спроса.</p>
+</div>
+</div>
+<div class="relative pl-8 timeline-dot">
+<div class="bg-gray-100 p-6 rounded-lg">
+<h3 class="text-xl font-semibold text-gray-800 mb-2">2016</h3>
+<p class="text-gray-700">Внедрил передовые хирургические возможности и диагностическую визуализацию, превратившись в ветеринарную клинику с полным спектром услуг..</p>
+</div>
+</div>
+<div class="md:col-start-2 relative pl-8 timeline-dot">
+<div class="bg-gray-100 p-6 rounded-lg">
+<h3 class="text-xl font-semibold text-gray-800 mb-2">2019</h3>
+<p class="text-gray-700">Открыли наш магазин товаров для домашних животных и расширили возможности интерната для предоставления комплексных решений по уходу за домашними животными.</p>
+</div>
+</div>
+<div class="relative pl-8 timeline-dot">
+<div class="bg-gray-100 p-6 rounded-lg">
+<h3 class="text-xl font-semibold text-gray-800 mb-2">2022</h3>
+<p class="text-gray-700">We have opened our pet store and expanded the possibilities of the boarding school to provide comprehensive pet care solutions..</p>
+</div>
+</div>
+<div class="md:col-start-2 relative pl-8 timeline-dot">
+<div class="bg-gray-100 p-6 rounded-lg">
+<h3 class="text-xl font-semibold text-gray-800 mb-2">2025</h3>
+<p class="text-gray-700">Сегодня мы продолжаем расти и внедрять инновации, сохраняя при этом нашу приверженность исключительному и сострадательному уходу за домашними животными.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Раздел "Миссия и ценности" -->
+<section class="py-16 bg-gray-100">
+<div class="container mx-auto px-4">
+<div class="text-center mb-12">
+<h2 class="text-3xl font-bold text-gray-800 mb-4">Наша миссия и ценности</h2>
+<p class="text-gray-700 max-w-3xl mx-auto">Мы руководствуемся набором основных принципов, которые лежат в основе всего, что мы делаем, - от рутинных осмотров до сложных медицинских процедур.</p>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+<div class="bg-white p-8 rounded-lg shadow-sm">
+<div class="flex items-center mb-4">
+<div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-20 text-primary rounded-full mr-4">
+<i class="ri-heart-pulse-line ri-xl"></i>
+</div>
+<h3 class="text-2xl font-semibold text-gray-800">Наша миссия</h3>
+</div>
+<p class="text-gray-700">Мы стремимся улучшить качество жизни домашних животных за счет исключительной ветеринарной помощи, обучения и поддержки владельцев домашних животных. Мы стремимся быть надежным партнером в оздоровлении вашего питомца, обеспечивая сострадательный уход, направленный как на физическое, так и на эмоциональное благополучие.</p>
+</div>
+
+<div class="bg-white p-8 rounded-lg shadow-sm">
+<div class="flex items-center mb-4">
+<div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-20 text-primary rounded-full mr-4">
+<i class="ri-eye-line ri-xl"></i>
+</div>
+<h3 class="text-2xl font-semibold text-gray-800">Наше видение</h3>
+</div>
+<p class="text-gray-700">Быть ведущим поставщиком комплексных услуг по уходу за домашними животными,
+   признанным за наше медицинское совершенство, инновации и непоколебимую приверженность отношениям между человеком и животным.
+    Мы представляем сообщество, в котором каждый питомец будет иметь доступ к медицинскому обслуживанию высочайшего уровня.</p>
+</div>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-white p-6 rounded-lg shadow-sm">
+<div class="flex items-center mb-4">
+<div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-20 text-primary rounded-full mr-3">
+<i class="ri-heart-line ri-lg"></i>
+</div>
+<h4 class="text-xl font-semibold text-gray-800">Сострадание</h4>
+</div>
+<p class="text-gray-700">Мы относимся к каждому домашнему животному с добротой и сочувствием,
+  понимая, что это любимые члены семьи. 
+   Наш подход к уходу - нежный, ориентированный на пациента и уважительный.</p>
+</div>
+
+<div class="bg-white p-6 rounded-lg shadow-sm">
+<div class="flex items-center mb-4">
+<div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-20 text-primary rounded-full mr-3">
+<i class="ri-award-line ri-lg"></i>
+</div>
+<h4 class="text-xl font-semibold text-gray-800">Превосходство</h4>
+</div>
+<p class="text-gray-700">Мы придерживаемся самых высоких стандартов ветеринарной медицины. 
+  Наша команда постоянно обучается, чтобы оставаться на переднем крае в области ухода за домашними животными.</p>
+</div>
+
+<div class="bg-white p-6 rounded-lg shadow-sm">
+<div class="flex items-center mb-4">
+<div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-20 text-primary rounded-full mr-3">
+<i class="ri-team-line ri-lg"></i>
+</div>
+<h4 class="text-xl font-semibold text-gray-800">Сотрудничество</h4>
+</div>
+<p class="text-gray-700">Мы сотрудничаем с владельцами домашних животных, понимая, что вы лучше всех знаете своего питомца. 
+  Вместе мы разрабатываем планы ухода, учитывающие уникальные потребности вашего питомца и ваши опасения
+ .</p>
+</div>
+
+<div class="bg-white p-6 rounded-lg shadow-sm">
+<div class="flex items-center mb-4">
+<div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-20 text-primary rounded-full mr-3">
+<i class="ri-lightbulb-line ri-lg"></i>
+</div>
+<h4 class="text-xl font-semibold text-gray-800">Инновация</h4>
+</div>
+<p class="text-gray-700">Мы используем новые технологии и подходы, которые расширяют наши возможности в диагностике и лечении проблем со здоровьем домашних животных.
+  Наше учреждение оснащено передовым медицинским оборудованием.</p>
+</div>
+
+<div class="bg-white p-6 rounded-lg shadow-sm">
+<div class="flex items-center mb-4">
+<div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-20 text-primary rounded-full mr-3">
+<i class="ri-earth-line ri-lg"></i>
+</div>
+<h4 class="text-xl font-semibold text-gray-800">Сообщество</h4>
+</div>
+<p class="text-gray-700">Мы активно участвуем в жизни нашего местного сообщества, поддерживая инициативы по защите животных и обучая ответственному обращению с домашними животными.</p>
+</div>
+
+<div class="bg-white p-6 rounded-lg shadow-sm">
+<div class="flex items-center mb-4">
+<div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-20 text-primary rounded-full mr-3">
+<i class="ri-shield-check-line ri-lg"></i>
+</div>
+<h4 class="text-xl font-semibold text-gray-800">Целостность</h4>
+</div>
+<p class="text-gray-700">Мы работаем честно и прозрачно во всех аспектах нашей деятельности. 
+  Вы можете быть уверены, что мы предоставим честные оценки и рекомендации по уходу за вашим питомцем.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Командный раздел -->
+<section class="py-16 bg-white">
+<div class="container mx-auto px-4">
+<div class="text-center mb-12">
+<h2 class="text-3xl font-bold text-gray-800 mb-4">Познакомьтесь с нашей командой</h2>
+<p class="text-gray-700 max-w-3xl mx-auto">Наша преданная своему делу команда ветеринаров, техников
+  и вспомогательного персонала стремится обеспечить исключительный уход за вашими питомцами.</p>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Член команды 1 -->
+<div class="team-member bg-gray-50 rounded-lg overflow-hidden shadow-sm">
+<div class="overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Professional%2520female%2520veterinarian%2520with%2520blonde%2520hair%2520in%2520white%2520coat%2520with%2520stethoscope%252C%2520smiling%2520confidently%2520at%2520camera%252C%2520clean%2520medical%2520office%2520background%252C%2520professional%2520portrait%2520photography%2520with%2520soft%2520lighting&width=400&height=400&seq=103&orientation=squarish" alt="Dr. Emily Richardson" class="w-full h-64 object-cover object-top team-member-img">
+</div>
+<div class="p-6">
+<h3 class="text-xl font-semibold text-gray-800 mb-1">Доктор Эмили Ричардсон</h3>
+<p class="text-primary font-medium mb-3">Основатель и главный ветеринарный врач</p>
+<p class="text-gray-700 text-sm mb-4">Магистр медицины, Калифорнийский университет, более 15 лет опыта в медицине и хирургии мелких животных.
+  Особый интерес к уходу за пожилыми животными.</p>
+<div class="flex space-x-3">
+<a href="#" class="text-gray-500 hover:text-primary">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-linkedin-fill"></i>
+</div>
+</a>
+<a href="#" class="text-gray-500 hover:text-primary">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-twitter-x-line"></i>
+</div>
+</a>
+</div>
+</div>
+</div>
+
+<!-- Член команды 2 -->
+<div class="team-member bg-gray-50 rounded-lg overflow-hidden shadow-sm">
+<div class="overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Professional%2520male%2520veterinarian%2520with%2520dark%2520hair%2520and%2520glasses%2520in%2520white%2520coat%252C%2520smiling%2520confidently%2520at%2520camera%252C%2520clean%2520medical%2520office%2520background%252C%2520professional%2520portrait%2520photography%2520with%2520soft%2520lighting&width=400&height=400&seq=104&orientation=squarish" alt="Dr. Michael Chen" class="w-full h-64 object-cover object-top team-member-img">
+</div>
+<div class="p-6">
+<h3 class="text-xl font-semibold text-gray-800 mb-1">Доктор Майкл Чен</h3>
+<p class="text-primary font-medium mb-3">Ветеринарный врач</p>
+<p class="text-gray-700 text-sm mb-4">Магистр ветеринарной хирургии Корнелльского университета. 
+  Специализируется на ортопедических операциях и операциях на мягких тканях с более чем 10-летним опытом..</p>
+<div class="flex space-x-3">
+<a href="#" class="text-gray-500 hover:text-primary">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-linkedin-fill"></i>
+</div>
+</a>
+<a href="#" class="text-gray-500 hover:text-primary">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-twitter-x-line"></i>
+</div>
+</a>
+</div>
+</div>
+</div>
+
+<!-- Член команды 3 -->
+<div class="team-member bg-gray-50 rounded-lg overflow-hidden shadow-sm">
+<div class="overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Professional%2520female%2520veterinarian%2520with%2520curly%2520hair%2520in%2520white%2520coat%252C%2520smiling%2520warmly%2520at%2520camera%252C%2520clean%2520medical%2520office%2520background%252C%2520professional%2520portrait%2520photography%2520with%2520soft%2520lighting&width=400&height=400&seq=105&orientation=squarish" alt="Dr. Sophia Martinez" class="w-full h-64 object-cover object-top team-member-img">
+</div>
+<div class="p-6">
+<h3 class="text-xl font-semibold text-gray-800 mb-1">Доктор София Мартинес</h3>
+<p class="text-primary font-medium mb-3">Ветеринарный врач-стоматолог</p>
+<p class="text-gray-700 text-sm mb-4">Магистр стоматологии, Университет Флориды, повышение квалификации в области ветеринарной стоматологии.
+  Увлечен профилактической стоматологической помощью и безболезненными процедурами.</p>
+<div class="flex space-x-3">
+<a href="#" class="text-gray-500 hover:text-primary">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-linkedin-fill"></i>
+</div>
+</a>
+<a href="#" class="text-gray-500 hover:text-primary">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-twitter-x-line"></i>
+</div>
+</a>
+</div>
+</div>
+</div>
+
+<!-- Член команды 4 -->
+<div class="team-member bg-gray-50 rounded-lg overflow-hidden shadow-sm">
+<div class="overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Professional%2520male%2520veterinarian%2520with%2520beard%2520in%2520white%2520coat%252C%2520smiling%2520confidently%2520at%2520camera%252C%2520clean%2520medical%2520office%2520background%252C%2520professional%2520portrait%2520photography%2520with%2520soft%2520lighting&width=400&height=400&seq=106&orientation=squarish" alt="Dr. James Wilson" class="w-full h-64 object-cover object-top team-member-img">
+</div>
+<div class="p-6">
+<h3 class="text-xl font-semibold text-gray-800 mb-1">Доктор Джеймс Уилсон</h3>
+<p class="text-primary font-medium mb-3">Неотложная медицинская помощь</p>
+<p class="text-gray-700 text-sm mb-4">Специализированное обучение по оказанию неотложной помощи. 
+  Мы готовы оказать неотложную помощь более чем за 8 лет работы.</p>
+<div class="flex space-x-3">
+<a href="#" class="text-gray-500 hover:text-primary">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-linkedin-fill"></i>
+</div>
+</a>
+<a href="#" class="text-gray-500 hover:text-primary">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-twitter-x-line"></i>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+<div class="bg-gray-50 p-8 rounded-lg shadow-sm">
+<h3 class="text-xl font-semibold text-gray-800 mb-4">Ветеринарные техники</h3>
+<ul class="space-y-4">
+<li class="flex items-center">
+<img src="https://readdy.ai/api/search-image?query=Professional%2520female%2520veterinary%2520technician%2520in%2520scrubs%252C%2520smiling%2520at%2520camera%252C%2520clean%2520medical%2520office%2520background%252C%2520professional%2520portrait%2520photography%2520with%2520soft%2520lighting&width=100&height=100&seq=107&orientation=squarish" alt="Sarah Johnson" class="w-12 h-12 rounded-full object-cover object-top mr-4">
+<div>
+<h4 class="font-medium text-gray-800">Сара Джонсон</h4>
+<p class="text-sm text-gray-600">Ведущий ветеринарный техник, LVT, 8-летний опыт работы</p>
+</div>
+</li>
+<li class="flex items-center">
+<img src="https://readdy.ai/api/search-image?query=Professional%2520male%2520veterinary%2520technician%2520in%2520scrubs%252C%2520smiling%2520at%2520camera%252C%2520clean%2520medical%2520office%2520background%252C%2520professional%2520portrait%2520photography%2520with%2520soft%2520lighting&width=100&height=100&seq=108&orientation=squarish" alt="David Thompson" class="w-12 h-12 rounded-full object-cover object-top mr-4">
+<div>
+<h4 class="font-medium text-gray-800">Дэвид Томпсон</h4>
+<p class="text-sm text-gray-600">Техник-хирург, CVT, опыт работы 6 лет</p>
+</div>
+</li>
+<li class="flex items-center">
+<img src="https://readdy.ai/api/search-image?query=Professional%2520female%2520veterinary%2520technician%2520with%2520glasses%2520in%2520scrubs%252C%2520smiling%2520at%2520camera%252C%2520clean%2520medical%2520office%2520background%252C%2520professional%2520portrait%2520photography%2520with%2520soft%2520lighting&width=100&height=100&seq=109&orientation=squarish" alt="Rebecca Lee" class="w-12 h-12 rounded-full object-cover object-top mr-4">
+<div>
+<h4 class="font-medium text-gray-800">Ребекка Ли</h4>
+<p class="text-sm text-gray-600">Зубной техник, RVT, опыт работы 5 лет</p>
+</div>
+</li>
+</ul>
+</div>
+
+<div class="bg-gray-50 p-8 rounded-lg shadow-sm">
+<h3 class="text-xl font-semibold text-gray-800 mb-4">Вспомогательный персонал</h3>
+<ul class="space-y-4">
+<li class="flex items-center">
+<img src="https://readdy.ai/api/search-image?query=Professional%2520female%2520receptionist%2520smiling%2520at%2520camera%252C%2520clean%2520office%2520background%252C%2520professional%2520portrait%2520photography%2520with%2520soft%2520lighting&width=100&height=100&seq=110&orientation=squarish" alt="Amanda Parker" class="w-12 h-12 rounded-full object-cover object-top mr-4">
+<div>
+<h4 class="font-medium text-gray-800">Аманда Паркер</h4>
+<p class="text-sm text-gray-600">Руководитель практики, 10 лет проработал в ветеринарном управлении</p>
+</div>
+</li>
+<li class="flex items-center">
+<img src="https://readdy.ai/api/search-image?query=Professional%2520female%2520receptionist%2520with%2520short%2520hair%2520smiling%2520at%2520camera%252C%2520clean%2520office%2520background%252C%2520professional%2520portrait%2520photography%2520with%2520soft%2520lighting&width=100&height=100&seq=111&orientation=squarish" alt="Jennifer Garcia" class="w-12 h-12 rounded-full object-cover object-top mr-4">
+<div>
+<h4 class="font-medium text-gray-800">Дженнифер Гарсия</h4>
+<p class="text-sm text-gray-600">Координатор по работе с клиентами, опыт работы 4 года</p>
+</div>
+</li>
+<li class="flex items-center">
+<img src="https://readdy.ai/api/search-image?query=Professional%2520male%2520groomer%2520smiling%2520at%2520camera%252C%2520clean%2520grooming%2520salon%2520background%252C%2520professional%2520portrait%2520photography%2520with%2520soft%2520lighting&width=100&height=100&seq=112&orientation=squarish" alt="Ryan Mitchell" class="w-12 h-12 rounded-full object-cover object-top mr-4">
+<div>
+<h4 class="font-medium text-gray-800">Райан Митчелл</h4>
+<p class="text-sm text-gray-600">Ведущий грумер, сертифицированный стилист по уходу за домашними животными, опыт работы 7 лет</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Раздел "Экскурсия по объекту" -->
+<section class="py-16 bg-gray-100">
+<div class="container mx-auto px-4">
+<div class="text-center mb-12">
+<h2 class="text-3xl font-bold text-gray-800 mb-4">Наше предприятие</h2>
+<p class="text-gray-700 max-w-3xl mx-auto">Совершите виртуальную экскурсию по нашей ультрасовременной ветеринарной клинике и центру по уходу за домашними животными.</p>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+<div class="col-span-2">
+<img src="https://readdy.ai/api/search-image?query=Modern%2520veterinary%2520clinic%2520reception%2520area%2520with%2520clean%2520design%252C%2520comfortable%2520seating%252C%2520reception%2520desk%252C%2520bright%2520and%2520welcoming%2520atmosphere%252C%2520professional%2520interior%2520photography%2520with%2520perfect%2520lighting&width=800&height=500&seq=113&orientation=landscape" alt="Reception Area" class="w-full h-full object-cover object-top rounded-lg shadow-sm">
+</div>
+<div>
+<img src="https://readdy.ai/api/search-image?query=Veterinary%2520examination%2520room%2520with%2520modern%2520equipment%252C%2520examination%2520table%252C%2520clean%2520and%2520sterile%2520environment%252C%2520professional%2520interior%2520photography%2520with%2520perfect%2520lighting&width=400&height=500&seq=114&orientation=portrait" alt="Examination Room" class="w-full h-full object-cover object-top rounded-lg shadow-sm">
+</div>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div>
+<img src="https://readdy.ai/api/search-image?query=Modern%2520veterinary%2520surgery%2520room%2520with%2520advanced%2520equipment%252C%2520surgical%2520lights%252C%2520clean%2520and%2520sterile%2520environment%252C%2520professional%2520interior%2520photography%2520with%2520perfect%2520lighting&width=400&height=300&seq=115&orientation=landscape" alt="Surgery Room" class="w-full h-48 object-cover object-top rounded-lg shadow-sm mb-6">
+<img src="https://readdy.ai/api/search-image?query=Pet%2520grooming%2520salon%2520with%2520modern%2520equipment%252C%2520grooming%2520tables%252C%2520clean%2520and%2520bright%2520environment%252C%2520professional%2520interior%2520photography%2520with%2520perfect%2520lighting&width=400&height=300&seq=116&orientation=landscape" alt="Grooming Salon" class="w-full h-48 object-cover object-top rounded-lg shadow-sm">
+</div>
+<div>
+<img src="https://readdy.ai/api/search-image?query=Veterinary%2520dental%2520treatment%2520room%2520with%2520specialized%2520equipment%252C%2520dental%2520x-ray%252C%2520clean%2520and%2520modern%2520environment%252C%2520professional%2520interior%2520photography%2520with%2520perfect%2520lighting&width=400&height=300&seq=117&orientation=landscape" alt="Dental Suite" class="w-full h-48 object-cover object-top rounded-lg shadow-sm mb-6">
+<img src="https://readdy.ai/api/search-image?query=Pet%2520boarding%2520facility%2520with%2520comfortable%2520kennels%252C%2520play%2520area%252C%2520clean%2520and%2520spacious%2520environment%252C%2520professional%2520interior%2520photography%2520with%2520perfect%2520lighting&width=400&height=300&seq=118&orientation=landscape" alt="Boarding Facility" class="w-full h-48 object-cover object-top rounded-lg shadow-sm">
+</div>
+<div>
+<img src="https://readdy.ai/api/search-image?query=Veterinary%2520laboratory%2520with%2520modern%2520diagnostic%2520equipment%252C%2520microscopes%252C%2520clean%2520and%2520organized%2520environment%252C%2520professional%2520interior%2520photography%2520with%2520perfect%2520lighting&width=400&height=300&seq=119&orientation=landscape" alt="Laboratory" class="w-full h-48 object-cover object-top rounded-lg shadow-sm mb-6">
+<img src="https://readdy.ai/api/search-image?query=Pet%2520daycare%2520play%2520area%2520with%2520toys%252C%2520comfortable%2520resting%2520spots%252C%2520clean%2520and%2520safe%2520environment%252C%2520professional%2520interior%2520photography%2520with%2520perfect%2520lighting&width=400&height=300&seq=120&orientation=landscape" alt="Daycare Area" class="w-full h-48 object-cover object-top rounded-lg shadow-sm">
+</div>
+</div>
+
+<div class="mt-10 text-center">
+<button class="px-6 py-3 bg-primary text-white rounded-button whitespace-nowrap hover:bg-opacity-90 transition flex items-center mx-auto">
+<div class="w-5 h-5 flex items-center justify-center mr-2">
+<i class="ri-video-line"></i>
+</div>
+<span>Смотрите Полный виртуальный тур</span>
+</button>
+</div>
+</div>
+</section>
+
+<!-- Раздел отзывов -->
+<section class="py-16 bg-white">
+<div class="container mx-auto px-4">
+<div class="text-center mb-12">
+<h2 class="text-3xl font-bold text-gray-800 mb-4">Что говорят наши клиенты</h2>
+<p class="text-gray-700 max-w-3xl mx-auto">Узнайте больше от владельцев домашних животных, которые доверяют Мягкой Лапке своих любимых питомцев.</p>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Testimonial 1 -->
+<div class="testimonial-card bg-gray-50 p-6 rounded-lg shadow-sm">
+<div class="flex items-center mb-4">
+<img src="https://readdy.ai/api/search-image?query=Professional%2520headshot%2520of%2520woman%2520in%2520her%252030s%2520smiling%2520at%2520camera%252C%2520clean%2520background%252C%2520professional%2520portrait%2520photography%2520with%2520soft%2520lighting&width=100&height=100&seq=121&orientation=squarish" alt="Client" class="w-14 h-14 rounded-full object-cover object-top mr-4">
+<div>
+<h4 class="font-medium text-gray-800">Элизабет Тернер</h4>
+<div class="flex text-yellow-400">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+</div>
+</div>
+</div>
+<p class="text-gray-700 mb-4">"Доктор Ричардсон и ее команда ухаживают за нашим золотистым ретривером Максом более 5 лет. 
+  Они внимательны, отзывчивы и всегда находят время, чтобы все объяснить. Я бы никому другому не доверила нашего пушистого родственника.."</p>
+<div class="flex items-center text-gray-500 text-sm">
+<div class="w-4 h-4 flex items-center justify-center mr-1">
+<i class="ri-time-line"></i>
+</div>
+<span>Клиент с 2018 года</span>
+</div>
+</div>
+
+<!-- Testimonial 2 -->
+<div class="testimonial-card bg-gray-50 p-6 rounded-lg shadow-sm">
+<div class="flex items-center mb-4">
+<img src="https://readdy.ai/api/search-image?query=Professional%2520headshot%2520of%2520man%2520in%2520his%252040s%2520with%2520glasses%2520smiling%2520at%2520camera%252C%2520clean%2520background%252C%2520professional%2520portrait%2520photography%2520with%2520soft%2520lighting&width=100&height=100&seq=122&orientation=squarish" alt="Client" class="w-14 h-14 rounded-full object-cover object-top mr-4">
+<div>
+<h4 class="font-medium text-gray-800">Роберт Эрнандес</h4>
+<div class="flex text-yellow-400">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+</div>
+</div>
+</div>
+<p class="text-gray-700 mb-4">"Когда нашей кошке Белле потребовалась срочная операция, команда Мягкой Лапке была великолепна. 
+  Они быстро провели операцию и постоянно держали нас в курсе событий. Их последующий уход был исключительным, и Белла полностью выздоровела."</p>
+<div class="flex items-center text-gray-500 text-sm">
+<div class="w-4 h-4 flex items-center justify-center mr-1">
+<i class="ri-time-line"></i>
+</div>
+<span>Клиент с 2020</span>
+</div>
+</div>
+
+<!-- Testimonial 3 -->
+<div class="testimonial-card bg-gray-50 p-6 rounded-lg shadow-sm">
+<div class="flex items-center mb-4">
+<img src="https://readdy.ai/api/search-image?query=Professional%2520headshot%2520of%2520woman%2520in%2520her%252050s%2520smiling%2520at%2520camera%252C%2520clean%2520background%252C%2520professional%2520portrait%2520photography%2520with%2520soft%2520lighting&width=100&height=100&seq=123&orientation=squarish" alt="Client" class="w-14 h-14 rounded-full object-cover object-top mr-4">
+<div>
+<h4 class="font-medium text-gray-800">Патриция Коллинз</h4>
+<div class="flex text-yellow-400">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+</div>
+</div>
+</div>
+<p class="text-gray-700 mb-4">"Я привожу своих питомцев в Мягкую Лапку уже более десяти лет. 
+  Их услуги по уходу за животными на высшем уровне, а условия содержания дают мне спокойствие во время путешествий. 
+  Мои собаки действительно приходят в восторг, когда мы заезжаем на парковку!"</p>
+<div class="flex items-center text-gray-500 text-sm">
+<div class="w-4 h-4 flex items-center justify-center mr-1">
+<i class="ri-time-line"></i>
+</div>
+<span>Клиент с 2013</span>
+</div>
+</div>
+</div>
+
+<div class="mt-10 flex justify-center">
+<a href="#" class="text-primary hover:text-primary-dark flex items-center">
+<span>Просмотрите больше отзывов</span>
+<div class="w-5 h-5 flex items-center justify-center ml-1">
+<i class="ri-arrow-right-line"></i>
+</div>
+</a>
+</div>
+</div>
+</section>
+
+<!-- Раздел наград и сертификатов -->
+<section class="py-16 bg-gray-100">
+<div class="container mx-auto px-4">
+<div class="text-center mb-12">
+<h2 class="text-3xl font-bold text-gray-800 mb-4">Награды и сертификаты</h2>
+<p class="text-gray-700 max-w-3xl mx-auto">Мы гордимся тем, что наше стремление к совершенству в области ветеринарии получило признание.</p>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Award 1 -->
+<div class="bg-white p-6 rounded-lg shadow-sm text-center">
+<div class="w-16 h-16 flex items-center justify-center mx-auto mb-4 bg-primary bg-opacity-10 rounded-full">
+<i class="ri-award-fill ri-2x text-primary"></i>
+</div>
+<h4 class="text-lg font-semibold text-gray-800 mb-2">Аккредитованный AAHA</h4>
+<p class="text-gray-700 text-sm">Аккредитация Русской ассоциации ветеринарных клиник с 2012 года соответствует самым высоким стандартам ветеринарного мастерства.</p>
+</div>
+
+<!-- Award 2 -->
+<div class="bg-white p-6 rounded-lg shadow-sm text-center">
+<div class="w-16 h-16 flex items-center justify-center mx-auto mb-4 bg-primary bg-opacity-10 rounded-full">
+<i class="ri-medal-fill ri-2x text-primary"></i>
+</div>
+<h4 class="text-lg font-semibold text-gray-800 mb-2">Лучшая ветеринарная практика</h4>
+<p class="text-gray-700 text-sm">Читатели журнала City Magazine пять лет подряд признавали его "Лучшей ветеринарной практикой". (2020-2025).</p>
+</div>
+
+<!-- Award 3 -->
+<div class="bg-white p-6 rounded-lg shadow-sm text-center">
+<div class="w-16 h-16 flex items-center justify-center mx-auto mb-4 bg-primary bg-opacity-10 rounded-full">
+<i class="ri-graduation-cap-fill ri-2x text-primary"></i>
+</div>
+<h4 class="text-lg font-semibold text-gray-800 mb-2">Сертифицирован как свободный от страха</h4>
+<p class="text-gray-700 text-sm">Весь персонал сертифицирован как "Бесстрашный" и обучен уменьшать страх, беспокойство и стресс у домашних животных во время визитов к ветеринару.</p>
+</div>
+
+<!-- Award 4 -->
+<div class="bg-white p-6 rounded-lg shadow-sm text-center">
+<div class="w-16 h-16 flex items-center justify-center mx-auto mb-4 bg-primary bg-opacity-10 rounded-full">
+<i class="ri-shield-star-fill ri-2x text-primary"></i>
+</div>
+<h4 class="text-lg font-semibold text-gray-800 mb-2">Дружелюбная практика для кошек</h4>
+<p class="text-gray-700 text-sm">Сертификат Gold level Cat Friendly Practice® от Американской ассоциации фелинологов-практиков.</p>
+</div>
+</div>
+
+<div class="flex flex-wrap justify-center items-center gap-8 mt-12">
+<div class="bg-white p-4 rounded-lg shadow-sm flex items-center">
+<div class="w-12 h-12 flex items-center justify-center mr-3">
+<i class="ri-verified-badge-fill ri-2x text-blue-600"></i>
+</div>
+<div>
+<h5 class="font-medium text-gray-800">Член AVMA</h5>
+<p class="text-xs text-gray-600">Русская ассоциация ветеринарной медицины</p>
+</div>
+</div>
+
+<div class="bg-white p-4 rounded-lg shadow-sm flex items-center">
+<div class="w-12 h-12 flex items-center justify-center mr-3">
+<i class="ri-verified-badge-fill ri-2x text-green-600"></i>
+</div>
+<div>
+<h5 class="font-medium text-gray-800">Сертифицированный VECCS</h5>
+<p class="text-xs text-gray-600">Общество неотложной ветеринарной помощи и реанимации</p>
+</div>
+</div>
+
+<div class="bg-white p-4 rounded-lg shadow-sm flex items-center">
+<div class="w-12 h-12 flex items-center justify-center mr-3">
+<i class="ri-verified-badge-fill ri-2x text-purple-600"></i>
+</div>
+<div>
+<h5 class="font-medium text-gray-800">Одобрено NAVTA</h5>
+<p class="text-xs text-gray-600">Национальная ассоциация ветеринарных техников</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Раздел CTA -->
+<section class="py-16 bg-primary bg-opacity-10">
+<div class="container mx-auto px-4">
+<div class="flex flex-col md:flex-row items-center justify-between">
+<div class="w-full md:w-1/2 mb-8 md:mb-0">
+<h2 class="text-3xl font-bold text-gray-800 mb-4">Готовы ощутить разницу в умном уходе?</h2>
+<p class="text-gray-700 mb-6">Запишитесь на прием сегодня и узнайте, почему тысячи владельцев домашних животных доверяют нам своих любимых компаньонов.</p>
+<div class="flex flex-wrap gap-4">
+<button class="px-6 py-3 bg-primary text-white rounded-button whitespace-nowrap hover:bg-opacity-90 transition">Запишитесь на прием</button>
+<button class="px-6 py-3 bg-white text-gray-800 rounded-button whitespace-nowrap hover:bg-gray-100 transition border border-gray-300">связаться с нами</button>
+</div>
+</div>
+<div class="w-full md:w-1/2">
+<img src="https://readdy.ai/api/search-image?query=Happy%2520veterinarian%2520with%2520golden%2520retriever%2520dog%252C%2520professional%2520vet%2520in%2520white%2520coat%2520examining%2520healthy%2520pet%252C%2520bright%2520modern%2520clinic%2520setting%252C%2520warm%2520and%2520caring%2520interaction%252C%2520professional%2520photography%2520with%2520perfect%2520lighting&width=600&height=400&seq=124&orientation=landscape" alt="Veterinarian with Dog" class="w-full rounded-lg shadow-lg">
+</div>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-800 text-white py-12">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+<div>
+<div class="flex items-center mb-4">
+<div class="w-8 h-8 flex items-center justify-center text-primary mr-2">
+<i class="ri-paw-print-fill ri-lg"></i>
+</div>
+<span class="font-['Pacifico'] text-2xl">Мягкая Лапка</span>
+</div>
+<p class="text-gray-400 mb-4">Предоставление исключительной ветеринарной помощи и услуг для домашних животных с тех пор, как 2010.</p>
+<div class="flex space-x-4">
+<a href="#" class="text-gray-400 hover:text-primary">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-facebook-fill"></i>
+</div>
+</a>
+<a href="#" class="text-gray-400 hover:text-primary">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-instagram-line"></i>
+</div>
+</a>
+<a href="#" class="text-gray-400 hover:text-primary">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-twitter-x-line"></i>
+</div>
+</a>
+</div>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-4">Быстрые ссылки</h4>
+<ul class="space-y-2">
+<li><a href="./Home.html" data-readdy="true" class="text-gray-400 hover:text-primary">Главная</a></li>
+<li><a href="./About.html" class="text-gray-400 hover:text-primary">О нас</a></li>
+<li><a href="./OurServices.html" class="text-gray-400 hover:text-primary">Услуги</a></li>
+<li><a href="./Product.html" class="text-gray-400 hover:text-primary">Магазин</a></li>
+<li><a href="./PetCare.html" class="text-gray-400 hover:text-primary">Уход</a></li>
+<li><a href="./ContactUs.html" class="text-gray-400 hover:text-primary">Связаться с нами</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-4">Услуги</h4>
+<ul class="space-y-2">
+<li><a href="./" class="text-gray-400 hover:text-primary">Ветеринарная помощь</a></li>
+<li><a href="#" class="text-gray-400 hover:text-primary">Хирургия</a></li>
+<li><a href="#" class="text-gray-400 hover:text-primary">Уход за зубами</a></li>
+<li><a href="#" class="text-gray-400 hover:text-primary">Ухаживающий</a></li>
+<li><a href="#" class="text-gray-400 hover:text-primary">Посадка</a></li>
+<li><a href="#" class="text-gray-400 hover:text-primary">Неотложная медицинская помощь</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-4">Связаться с нами</h4>
+<ul class="space-y-3">
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-map-pin-line"></i>
+</div>
+<span class="text-gray-400">12 Бульварное кольцо, Краснодар 350089</span>
+</li>
+<li class="flex items-center">
+<div class="w-5 h-5 flex items-center justify-center mr-2">
+<i class="ri-phone-line"></i>
+</div>
+<span class="text-gray-400">8 (988) 359-5866</span>
+</li>
+<li class="flex items-center">
+<div class="w-5 h-5 flex items-center justify-center mr-2">
+<i class="ri-mail-line"></i>
+</div>
+<span class="text-gray-400">skorpikloves@gmai.com</span>
+</li>
+<li class="flex items-center">
+<div class="w-5 h-5 flex items-center justify-center mr-2">
+<i class="ri-time-line"></i>
+</div>
+<span class="text-gray-400">Пн-Пт: С 8 утра до 19 вечера, Сб: с 9 утра до 17 вечера</span>
+</li>
+</ul>
+<div class="mt-4">
+<h5 class="font-medium mb-2">Подпишитесь на нашу рассылку новостей</h5>
+<div class="flex">
+<input type="email" placeholder="Ваша почта" class="px-4 py-2 bg-gray-700 text-white rounded-l-lg border-none focus:outline-none focus:ring-2 focus:ring-primary w-full">
+<button class="px-4 py-2 bg-primary text-white rounded-r-lg whitespace-nowrap hover:bg-opacity-90 transition">Подписываться</button>
+</div>
+</div>
+</div>
+</div>
+<div class="pt-6 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-400 text-sm mb-4 md:mb-0">© 2025 GoLoSoK. Все права защищены.</p>
+<div class="flex items-center space-x-4">
+<div class="w-8 h-8 flex items-center justify-center text-gray-400">
+<i class="ri-visa-line ri-lg"></i>
+</div>
+<div class="w-8 h-8 flex items-center justify-center text-gray-400">
+<i class="ri-mastercard-line ri-lg"></i>
+</div>
+<div class="w-8 h-8 flex items-center justify-center text-gray-400">
+<i class="ri-paypal-line ri-lg"></i>
+</div>
+<div class="w-8 h-8 flex items-center justify-center text-gray-400">
+<i class="ri-apple-fill ri-lg"></i>
+</div>
+</div>
+</div>
+</div>
+</footer>
+
+<script id="teamInteractions">
+document.addEventListener('DOMContentLoaded', function() {
+  // Эффекты наведения курсора на члена команды
+
+  const teamMembers = document.querySelectorAll('.team-member');
+  teamMembers.forEach(member => {
+    member.addEventListener('mouseenter', () => {
+      member.querySelector('.team-member-img').style.transform = 'scale(1.05)';
+    });
+    member.addEventListener('mouseleave', () => {
+      member.querySelector('.team-member-img').style.transform = 'scale(1)';
+    });
+  });
+});
+</script>
+
+<script id="testimonialInteractions">
+document.addEventListener('DOMContentLoaded', function() {
+  // Эффекты зависания поздравительной открытки
+  const testimonialCards = document.querySelectorAll('.testimonial-card');
+  testimonialCards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      card.style.transform = 'translateY(-5px)';
+      card.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)';
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'translateY(0)';
+      card.style.boxShadow = '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)';
+    });
+  });
+});
+</script>
+
+<script id="navigationInteractions">
+document.addEventListener('DOMContentLoaded', function() {
+  // Эффект наведения курсора на навигационную ссылку
+  const navLinks = document.querySelectorAll('nav a');
+  navLinks.forEach(link => {
+    if (!link.classList.contains('text-primary')) {
+      link.addEventListener('mouseenter', () => {
+        link.style.color = '#ff9966';
+      });
+      link.addEventListener('mouseleave', () => {
+        link.style.color = '#4b5563';
+      });
+    }
+  });
+  
+  // Обработчик отправки формы
+  const form = document.querySelector('footer form');
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = form.querySelector('input[type="email"]').value;
+      if (email) {
+        console.log('Subscribed:', email);
+        form.reset();
+      }
+    });
+  }
+});
+</script>
+</body>
+</html>
