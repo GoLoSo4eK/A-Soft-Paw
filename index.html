@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная Страница</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+    <script>
+        tailwind.config={
+            theme:{
+                extend:{
+                    colors:{
+                        primary:'#ff9966',
+                        secondary:'#f8d8c0'
+                    },
+                    borderRadius:{
+                        'none':'0px',
+                        'sm':'4px',
+                        DEFAULT:'8px',
+                        'md':'12px',
+                        'lg':'16px',
+                        'xl':'20px',
+                        '2xl':'24px',
+                        '3xl':'32px',
+                        'full':'9999px',
+                        'button':'8px'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-section {
+            background-image: url('https://readdy.ai/api/search-image?query=A%20beautiful%20dog%20with%20warm%20golden%20fur%20looking%20at%20the%20camera%20with%20a%20friendly%20expression%2C%20soft%20natural%20lighting%20from%20the%20left%20side%20creating%20a%20warm%20atmosphere%2C%20simple%20clean%20background%20with%20light%20gradient%20from%20white%20to%20soft%20orange%20on%20the%20right%20side%2C%20professional%20pet%20photography%2C%20high%20quality&width=1200&height=600&seq=1&orientation=landscape');
+            background-size: cover;
+            background-position: right center;
+        }
+        .hero-content {
+            background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.9) 50%, rgba(255,255,255,0) 100%);
+        }
+        .pet-habits {
+            background-image: url('https://readdy.ai/api/search-image?query=A%20cute%20dog%20wearing%20stylish%20sunglasses%2C%20looking%20smart%20and%20trendy%2C%20soft%20yellow%20background%2C%20professional%20pet%20photography%20with%20soft%20lighting%2C%20high%20quality%20image%20with%20clean%20details&width=800&height=300&seq=2&orientation=landscape');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3">
+        <div class="flex items-center justify-between">
+        <div class="flex items-center">
+        <a href="#" class="flex items-center">
+        <div class="w-10 h-10 flex items-center justify-center mr-2">
+        <i class="ri-footprint-fill text-black text-2xl"></i>
+        </div>
+        <span class="font-['Pacifico'] text-xl">Мягкая Лапка</span>
+        </a>
+        </div>
+        <nav class="hidden md:flex items-center space-x-8">
+            <a href="./About.html" class="text-gray-800 hover:text-primary transition-colors">О нас</a>
+            <a href="./OurServices.html" class="text-gray-800 hover:text-primary transition-colors">Наши Услуги</a>
+            <a href="./Product.html" class="text-gray-800 hover:text-primary transition-colors">Товары</a>
+            <a href="./PetCare.html" class="text-gray-800 hover:text-primary transition-colors">Уход</a>
+            <a href="./ContactUs.html" class="text-gray-800 hover:text-primary transition-colors">Связаться с нами</a>
+        </nav>
+        <div class="flex items-center space-x-4">
+        <a href="./Login.html" class="px-4 py-2 text-primary border border-primary !rounded-button hover:bg-primary/10 transition-colors whitespace-nowrap">Log In</a>
+        <a href="./index.html" class="px-4 py-2 text-white bg-primary !rounded-button hover:bg-primary/90 transition-colors whitespace-nowrap">Book Now</a>
+        </div>
+        </div>
+        </div>
+        </header>
+
+    <!-- Раздел о героях -->
+    <section class="hero-section relative">
+        <div class="container mx-auto px-4 py-16 md:py-24 w-full">
+            <div class="hero-content max-w-2xl py-12 px-8">
+                <div class="flex items-center mb-4">
+                    <span class="text-sm text-gray-600">8 (988) 359-5866 • Пн-Пт с 8 утра до 19 вечера</span>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">УХОД ЗА ДОМАШНИМИ ЖИВОТНЫМИ</h1>
+                <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 mb-6">Мягкая Лапка</h2>
+                <p class="text-gray-700 mb-8 max-w-lg">Мы обеспечиваем всесторонний уход за вашими любимыми питомцами. 
+                    Наша команда опытных ветеринаров и обслуживающего персонала заботится о здоровье и счастье ваших пушистых домочадцев.</p>
+                <div class="flex flex-wrap gap-4">
+                    <div class="flex items-center bg-secondary bg-opacity-70 px-4 py-2 rounded-full">
+                        <div class="flex -space-x-2 mr-3">
+                            <img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20a%20smiling%20veterinarian%20with%20a%20warm%20expression%2C%20simple%20clean%20background%2C%20high%20quality%20portrait&width=50&height=50&seq=3&orientation=squarish" alt="Vet 1" class="w-8 h-8 rounded-full border-2 border-white object-cover object-top">
+                            <img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20a%20friendly%20female%20veterinarian%20with%20a%20warm%20expression%2C%20simple%20clean%20background%2C%20high%20quality%20portrait&width=50&height=50&seq=4&orientation=squarish" alt="Vet 2" class="w-8 h-8 rounded-full border-2 border-white object-cover object-top">
+                            <img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20a%20veterinary%20technician%20with%20a%20warm%20expression%2C%20simple%20clean%20background%2C%20high%20quality%20portrait&width=50&height=50&seq=5&orientation=squarish" alt="Vet 3" class="w-8 h-8 rounded-full border-2 border-white object-cover object-top">
+                        </div>
+                        <span class="text-sm font-medium">1000+ Обзоры</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Приветственный раздел -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-gray-800 mb-8 flex items-center">
+                Welcome to Smart-Care
+                <div class="w-6 h-6 flex items-center justify-center ml-2">
+                    <i class="ri-paw-print-line"></i>
+                </div>
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Карточка "О нас" -->
+                <div class="bg-orange-100 rounded-lg p-6 shadow-sm">
+                    <img src="https://readdy.ai/api/search-image?query=A%20modern%20veterinary%20clinic%20building%20exterior%20with%20clean%20architecture%2C%20welcoming%20entrance%2C%20landscaped%20surroundings%2C%20bright%20daylight%2C%20professional%20real%20estate%20photography&width=300&height=200&seq=6&orientation=landscape" alt="Clinic" class="w-full h-40 object-cover object-top rounded mb-4">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">О нас</h3>
+                    <p class="text-gray-700 mb-4">Мягкая Лапка - это ветеринарная клиника с полным спектром услуг, предоставляющая исключительный уход за домашними животными с 2010 года.
+                        Наше современное учреждение предлагает комплексные медицинские, хирургические и стоматологические услуги.</p>
+                    <button class="px-4 py-2 bg-gray-800 text-white rounded-button whitespace-nowrap hover:bg-gray-700 transition">Подробнее</button>
+                </div>
+                
+                <!-- Визитная карточка нашей команды -->
+                <div class="bg-orange-100 rounded-lg p-6 shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="w-6 h-6 flex items-center justify-center mr-2 bg-gray-800 text-white rounded">
+                            <i class="ri-team-line"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">Наша команда</h3>
+                    </div>
+                    <p class="text-gray-700 mb-4">Наша команда состоит из высококвалифицированных ветеринаров, техников
+                        и вспомогательного персонала, которые заботятся о здоровье и благополучии животных. Мы относимся к каждому домашнему животному как к своему собственному.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 bg-white rounded-full text-sm text-gray-700">Ветеринары</span>
+                        <span class="px-3 py-1 bg-white rounded-full text-sm text-gray-700">Технические специалисты</span>
+                        <span class="px-3 py-1 bg-white rounded-full text-sm text-gray-700">Грумеры</span>
+                    </div>
+                    <button class="px-4 py-2 bg-gray-800 text-white rounded-button whitespace-nowrap hover:bg-gray-700 transition">Встреча с командой</button>
+                </div>
+                
+                <!-- Визитная карточка -->
+                <div class="bg-orange-100 rounded-lg p-6 shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="w-6 h-6 flex items-center justify-center mr-2 bg-gray-800 text-white rounded">
+                            <i class="ri-map-pin-line"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">Приходите к нам</h3>
+                    </div>
+                    <p class="text-gray-700 mb-4">Мы удобно расположены в самом центре города, где есть просторная парковка. 
+                        Наше заведение спроектировано таким образом, чтобы обеспечить комфортные условия как для домашних животных, так и для их владельцев.</p>
+                    <div class="flex items-center text-gray-700 mb-4">
+                        <div class="w-5 h-5 flex items-center justify-center mr-2">
+                            <i class="ri-time-line"></i>
+                        </div>
+                        <span>Пн-Пт: С 8 утра до 19 вечера, Сб: с 9 утра до 17 вечера</span>
+                    </div>
+                    <button class="px-4 py-2 bg-gray-800 text-white rounded-button whitespace-nowrap hover:bg-gray-700 transition">Проложить маршрут</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Раздел услуг -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-gray-800 mb-8 flex items-center">
+                Услуги нашей компании
+                <div class="w-6 h-6 flex items-center justify-center ml-2">
+                    <i class="ri-paw-print-line"></i>
+                </div>
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Хирургическая карточка -->
+                <div class="bg-indigo-400 rounded-lg p-6 text-white shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 flex items-center justify-center mr-3">
+                            <i class="ri-syringe-line ri-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Хирургия</h3>
+                    </div>
+                    <p class="mb-6">Наш хирургический кабинет оснащен передовым оборудованием для мониторинга и укомплектован опытными специалистами, чтобы обеспечить вашему
+                        питомцу максимально безопасную и эффективную хирургическую помощь.</p>
+                    <button class="px-4 py-2 bg-white text-indigo-600 rounded-button whitespace-nowrap hover:bg-gray-100 transition">Подробнее</button>
+                </div>
+                
+                <!-- Медицинская карточка -->
+                <div class="bg-indigo-400 rounded-lg p-6 text-white shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 flex items-center justify-center mr-3">
+                            <i class="ri-heart-pulse-line ri-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Здравоохранение</h3>
+                    </div>
+                    <p class="mb-6">Мы проводим комплексные оздоровительные обследования, вакцинацию, профилактику от паразитов
+                        и консультации по питанию, чтобы сохранить здоровье вашего питомца на всех этапах жизни.</p>
+                    <button class="px-4 py-2 bg-white text-indigo-600 rounded-button whitespace-nowrap hover:bg-gray-100 transition">Подробнее</button>
+                </div>
+                
+                <!-- Карточка для ухода -->
+                <div class="bg-indigo-400 rounded-lg p-6 text-white shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 flex items-center justify-center mr-3">
+                            <i class="ri-scissors-line ri-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Ухаживающий</h3>
+                    </div>
+                    <p class="mb-6">Наши профессиональные грумеры купают, стригут, подстригают ногти
+                        и чистят уши, чтобы ваш питомец выглядел и чувствовал себя наилучшим образом.</p>
+                    <button class="px-4 py-2 bg-white text-indigo-600 rounded-button whitespace-nowrap hover:bg-gray-100 transition">Подробнее</button>
+                </div>
+                
+                <!-- Карточка детского сада -->
+                <div class="bg-indigo-400 rounded-lg p-6 text-white shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 flex items-center justify-center mr-3">
+                            <i class="ri-home-heart-line ri-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Дневной уход</h3>
+                    </div>
+                    <p class="mb-6">Наши услуги дневного ухода обеспечивают безопасную и стимулирующую среду для вашего питомца, пока вас нет дома. 
+                        Контролируемые игры, общение и отдых обеспечивают сбалансированный распорядок дня.</p>
+                    <button class="px-4 py-2 bg-white text-indigo-600 rounded-button whitespace-nowrap hover:bg-gray-100 transition">Подробнее</button>
+                </div>
+                
+                <!-- Сделайте пригласительный билет на встречу -->
+                <div class="bg-orange-300 rounded-lg p-6 text-gray-800 shadow-sm md:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 flex items-center justify-center mr-3">
+                            <i class="ri-calendar-check-line ri-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Назначьте встречу</h3>
+                    </div>
+                    <p class="mb-6">Запишитесь на прием к нашему ветеринару. Будь то плановый осмотр, вакцинация
+                        или решение конкретной проблемы, мы всегда готовы обеспечить уход, в котором нуждается ваш питомец.</p>
+                    <button class="px-4 py-2 bg-gray-800 text-white rounded-button whitespace-nowrap hover:bg-gray-700 transition">Забронировать</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Раздел о привычках домашних животных -->
+    <section class="pet-habits py-12">
+        <div class="container mx-auto px-4">
+            <div class="bg-yellow-400 bg-opacity-80 rounded-lg p-8 max-w-3xl ml-auto">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Привычки и советы питомца</h2>
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Почему лают собаки и как бороться с чрезмерным лаем</h3>
+                <p class="text-gray-800 mb-6">Собаки лают как форма общения, но чрезмерный лай может быть проблематичным. 
+                    Понимание основных причин, таких как скука, беспокойство, территориальное поведение или стремление привлечь к себе внимание, — это первый шаг к поиску эффективных решений. 
+                    Регулярные физические упражнения, умственная стимуляция, последовательные тренировки и устранение определенных триггеров могут помочь справиться с чрезмерным лаем.</p>
+                <button class="px-4 py-2 bg-gray-800 text-white rounded-button whitespace-nowrap hover:bg-gray-700 transition">Подробнее</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция магазина -->
+    <section class="py-12 bg-pink-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-gray-800 mb-8 flex items-center">
+                Магазин
+                <div class="w-6 h-6 flex items-center justify-center ml-2">
+                    <i class="ri-paw-print-line"></i>
+                </div>
+            </h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
+                <!-- Продукт 1 -->
+                <div class="bg-white rounded-lg p-4 shadow-sm">
+                    <img src="https://readdy.ai/api/search-image?query=Colorful%20pet%20toys%20on%20clean%20white%20background%2C%20various%20dog%20toys%20including%20balls%20and%20chew%20toys%2C%20professional%20product%20photography%20with%20soft%20lighting&width=200&height=200&seq=7&orientation=squarish" alt="Pet Toys" class="w-full h-32 object-cover object-top rounded mb-3">
+                    <h3 class="font-medium text-gray-800 mb-2">Игрушки</h3>
+                    <button class="w-full px-3 py-2 bg-gray-800 text-white text-sm rounded-button whitespace-nowrap hover:bg-gray-700 transition">Купить сейчас</button>
+                </div>
+                
+                <!-- Продукт 2 -->
+                <div class="bg-white rounded-lg p-4 shadow-sm">
+                    <img src="https://readdy.ai/api/search-image?query=Dog%20collar%20and%20leash%20set%20on%20clean%20white%20background%2C%20stylish%20pet%20accessories%2C%20professional%20product%20photography%20with%20soft%20lighting&width=200&height=200&seq=8&orientation=squarish" alt="Collars" class="w-full h-32 object-cover object-top rounded mb-3">
+                    <h3 class="font-medium text-gray-800 mb-2">Воротнички</h3>
+                    <button class="w-full px-3 py-2 bg-gray-800 text-white text-sm rounded-button whitespace-nowrap hover:bg-gray-700 transition">Купить сейчас</button>
+                </div>
+                
+                <!-- Продукт 3 -->
+                <div class="bg-white rounded-lg p-4 shadow-sm">
+                    <img src="https://readdy.ai/api/search-image?query=Comfortable%20pet%20bed%20on%20clean%20white%20background%2C%20cozy%20dog%20bed%20with%20soft%20fabric%2C%20professional%20product%20photography%20with%20soft%20lighting&width=200&height=200&seq=9&orientation=squarish" alt="Beds" class="w-full h-32 object-cover object-top rounded mb-3">
+                    <h3 class="font-medium text-gray-800 mb-2">Кровати</h3>
+                    <button class="w-full px-3 py-2 bg-gray-800 text-white text-sm rounded-button whitespace-nowrap hover:bg-gray-700 transition">Купить сейчас</button>
+                </div>
+                
+                <!-- Продукт 4 -->
+                <div class="bg-white rounded-lg p-4 shadow-sm">
+                    <img src="https://readdy.ai/api/search-image?query=Interactive%20dog%20toy%20on%20clean%20white%20background%2C%20puzzle%20feeder%20for%20pets%2C%20professional%20product%20photography%20with%20soft%20lighting&width=200&height=200&seq=10&orientation=squarish" alt="Toys" class="w-full h-32 object-cover object-top rounded mb-3">
+                    <h3 class="font-medium text-gray-800 mb-2">Игрушки</h3>
+                    <button class="w-full px-3 py-2 bg-gray-800 text-white text-sm rounded-button whitespace-nowrap hover:bg-gray-700 transition">Купить сейчас</button>
+                </div>
+                
+                <!-- Продукт 5 -->
+                <div class="bg-white rounded-lg p-4 shadow-sm">
+                    <img src="https://readdy.ai/api/search-image?query=Premium%20pet%20food%20in%20packaging%20on%20clean%20white%20background%2C%20high%20quality%20dog%20nutrition%2C%20professional%20product%20photography%20with%20soft%20lighting&width=200&height=200&seq=11&orientation=squarish" alt="Food" class="w-full h-32 object-cover object-top rounded mb-3">
+                    <h3 class="font-medium text-gray-800 mb-2">Еда</h3>
+                    <button class="w-full px-3 py-2 bg-gray-800 text-white text-sm rounded-button whitespace-nowrap hover:bg-gray-700 transition">Купить сейчас</button>
+                </div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row gap-8 items-center">
+                <img src="https://readdy.ai/api/search-image?query=Cute%20small%20dog%20with%20bright%20expression%20looking%20at%20camera%2C%20soft%20pink%20background%2C%20professional%20pet%20photography%20with%20soft%20lighting%2C%20high%20quality&width=400&height=300&seq=12&orientation=landscape" alt="Cute Dog" class="w-full md:w-1/3 rounded-lg object-cover object-top h-64">
+                
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 w-full md:w-2/3">
+                    <!-- Продукт 6 -->
+                    <div class="bg-white rounded-lg p-4 shadow-sm">
+                        <img src="https://readdy.ai/api/search-image?query=Pet%20carrier%20on%20clean%20white%20background%2C%20travel%20crate%20for%20dogs%2C%20professional%20product%20photography%20with%20soft%20lighting&width=200&height=200&seq=13&orientation=squarish" alt="Carriers" class="w-full h-32 object-cover object-top rounded mb-3">
+                        <h3 class="font-medium text-gray-800 mb-2">Носители</h3>
+                        <button class="w-full px-3 py-2 bg-gray-800 text-white text-sm rounded-button whitespace-nowrap hover:bg-gray-700 transition">Купить сейчас</button>
+                    </div>
+                    
+                    <!-- Продукт 7 -->
+                    <div class="bg-white rounded-lg p-4 shadow-sm">
+                        <img src="https://readdy.ai/api/search-image?query=Pet%20grooming%20brush%20on%20clean%20white%20background%2C%20dog%20grooming%20tool%2C%20professional%20product%20photography%20with%20soft%20lighting&width=200&height=200&seq=14&orientation=squarish" alt="Grooming" class="w-full h-32 object-cover object-top rounded mb-3">
+                        <h3 class="font-medium text-gray-800 mb-2">Ухаживающий</h3>
+                        <button class="w-full px-3 py-2 bg-gray-800 text-white text-sm rounded-button whitespace-nowrap hover:bg-gray-700 transition">Купить сейчас</button>
+                    </div>
+                    
+                    <!-- Продукт 8 -->
+                    <div class="bg-white rounded-lg p-4 shadow-sm">
+                        <img src="https://readdy.ai/api/search-image?query=Pet%20treats%20in%20packaging%20on%20clean%20white%20background%2C%20healthy%20dog%20snacks%2C%20professional%20product%20photography%20with%20soft%20lighting&width=200&height=200&seq=15&orientation=squarish" alt="Treats" class="w-full h-32 object-cover object-top rounded mb-3">
+                        <h3 class="font-medium text-gray-800 mb-2">Лечит</h3>
+                        <button class="w-full px-3 py-2 bg-gray-800 text-white text-sm rounded-button whitespace-nowrap hover:bg-gray-700 transition">Купить сейчас</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Раздел блога -->
+    <section class="py-12 bg-gray-200">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-gray-800 mb-8 flex items-center">
+                Блог
+                <div class="w-6 h-6 flex items-center justify-center ml-2">
+                    <i class="ri-paw-print-line"></i>
+                </div>
+            </h2>
+            
+            <h3 class="text-xl font-semibold text-gray-800 mb-6">Не забывайте заботиться о своих питомцах!</h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <!-- Запись в блоге 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-sm">
+                    <img src="https://readdy.ai/api/search-image?query=Cocker%20spaniel%20dog%20with%20long%20ears%20sitting%20on%20white%20background%2C%20professional%20pet%20photography%20with%20soft%20lighting%2C%20high%20quality&width=400&height=300&seq=16&orientation=landscape" alt="Grooming Tips" class="w-full h-48 object-cover object-top">
+                    <div class="p-4">
+                        <h4 class="font-semibold text-gray-800 mb-2">Ухаживающий</h4>
+                        <p class="text-gray-700 text-sm mb-3">Необходимые советы по уходу за длинношерстными породами собак, чтобы сохранить их шерсть здоровой и не спутанной.</p>
+                        <button class="px-3 py-1.5 bg-gray-800 text-white text-sm rounded-button whitespace-nowrap hover:bg-gray-700 transition">Подробнее</button>
+                    </div>
+                </div>
+                
+                <!-- Blog Post 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-sm">
+                    <img src="https://readdy.ai/api/search-image?query=Golden%20retriever%20puppy%20sleeping%20on%20a%20dog%20bed%2C%20peaceful%20resting%20pet%2C%20professional%20pet%20photography%20with%20soft%20lighting%2C%20high%20quality&width=400&height=300&seq=17&orientation=landscape" alt="Nutrition Tips" class="w-full h-48 object-cover object-top">
+                    <div class="p-4">
+                        <h4 class="font-semibold text-gray-800 mb-2">Питание</h4>
+                        <p class="text-gray-700 text-sm mb-3">Сбалансированное питание для щенков: что вам нужно знать о кормлении вашей растущей собаки.</p>
+                        <button class="px-3 py-1.5 bg-gray-800 text-white text-sm rounded-button whitespace-nowrap hover:bg-gray-700 transition">Подробнее</button>
+                    </div>
+                </div>
+                
+                <!-- Запись в блоге 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-sm">
+                    <img src="https://readdy.ai/api/search-image?query=Cat%20playing%20with%20interactive%20toy%2C%20engaged%20and%20active%20pet%2C%20professional%20pet%20photography%20with%20soft%20lighting%2C%20high%20quality&width=400&height=300&seq=18&orientation=landscape" alt="Training Tips" class="w-full h-48 object-cover object-top">
+                    <div class="p-4">
+                        <h4 class="font-semibold text-gray-800 mb-2">Обучение</h4>
+                        <p class="text-gray-700 text-sm mb-3">Умственная стимуляция для кошек: Интерактивные игрушки и развлечения, которые помогут вашему кошачьему другу быть занятым.</p>
+                        <button class="px-3 py-1.5 bg-gray-800 text-white text-sm rounded-button whitespace-nowrap hover:bg-gray-700 transition">Подробнее</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <button class="px-6 py-2.5 bg-primary text-white rounded-button whitespace-nowrap hover:bg-opacity-90 transition">Просмотреть все записи</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div>
+        <div class="flex items-center mb-4">
+        <div class="w-8 h-8 flex items-center justify-center text-primary mr-2">
+        <i class="ri-paw-print-fill ri-lg"></i>
+        </div>
+        <span class="font-['Pacifico'] text-2xl">Мягкая Лапка</span>
+        </div>
+        <p class="text-gray-400 mb-4">Предоставление исключительной ветеринарной помощи и услуг для домашних животных с тех пор, как 2010.</p>
+        <div class="flex space-x-4">
+        <a href="#" class="text-gray-400 hover:text-primary">
+        <div class="w-8 h-8 flex items-center justify-center">
+        <i class="ri-facebook-fill"></i>
+        </div>
+        </a>
+        <a href="#" class="text-gray-400 hover:text-primary">
+        <div class="w-8 h-8 flex items-center justify-center">
+        <i class="ri-instagram-line"></i>
+        </div>
+        </a>
+        <a href="#" class="text-gray-400 hover:text-primary">
+        <div class="w-8 h-8 flex items-center justify-center">
+        <i class="ri-twitter-x-line"></i>
+        </div>
+        </a>
+        </div>
+        </div>
+        <div>
+        <h4 class="text-lg font-semibold mb-4">Быстрые ссылки</h4>
+        <ul class="space-y-2">
+        <li><a href="./Home.html" data-readdy="true" class="text-gray-400 hover:text-primary">Главная</a></li>
+        <li><a href="./About.html" class="text-gray-400 hover:text-primary">О нас</a></li>
+        <li><a href="./OurServices.html" class="text-gray-400 hover:text-primary">Услуги</a></li>
+        <li><a href="./Product.html" class="text-gray-400 hover:text-primary">Магазин</a></li>
+        <li><a href="./PetCare.html" class="text-gray-400 hover:text-primary">Блог</a></li>
+        <li><a href="./ContactUs.html" class="text-gray-400 hover:text-primary">Связаться с нами</a></li>
+        </ul>
+        </div>
+        <div>
+        <h4 class="text-lg font-semibold mb-4">Услуги</h4>
+        <ul class="space-y-2">
+        <li><a href="./" class="text-gray-400 hover:text-primary">Ветеринарная помощь</a></li>
+        <li><a href="#" class="text-gray-400 hover:text-primary">Хирургия</a></li>
+        <li><a href="#" class="text-gray-400 hover:text-primary">Уход за зубами</a></li>
+        <li><a href="#" class="text-gray-400 hover:text-primary">Ухаживающий</a></li>
+        <li><a href="#" class="text-gray-400 hover:text-primary">Посадка</a></li>
+        <li><a href="#" class="text-gray-400 hover:text-primary">Неотложная медицинская помощь</a></li>
+        </ul>
+        </div>
+        <div>
+        <h4 class="text-lg font-semibold mb-4">Связаться с нами</h4>
+        <ul class="space-y-3">
+        <li class="flex items-start">
+        <div class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+        <i class="ri-map-pin-line"></i>
+        </div>
+        <span class="text-gray-400">12 Бульварное кольцо, Краснодар 350089</span>
+        </li>
+        <li class="flex items-center">
+        <div class="w-5 h-5 flex items-center justify-center mr-2">
+        <i class="ri-phone-line"></i>
+        </div>
+        <span class="text-gray-400">8 (988) 359-5866</span>
+        </li>
+        <li class="flex items-center">
+        <div class="w-5 h-5 flex items-center justify-center mr-2">
+        <i class="ri-mail-line"></i>
+        </div>
+        <span class="text-gray-400">skorpikloves@gmai.com</span>
+        </li>
+        <li class="flex items-center">
+        <div class="w-5 h-5 flex items-center justify-center mr-2">
+        <i class="ri-time-line"></i>
+        </div>
+        <span class="text-gray-400">Пн-Пт: С 8 утра до 19 вечера, Сб: с 9 утра до 17 вечера</span>
+        </li>
+        </ul>
+        <div class="mt-4">
+        <h5 class="font-medium mb-2">Подпишитесь на нашу рассылку новостей</h5>
+        <div class="flex">
+        <input type="email" placeholder="Ваша почта" class="px-4 py-2 bg-gray-700 text-white rounded-l-lg border-none focus:outline-none focus:ring-2 focus:ring-primary w-full">
+        <button class="px-4 py-2 bg-primary text-white rounded-r-lg whitespace-nowrap hover:bg-opacity-90 transition">Подписываться</button>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div class="pt-6 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center">
+      <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2025 GoLoSoK. Все права защищены.</p>
+        <div class="flex items-center space-x-4">
+        <div class="w-8 h-8 flex items-center justify-center text-gray-400">
+        <i class="ri-visa-line ri-lg"></i>
+        </div>
+        <div class="w-8 h-8 flex items-center justify-center text-gray-400">
+        <i class="ri-mastercard-line ri-lg"></i>
+        </div>
+        <div class="w-8 h-8 flex items-center justify-center text-gray-400">
+        <i class="ri-paypal-line ri-lg"></i>
+        </div>
+        <div class="w-8 h-8 flex items-center justify-center text-gray-400">
+        <i class="ri-apple-fill ri-lg"></i>
+        </div>
+        </div>
+        </div>
+        </div>
+        </footer>
+
+    <script id="navigationScript">
+        document.addEventListener('DOMContentLoaded', function() {
+            // Здесь можно было бы добавить функцию переключения мобильной навигации
+ // Это заполнитель для потенциальной функции мобильной навигации
+        });
+    </script>
+
+    <script id="shopInteractionScript">
+        document.addEventListener('DOMContentLoaded', function() {
+            const shopButtons = document.querySelectorAll('.bg-gray-800.text-white');
+            
+            shopButtons.forEach(button => {
+                button.addEventListener('mouseenter', function() {
+                    this.classList.add('shadow-md');
+                });
+                
+                button.addEventListener('mouseleave', function() {
+                    this.classList.remove('shadow-md');
+                });
+                
+                button.addEventListener('click', function() {
+                    // Функциональность нажатия кнопки магазина
+                    const productName = this.closest('div').querySelector('h3')?.textContent || 'Product';
+                    console.log(`Shopping for: ${productName}`);
+                });
+            });
+        });
+    </script>
+
+    <script id="newsletterScript">
+        document.addEventListener('DOMContentLoaded', function() {
+            const subscribeForm = document.querySelector('input[type="email"]').parentElement;
+            const emailInput = document.querySelector('input[type="email"]');
+            const subscribeButton = subscribeForm.querySelector('button');
+            
+            subscribeButton.addEventListener('click', function() {
+                const email = emailInput.value.trim();
+                if (email && email.includes('@') && email.includes('.')) {
+                    // Действительный адрес электронной почты
+                    emailInput.value = '';
+                    alert('Thank you for subscribing to our newsletter!');
+                } else {
+                    // Неверный адрес электронной почты
+                    emailInput.classList.add('ring-2', 'ring-red-500');
+                    setTimeout(() => {
+                        emailInput.classList.remove('ring-2', 'ring-red-500');
+                    }, 2000);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
